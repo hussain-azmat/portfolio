@@ -1,0 +1,16 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "Your project description",
+    "main": "index.js",
+    "scripts": {
+        "start": "http-server"
+    },
+    "author": "Azmat",
+    "license": "ISC",
+    "devDependencies": {
+        "http-server": "^14.1.1",
+        "particles.js": "^2.0.0",
+        "cursor-effect": "^1.0.0"
+    }
+}
