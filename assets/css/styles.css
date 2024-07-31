@@ -351,6 +351,8 @@ body.light-theme {
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
+
+  z-index: 1;
 }
 
 .home__button {
@@ -965,6 +967,7 @@ body.light-theme {
   .home__handle {
     width: 125px;
     height: 203px;
+    z-index: 1;
   }
 
   .home__img {
@@ -1145,6 +1148,7 @@ body.light-theme {
   .home__handle {
     width: 290px;
     height: 400px;
+    z-index: 1;
   }
 
   .home__img {
