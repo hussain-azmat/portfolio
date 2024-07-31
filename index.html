@@ -219,7 +219,7 @@
 
         <!--=============== SKILLS ===============-->
         <section class="skills section" id="skills">
-                <span class="section__subtitle">My Abilities</span>
+                <span class="section__subtitle">Learning fuels Growth</span>
                 <h2 class="section__title">My Experience</h2>
                 
             <div class="skills__wrapper"> <!-- added line -->
@@ -675,64 +675,74 @@
 
         <!--=============== WORK ===============-->
         <section class="work section" id="work">
-            <span class="section__subtitle">My Portfolio</span>
+            <span class="section__subtitle">Actions Speak Louder</span>
             <h2 class="section__title">Recent Works</h2>
 
             <div class="work__filters">
                 <span class="work__item active-work" data-filter='all'>All</span>
-                <span class=" work__item" data-filter='.web'>Web</span>
-                <span class=" work__item" data-filter='.movil'>Movil</span>
-                <span class=" work__item" data-filter='.design'>Design</span>
+                <span class=" work__item" data-filter='.robotics'>Robotics</span>
+                <span class=" work__item" data-filter='.web'>Web Dev</span>
+                <span class=" work__item" data-filter='.embedded'>Embedded/IoT</span>
             </div>
 
             <div class="work__container container grid">
                 <div class="work__card mix web">
-                    <img src="assets/img/work1.jpg" alt="" class="work__img">
+                    <img src="assets/img/tracker.png" alt="" class="work__img">
 
-                    <h3 class="work__title">Web Design</h3>
+                    <h3 class="work__title">Indoor Asset Tracking</h3>
 
                     <a href="#" class="work__button">
-                        Demo <i class='bx bx-right-arrow work__icon'></i>
+                        More Info <i class='bx bx-right-arrow work__icon'></i>
                     </a>
                 </div>
 
-                <div class="work__card mix movil">
-                    <img src="assets/img/work2.jpg" alt="" class="work__img">
+                <div class="work__card mix robotics">
+                    <img src="assets/img/work2.jpeg" alt="" class="work__img">
 
-                    <h3 class="work__title">App Movil</h3>
+                    <h3 class="work__title">Autonomous Driving</h3>
 
                     <a href="#" class="work__button">
-                        Demo <i class='bx bx-right-arrow work__icon'></i>
+                        More Info <i class='bx bx-right-arrow work__icon'></i>
                     </a>
                 </div>
 
-                <div class="work__card mix design">
-                    <img src="assets/img/work3.jpg" alt="" class="work__img">
+                <div class="work__card mix robotics">
+                    <img src="assets/img/work3.png" alt="" class="work__img">
 
-                    <h3 class="work__title">Brand Design</h3>
+                    <h3 class="work__title">Jazari - The Robot</h3>
 
                     <a href="#" class="work__button">
-                        Demo <i class='bx bx-right-arrow work__icon'></i>
+                        More Info <i class='bx bx-right-arrow work__icon'></i>
                     </a>
                 </div>
 
-                <div class="work__card mix web">
-                    <img src="assets/img/work4.jpg" alt="" class="work__img">
+                <div class="work__card mix robotics embedded">
+                    <img src="assets/img/work4.jpeg" alt="" class="work__img">
 
-                    <h3 class="work__title">Web Design</h3>
+                    <h3 class="work__title">Weeding Machine</h3>
 
-                    <a href="#" class="work__button">
-                        Demo <i class='bx bx-right-arrow work__icon'></i>
+                    <a href="https://www.mdpi.com/2075-1702/11/2/287" class="work__button">
+                        More Info <i class='bx bx-right-arrow work__icon'></i>
                     </a>
                 </div>
 
-                <div class="work__card mix movil">
-                    <img src="assets/img/work5.jpg" alt="" class="work__img">
+                <div class="work__card mix web embedded">
+                    <img src="assets/img/work5.png" alt="" class="work__img">
 
-                    <h3 class="work__title">App Movil</h3>
+                    <h3 class="work__title">RVM</h3>
+
+                    <a href="https://www.mdpi.com/2313-4321/7/5/70" class="work__button">
+                        More Info <i class='bx bx-right-arrow work__icon'></i>
+                    </a>
+                </div>
+
+                <div class="work__card mix embedded robotics">
+                    <img src="assets/img/work6.jpeg" alt="" class="work__img">
+
+                    <h3 class="work__title">Kinetic Display</h3>
 
                     <a href="#" class="work__button">
-                        Demo <i class='bx bx-right-arrow work__icon'></i>
+                        Details <i class='bx bx-right-arrow work__icon'></i>
                     </a>
                 </div>
 
@@ -948,6 +958,42 @@
             showCursor: false
         });
     </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all filter buttons
+        const filterButtons = document.querySelectorAll('.work__item');
+
+        // Add click event listeners to each button
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove 'active-work' class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active-work'));
+                // Add 'active-work' class to the clicked button
+                this.classList.add('active-work');
+
+                // Get the filter value from the clicked button
+                const filter = this.getAttribute('data-filter');
+
+                // Select all work cards
+                const workCards = document.querySelectorAll('.work__card');
+
+                // Show or hide work cards based on the filter
+                workCards.forEach(card => {
+                    if (filter === 'all' || card.classList.contains(filter.substring(1))) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Trigger click on the default filter button to show all work cards initially
+        document.querySelector('.work__item.active-work').click();
+    });
+</script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

@@ -678,6 +678,7 @@ body.light-theme {
 
 .work__container {
   padding-top: 1rem;
+  z-index: 2;
 }
 
 .work__filters {
@@ -700,11 +701,13 @@ body.light-theme {
   background-color: var(--container-color);
   padding: 1rem;
   border-radius: 1rem;
+  z-index: 2;
 }
 
 .work__img {
   border-radius: 1rem;
   margin-bottom: 0.75rem;
+  z-index: 1;
 }
 
 .work__title {
@@ -776,6 +779,7 @@ body.light-theme {
 .contact__container {
   row-gap: 3rem;
   padding-bottom: 3rem;
+  z-index: 1;
 }
 
 .contact__title {
@@ -794,6 +798,7 @@ body.light-theme {
   padding: 2rem 1rem;
   border-radius: 0.75rem;
   text-align: center;
+  z-index: 1;
 }
 
 .contact__card-icon {
@@ -880,7 +885,7 @@ body.light-theme {
 }
 
 .footer__container {
-  padding: 2rem 0 6rem;
+  padding: 1rem 0 6rem;
 }
 
 .footer__title,
@@ -985,6 +990,7 @@ body.light-theme {
   .services__container {
     grid-template-columns: 145px;
     justify-content: center;
+    z-index: 1;
   }
 
   .work__item {
@@ -1202,6 +1208,7 @@ body.light-theme {
 
   .services__card {
     padding: 5rem 2rem 1.5rem;
+    z-index: 1;
   }
 
   .work__container {
