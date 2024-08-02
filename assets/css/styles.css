@@ -333,7 +333,7 @@ body.light-theme {
 
 .home__img {
   width: 160;
-  scale: 0.7;
+  scale: 1.2;
 }
 
 .home__handle {
@@ -613,16 +613,24 @@ body.light-theme {
   place-items: center;
   transition: 0.4s;
   z-index: var(--z-modal);
-  /* z-index: 1; */
+  /* z-index: var(z-modal); */
+  /* z-index: 5; */
   visibility: hidden;
   opacity: 0;
 }
+
+/* Show the modal */
+/* .services__modal.show {
+  visibility: visible; /* Show when active 
+  opacity: 1; /* Show when active 
+} */
 
 .services__modal-content {
   background-color: var(--body-color);
   padding: 4.5rem 1.5rem 2.5rem;
   border-radius: 1.5rem;
   position: relative;
+  /* z-index: 5; */
 }
 
 .services__modal-title,
@@ -760,7 +768,8 @@ body.light-theme {
 .testimonial__name {
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
 }
 
 .testimonial__description {
@@ -887,7 +896,7 @@ body.light-theme {
 }
 
 .footer__container {
-  padding: 1rem 0 6rem;
+  padding: 0 0 6rem;
 }
 
 .footer__title,
