@@ -55,7 +55,7 @@ var pJS = function(tag_id, params){
         }
       },
       size: {
-        value: 10,
+        value: 5,
         random: false,
         anim: {
           enable: false,
