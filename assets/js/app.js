@@ -127,10 +127,10 @@ particlesJS('particle-canvas',
   {
     "particles": {
       "number": {
-        "value": 400,
+        "value": 80,
         "density": {
           "enable": true,
-          "value_area": 400
+          "value_area": 800
         }
       },
       "color": {
@@ -162,11 +162,11 @@ particlesJS('particle-canvas',
         }
       },
       "size": {
-        "value": 5,
+        "value": 3,
         "random": true,
         "anim": {
           "enable": false,
-          "speed": 25,
+          "speed": 15,
           "size_min": 0.1,
           "sync": false
         }
@@ -184,7 +184,7 @@ particlesJS('particle-canvas',
         "direction": "none",
         "random": false,
         "straight": false,
-        "out_mode": "out",
+        "out_mode": "none",
         "attract": {
           "enable": false,
           "rotateX": 600,
