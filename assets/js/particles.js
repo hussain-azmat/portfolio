@@ -20,10 +20,10 @@ var pJS = function(tag_id, params){
     },
     particles: {
       number: {
-        value: 80,
+        value: 50,
         density: {
           enable: true,
-          value_area: 800
+          value_area: 1400
         }
       },
       color: {
@@ -117,7 +117,7 @@ var pJS = function(tag_id, params){
           duration: 0.4
         },
         push:{
-          particles_nb: 4
+          particles_nb: 2
         },
         remove:{
           particles_nb: 2
