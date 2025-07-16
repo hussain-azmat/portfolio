@@ -612,9 +612,9 @@ body.light-theme {
   display: grid;
   place-items: center;
   transition: 0.4s;
-  z-index: var(--z-modal);
+  /*z-index: var(--z-modal);
   /* z-index: var(z-modal); */
-  /* z-index: 5; */
+  z-index: 100;
   visibility: hidden;
   opacity: 0;
 }
@@ -630,7 +630,7 @@ body.light-theme {
   padding: 4.5rem 1.5rem 2.5rem;
   border-radius: 1.5rem;
   position: relative;
-  /* z-index: 5; */
+  z-index: 100;
 }
 
 .services__modal-title,
