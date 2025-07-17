@@ -1141,11 +1141,57 @@ body.modal-open .services__card {
     width: 250px;
   }
 
-  .testimonial__container {
+  /*.testimonial__container {
     width: 600px;
     margin: auto;
-  }
+    align-items: stretch;
+  }*/
 
+  /* 1. Ensure the Swiper wrapper correctly stretches its slides */
+.testimonial__container .swiper-wrapper {
+    align-items: stretch; /* This is usually the default, but explicitly setting ensures it's not overridden */
+}
+
+/* 2. Make each testimonial card take the full height of its Swiper slide */
+.testimonial__card {
+    /* Your existing styles */
+    background-color: var(--container-color);
+    padding: 1.25rem 1.5rem;
+    border-radius: 1.5rem;
+    margin-bottom: 3rem; /* Keep this if you want spacing between the slider and next section */
+
+    /* ----- NEW / MODIFIED STYLES BELOW ----- */
+    height: 100%; /* IMPORTANT: This makes the card fill the available height of its parent swiper-slide */
+
+    display: flex;          /* Make the card itself a flex container */
+    flex-direction: column; /* Stack its children (img, h3, p) vertically */
+}
+
+/* 3. Allow the description paragraph to fill available space */
+.testimonial__description {
+    /* Your existing styles */
+    font-size: var(--small-font-size);
+    margin-bottom: 0.15rem; /* Your existing margin */
+
+    /* ----- NEW / MODIFIED STYLES BELOW ----- */
+    flex-grow: 1; /* This is key! It allows the description to take up all available vertical space */
+                  /* within the card, pushing any content below it (like pagination or buttons if they were there)
+                  to the bottom and making the top content (image, name) stay at the top. */
+
+    /* Optional: If text still causes overflow in very extreme cases, you might want to truncate or scroll: */
+    /*
+    max-height: 120px; // Example: Set a maximum height for the description area
+    overflow-y: auto;  // Add a scrollbar if text exceeds max-height
+    */
+    /* OR for truncating text with an ellipsis: */
+    /*
+    display: -webkit-box;
+    -webkit-line-clamp: 5; // Number of lines to show before truncating
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    */
+}
   .contact__container {
     display: grid;
     grid-template-columns: 220px 340px;
