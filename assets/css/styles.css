@@ -570,6 +570,7 @@ body.light-theme {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding-top: 1rem;
+  
   /*z-index: 10; */
 }
 
@@ -577,7 +578,23 @@ body.light-theme {
   background-color: var(--container-color);
   padding: 3rem 1.5rem 1.5em;
   border-radius: 1.25rem;
-  /*z-index: 10; */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth transition for both effects */
+  z-index: 10;
+}
+
+.services__card:hover {
+    /* Popping Out Effect */
+    /* Moves the card up slightly and scales it up a tiny bit for a pop-out feel */
+    transform: translateY(-10px) scale(1.02); 
+    
+    /* Bright Edges / Glow Effect using box-shadow */
+    /* This creates a subtle shadow for depth and a glowing outline */
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.4), /* A larger, darker shadow for perceived depth */
+        0 0 20px 5px hsla(var(--first-hue), var(--sat), var(--lig), 0.7); /* A bright, glowing edge using your theme color */
+        
+    /* Increase z-index on hover to ensure it layers above adjacent cards that aren't hovered */
+    z-index: 10; 
 }
 
 .services__title {
