@@ -8,30 +8,24 @@ function scrollHeader() {
 window.addEventListener("scroll", scrollHeader);
 
 /*=============== SERVICES MODAL ===============*/
-// Get all modals (they are now siblings to each other, not children of cards)
 const modalViews = document.querySelectorAll(".services__modal");
 console.log("modalViews (all modals found):", modalViews); // CHECK 1
 
-// Get all buttons that trigger modals
 const modalBtns = document.querySelectorAll(".services__button");
 console.log("modalBtns (all buttons found):", modalBtns); // CHECK 2
 
-// Get all close buttons inside modals
 const modalClose = document.querySelectorAll(".services__modal-close");
 console.log("modalClose (all close buttons found):", modalClose); // CHECK 3
 
-// Function to open a specific modal using its ID
 let openModal = function (modalId) {
     console.log("Attempting to open modal with ID:", modalId); // CHECK 4
     const targetModal = document.querySelector(modalId);
     console.log("Target modal element found:", targetModal); // CHECK 5
 
     if (targetModal) {
-        // Close any currently open modals first
         modalViews.forEach(mv => {
             mv.classList.remove("active-modal");
         });
-
         targetModal.classList.add("active-modal");
         document.body.classList.add('modal-open');
         console.log("Modal " + modalId + " opened and modal-open class added to body."); // CHECK 6
@@ -50,8 +44,6 @@ let closeActiveModal = function () {
     console.log("Modal closed and modal-open class removed from body."); // CHECK 8
 };
 
-
-// Event listeners for opening modals
 modalBtns.forEach((mb) => {
     mb.addEventListener("click", () => {
         const modalTargetId = mb.getAttribute('data-modal-target');
@@ -65,7 +57,6 @@ modalBtns.forEach((mb) => {
     });
 });
 
-// Event listeners for closing modals
 modalClose.forEach((mc) => {
     mc.addEventListener("click", () => {
         console.log("Close button clicked."); // CHECK 10
@@ -75,7 +66,7 @@ modalClose.forEach((mc) => {
 
 /*=============== SERVICES MODAL ===============*/
 // Get the modal
-const modalViews = document.querySelectorAll(".services__modal"),
+/*const modalViews = document.querySelectorAll(".services__modal"),
   modalBtns = document.querySelectorAll(".services__button"),
   modalClose = document.querySelectorAll(".services__modal-close");
 
@@ -96,7 +87,7 @@ modalClose.forEach((mc) => {
       mv.classList.remove("active-modal");
     });
   });
-});
+});*/
 
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
 
