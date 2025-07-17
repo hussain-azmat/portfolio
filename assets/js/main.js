@@ -143,15 +143,17 @@ workLinks.forEach((wl) => {
 
 let swiperTestimonial = new Swiper(".testimonial__container", {
   spaceBetween: 24,
-  loop: true,
+  loop: true, // Keep loop for continuous effect
   grabCursor: true,
 
-  // Add the autoplay configuration here
+  // Autoplay configuration for when it IS running:
   autoplay: {
-    delay: 4000, // Time in milliseconds before the next slide (e.g., 4000ms = 4 seconds)
-    disableOnInteraction: false, // Continue autoplay after user interaction (like clicking pagination)
-    pauseOnMouseEnter: true, // Pause autoplay when the cursor enters the Swiper container
+    delay: 0, // Set delay to 0 for a continuous, "without delay" feel between slides
+    disableOnInteraction: false, // Keeps autoplay running even if user interacts
   },
+  // Speed of the transition animation itself (how fast one slide moves to the next)
+  // Adjust this value (e.g., 2500 for 2.5 seconds) to match the "speed as in skills section"
+  speed: 2500, // Higher value = slower visual scroll, giving a "continuous" feel
 
   pagination: {
     el: ".swiper-pagination",
@@ -168,6 +170,28 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
     },
   },
 });
+
+// IMPORTANT: Stop autoplay immediately after initialization
+// This prevents it from scrolling automatically when the page loads.
+swiperTestimonial.autoplay.stop();
+
+// Get the testimonial container element to attach hover events
+const testimonialContainer = document.querySelector(".testimonial__container");
+
+// Add event listeners to control autoplay based on mouse hover
+if (testimonialContainer) {
+    testimonialContainer.addEventListener('mouseenter', () => {
+        swiperTestimonial.autoplay.start(); // Start autoplay when mouse enters
+        console.log("Testimonials: Autoplay started on mouseenter"); // For debugging
+    });
+
+    testimonialContainer.addEventListener('mouseleave', () => {
+        swiperTestimonial.autoplay.stop(); // Stop autoplay when mouse leaves
+        console.log("Testimonials: Autoplay stopped on mouseleave"); // For debugging
+    });
+} else {
+    console.warn("Testimonial container not found for hover control.");
+}
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
