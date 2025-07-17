@@ -9,56 +9,58 @@ window.addEventListener("scroll", scrollHeader);
 
 /*=============== SERVICES MODAL ===============*/
 // Get all modals (they are now siblings to each other, not children of cards)
-/*const modalViews = document.querySelectorAll(".services__modal");
+const modalViews = document.querySelectorAll(".services__modal");
+console.log("modalViews (all modals found):", modalViews); // CHECK 1
+
 // Get all buttons that trigger modals
 const modalBtns = document.querySelectorAll(".services__button");
+console.log("modalBtns (all buttons found):", modalBtns); // CHECK 2
+
 // Get all close buttons inside modals
 const modalClose = document.querySelectorAll(".services__modal-close");
+console.log("modalClose (all close buttons found):", modalClose); // CHECK 3
 
 // Function to open a specific modal using its ID
 let openModal = function (modalId) {
-    // Select the modal element using the provided ID (e.g., "#modal-fullstack")
+    console.log("Attempting to open modal with ID:", modalId); // CHECK 4
     const targetModal = document.querySelector(modalId);
+    console.log("Target modal element found:", targetModal); // CHECK 5
+
     if (targetModal) {
-        // First, close any currently open modals to ensure only one is active at a time
-        // This is important if a user clicks another "See More" while one is already open
+        // Close any currently open modals first
         modalViews.forEach(mv => {
             mv.classList.remove("active-modal");
         });
 
-        // Then, open the target modal
         targetModal.classList.add("active-modal");
-        // Add the global class to the body
         document.body.classList.add('modal-open');
-        console.log("Modal " + modalId + " opened and modal-open class added to body.");
+        console.log("Modal " + modalId + " opened and modal-open class added to body."); // CHECK 6
     } else {
-        console.error("Error: Target modal not found for ID:", modalId);
+        console.error("Error: Target modal not found for ID:", modalId + ". Check HTML ID and data-modal-target."); // ERROR CHECK
     }
 };
 
-// Function to close any active modal
 let closeActiveModal = function () {
-    // Find the currently active modal
+    console.log("Attempting to close active modal."); // CHECK 7
     const activeModal = document.querySelector('.services__modal.active-modal');
     if (activeModal) {
         activeModal.classList.remove('active-modal');
     }
-    // Remove the global class from the body
     document.body.classList.remove('modal-open');
-    console.log("Modal closed and modal-open class removed from body.");
+    console.log("Modal closed and modal-open class removed from body."); // CHECK 8
 };
 
 
 // Event listeners for opening modals
 modalBtns.forEach((mb) => {
     mb.addEventListener("click", () => {
-        // Get the ID of the modal to open from the data-modal-target attribute
         const modalTargetId = mb.getAttribute('data-modal-target');
-        console.log("Button clicked, target ID:", modalTargetId);
+        console.log("Button clicked. data-modal-target found:", modalTargetId); // CHECK 9
+
         if (modalTargetId) {
-            openModal(modalTargetId); // Call openModal with the target ID
+            openModal(modalTargetId);
         } else {
-            console.warn("Warning: Button has no 'data-modal-target' attribute.", mb);
+            console.warn("Warning: Button clicked but has no 'data-modal-target' attribute.", mb); // WARNING CHECK
         }
     });
 });
@@ -66,10 +68,10 @@ modalBtns.forEach((mb) => {
 // Event listeners for closing modals
 modalClose.forEach((mc) => {
     mc.addEventListener("click", () => {
-        console.log("Close button clicked.");
-        closeActiveModal(); // Call the function to close the currently active modal
+        console.log("Close button clicked."); // CHECK 10
+        closeActiveModal();
     });
-});*/
+});
 
 /*=============== SERVICES MODAL ===============*/
 // Get the modal
