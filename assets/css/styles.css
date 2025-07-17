@@ -504,28 +504,10 @@ body.light-theme {
   white-space: nowrap; /* Prevent wrapping */
 
   /* Add transitions for the hover effects */
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, z-index 0s 0.3s; /* z-index transition is tricky, setting delay */
-  z-index: 1; /* Base z-index */
+  /*transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, z-index 0s 0.3s; /* z-index transition is tricky, setting delay */
+  /*z-index: 1; /* Base z-index */
 }
 
-.skills__container:hover {
-    /* This stops the scrolling animation when you hover */
-    animation-play-state: paused;
-
-    /* Popping Out Effect */
-    /* Moves the container up slightly and scales it up a tiny bit */
-    transform: translateY(-10px) scale(1.02);
-
-    /* Bright Edges / Glow Effect using box-shadow */
-    box-shadow:
-        0 15px 30px rgba(0, 0, 0, 0.4), /* A larger, darker shadow for perceived depth */
-        0 0 20px 5px hsla(var(--first-hue), var(--sat), var(--lig), 0.7); /* A bright, glowing edge */
-
-    /* Bring the hovered container to the front.
-       The z-index transition is set to 0s delay to change immediately on hover,
-       and then revert immediately when hover ends for better layering behavior. */
-    z-index: 10;
-}
 
 .skills__content {
   flex: 0 0 auto; /* Each section takes full width of the container */
