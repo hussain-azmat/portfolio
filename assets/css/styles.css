@@ -742,7 +742,29 @@ body.modal-open .services__card {
   padding: 1rem;
   border-radius: 1rem;
   z-index: 2;
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+
+  /* Ensure it has a position relative for z-index and potential overlays */
+  position: relative; /* If not already set, good practice */
+  z-index: 1; /* Give it a base z-index so it can pop above its siblings when hovered */
 }
+
+
+.work__card:hover {
+    /* Popping Out Effect */
+    /* Moves the card up slightly and scales it up a tiny bit for a pop-out feel */
+    transform: translateY(-10px) scale(1.02);
+
+    /* Bright Edges / Glow Effect using box-shadow */
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.4), /* A larger, darker shadow for perceived depth */
+        0 0 20px 5px hsla(var(--first-hue), var(--sat), var(--lig), 0.7); /* A bright, glowing edge using your theme color */
+
+    /* Increase z-index on hover to ensure it layers above adjacent cards that aren't hovered */
+    z-index: 10;
+}
+
 
 .work__img {
   border-radius: 1rem;
