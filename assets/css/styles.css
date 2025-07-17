@@ -603,6 +603,12 @@ body.light-theme {
   transition: 0.4s;
 }
 
+/* When the body has 'modal-open' class (meaning a modal is active),
+   reset the transform on all service cards */
+body.modal-open .services__card {
+    transform: none !important; /* This should now correctly override ScrollReveal's transform */
+}
+
 /* Services modal */
 .services__modal {
   position: fixed;
@@ -682,12 +688,6 @@ body.light-theme {
 .active-modal {
   visibility: visible;
   opacity: 1;
-}
-
-/* When the body has 'modal-open' class (meaning a modal is active),
-   reset the transform on all service cards */
-body.modal-open .services__card {
-    transform: none !important; /* This should now correctly override ScrollReveal's transform */
 }
 
 
