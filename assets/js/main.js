@@ -9,7 +9,7 @@ window.addEventListener("scroll", scrollHeader);
 
 /*=============== SERVICES MODAL ===============*/
 // Get all modals (they are now siblings to each other, not children of cards)
-const modalViews = document.querySelectorAll(".services__modal");
+/*const modalViews = document.querySelectorAll(".services__modal");
 // Get all buttons that trigger modals
 const modalBtns = document.querySelectorAll(".services__button");
 // Get all close buttons inside modals
@@ -69,11 +69,11 @@ modalClose.forEach((mc) => {
         console.log("Close button clicked.");
         closeActiveModal(); // Call the function to close the currently active modal
     });
-});
+});*/
 
 /*=============== SERVICES MODAL ===============*/
 // Get the modal
-/*const modalViews = document.querySelectorAll(".services__modal"),
+const modalViews = document.querySelectorAll(".services__modal"),
   modalBtns = document.querySelectorAll(".services__button"),
   modalClose = document.querySelectorAll(".services__modal-close");
 
@@ -94,7 +94,7 @@ modalClose.forEach((mc) => {
       mv.classList.remove("active-modal");
     });
   });
-});*/
+});
 
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
 
