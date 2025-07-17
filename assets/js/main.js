@@ -118,10 +118,40 @@ workLinks.forEach((wl) => {
 
 /*=============== SWIPER TESTIMONIAL ===============*/
 
+/*let swiperTestimonial = new Swiper(".testimonial__container", {
+  spaceBetween: 24,
+  loop: true,
+  grabCursor: true,
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 48,
+    },
+  },
+});*/
+
+/*=============== SWIPER TESTIMONIAL ===============*/
+
 let swiperTestimonial = new Swiper(".testimonial__container", {
   spaceBetween: 24,
   loop: true,
   grabCursor: true,
+
+  // Add the autoplay configuration here
+  autoplay: {
+    delay: 4000, // Time in milliseconds before the next slide (e.g., 4000ms = 4 seconds)
+    disableOnInteraction: false, // Continue autoplay after user interaction (like clicking pagination)
+    pauseOnMouseEnter: true, // Pause autoplay when the cursor enters the Swiper container
+  },
 
   pagination: {
     el: ".swiper-pagination",
