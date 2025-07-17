@@ -684,6 +684,12 @@ body.light-theme {
   opacity: 1;
 }
 
+/* When modal is active, reset transforms on elements that might be causing issues */
+.active-modal ~ .services__container .services__card {
+    transform: none !important; /* Force no transform when modal is open */
+}
+
+
 /*=============== WORK ===============*/
 
 .work__container {
