@@ -684,10 +684,12 @@ body.light-theme {
   opacity: 1;
 }
 
-/* When modal is active, reset transforms on elements that might be causing issues */
-.active-modal ~ .services__container .services__card {
-    transform: none !important; /* Force no transform when modal is open */
+/* When the body has 'modal-open' class (meaning a modal is active),
+   reset the transform on all service cards */
+body.modal-open .services__card {
+    transform: none !important; /* This should now correctly override ScrollReveal's transform */
 }
+
 
 
 /*=============== WORK ===============*/
