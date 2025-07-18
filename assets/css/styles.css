@@ -484,6 +484,7 @@ body.light-theme {
   position: relative;
   width: 100%;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 50%, black 50%, transparent);
   mask-image: linear-gradient(to right, transparent, black 50%, black 50%, transparent);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
