@@ -488,20 +488,20 @@ body.light-theme {
   overflow: hidden;
 
   -webkit-mask-image: linear-gradient(to right,
-                      transparent 0%,
-                      transparent 15%,   /* Fade in ENDS, visible starts here */
+                      transparent 15%,
+                      transparent 25%,   /* Fade in ENDS, visible starts here */
                       black 35%,         /* Fully visible at 45% */
                       black 65%,         /* Stays fully visible until 55% */
-                      transparent 90%,   /* Fade out STARTS here */
-                      transparent 100%
+                      transparent 75%,   /* Fade out STARTS here */
+                      transparent 85%
                     );
   mask-image: linear-gradient(to right,
-                      transparent 0%,
                       transparent 15%,
+                      transparent 25%,
                       black 35%,
                       black 65%,
-                      transparent 90%,
-                      transparent 100%
+                      transparent 75%,
+                      transparent 85%
                     );
 
   /*
