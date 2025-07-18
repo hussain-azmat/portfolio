@@ -537,7 +537,8 @@ body.light-theme {
 
   /* Add transitions for the new hover effects on the hex itself */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, z-index 0s; /* Z-index transition should be instant */
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Base shadow, no shadow by default */
+  box-shadow: 0 0 0 transparent; /* Base shadow, no shadow by default */
+  
   will-change: transform, box-shadow; /* Optimize for smooth animation */
 }
 
@@ -557,7 +558,11 @@ body.light-theme {
              translateZ(75px)   /* Move towards the viewer by 50px. Adjust for stronger pop. */
              scale(1.25);        /* Scale up to 110% of its size. Adjust for larger pop. */
 
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Significant shadow for 3D depth. Adjust as needed. */
+  /*box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Significant shadow for 3D depth. Adjust as needed. */
+  box-shadow:
+    0px 0px 30px rgba(var(--first-hue), var(--sat), var(--lig), 0.7), /* The bright colored glow */
+    0px 10px 20px rgba(0, 0, 0, 0.4); /* Optional: A darker shadow underneath for more depth */
+
   z-index: 10; /* Bring the hovered hex to the front of its siblings */
 }
 
