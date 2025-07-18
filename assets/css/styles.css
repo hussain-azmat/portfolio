@@ -511,7 +511,7 @@ body.light-theme {
   overflow: hidden;
   position: relative;
   /*flex-shrink: 0;*/
-  transform: translateY(-100px); /* move up */
+  transform: translateY(-75px); /* move up */
 }
 
 
