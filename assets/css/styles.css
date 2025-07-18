@@ -479,6 +479,7 @@ body.light-theme {
 
 
 .hex-grid {
+  perspective: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -534,14 +535,33 @@ body.light-theme {
   position: relative;
   /*flex-shrink: 0;*/
   transform: translateY(-1px); /* move up */
+  box-shadow: none; /* Explicitly ensure no default box-shadow */
 
   /* Add transitions for the new hover effects on the hex itself */
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, z-index 0s; /* Z-index transition should be instant */
-  box-shadow: 0 0 0 transparent; /* Base shadow, no shadow by default */
+  transition: transform 0.3s ease-out, z-index 0s; /* Z-index transition should be instant */
+  /*box-shadow: 0 0 0 transparent; /* Base shadow, no shadow by default */
   
-  will-change: transform, box-shadow; /* Optimize for smooth animation */
+  will-change: transform; /* Optimize for smooth animation */
 }
 
+/* Pseudo-element for the glow/shadow */
+.hex::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Inherit the clip-path from the parent .hex so the shadow follows the hex shape */
+  clip-path: inherit;
+  /* Make sure it's behind the image/content but within the hex */
+  z-index: -1;
+
+  /* Initialize shadow to transparent for transition */
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.3s ease-out; /* ONLY transition the box-shadow here */
+  will-change: box-shadow;
+}
 
 .hex img {
   width: 100%;
@@ -558,12 +578,14 @@ body.light-theme {
              translateZ(75px)   /* Move towards the viewer by 50px. Adjust for stronger pop. */
              scale(1.25);        /* Scale up to 110% of its size. Adjust for larger pop. */
 
-  /*box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Significant shadow for 3D depth. Adjust as needed. */
+  z-index: 10; /* Bring the hovered hex to the front of its siblings */
+}
+
+/* Apply the bright shadow to the pseudo-element on hex hover */
+.hex:hover::before {
   box-shadow:
     0px 0px 30px rgba(var(--first-hue), var(--sat), var(--lig), 0.7), /* The bright colored glow */
     0px 10px 20px rgba(0, 0, 0, 0.4); /* Optional: A darker shadow underneath for more depth */
-
-  z-index: 10; /* Bring the hovered hex to the front of its siblings */
 }
 
 .hex:hover img {
