@@ -479,54 +479,72 @@ body.light-theme {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 3cm; /* Position below download button */
+  margin-top: 3cm;
+  gap: 0; /* tight stacking */
   position: relative;
   overflow: hidden;
-  width: 100%;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
 }
 
 .hex-row {
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  animation: scrollRow 20s linear infinite;
+  gap: 0.5rem;
 }
 
 .hex-row.offset {
-  margin-left: 40px;
+  margin-left: 60px; /* offset by half hex width (120/2) */
 }
 
 .hex {
-  width: 100px;
-  height: 100px;
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  width: 120px;
+  height: 104px;
+  clip-path: polygon(
+    50% 0%, 93% 25%, 93% 75%,
+    50% 100%, 7% 75%, 7% 25%
+  );
+  background: rgba(255,255,255,0.1); /* outline placeholder */
+  position: relative;
   overflow: hidden;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
 }
 
 .hex img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: fadeInOut 8s infinite ease-in-out;
 }
 
-.hex:hover {
-  filter: grayscale(0%);
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  20%, 80% { opacity: 1; }
 }
 
-@keyframes scrollRow {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-20%);
-  }
+
+
+.hex-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.hex.mirror {
+  position: absolute;
+  width: 120px;
+  height: 104px;
+  clip-path: polygon(
+    50% 0%, 93% 25%, 93% 75%,
+    50% 100%, 7% 75%, 7% 25%
+  );
+  background: #ccc; /* Or gradient */
+  opacity: 0.1;
+  animation: fadeMirror 8s infinite ease-in-out;
+}
+
+@keyframes fadeMirror {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.15; }
 }
 
 
