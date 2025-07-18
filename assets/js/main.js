@@ -342,3 +342,16 @@ sr.reveal(`.footer, footer__container`, {
   origin: "bottom",
   distance: "30px",
 });
+
+
+const hexes = document.querySelectorAll(".hex");
+let current = 0;
+
+function showNextHex() {
+  hexes.forEach((hex, i) => {
+    hex.style.opacity = (i === current) ? "1" : "0.2";
+  });
+  current = (current + 1) % hexes.length;
+}
+
+setInterval(showNextHex, 2000); // Change image every 2 seconds
