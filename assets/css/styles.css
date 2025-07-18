@@ -475,30 +475,39 @@ body.light-theme {
 }
 */
 
-.hex-grid {
+.hex-collage-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 3cm; /* Position below download button */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.hex-row {
+  display: flex;
   justify-content: center;
   gap: 10px;
-  max-width: 1000px;
-  margin: 3rem auto;
-  position: relative;
-  animation: scroll-left 30s linear infinite;
-  overflow: hidden;
+  animation: scrollRow 20s linear infinite;
+}
+
+.hex-row.offset {
+  margin-left: 40px;
 }
 
 .hex {
-  width: 180px;
-  height: 155px;
-  clip-path: polygon(
-    25% 0%, 75% 0%,
-    100% 50%, 75% 100%,
-    25% 100%, 0% 50%
-  );
+  width: 100px;
+  height: 100px;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
   overflow: hidden;
   filter: grayscale(100%);
-  transition: filter 0.4s ease;
-  flex-shrink: 0;
+  transition: filter 0.3s ease;
 }
 
 .hex img {
@@ -511,19 +520,12 @@ body.light-theme {
   filter: grayscale(0%);
 }
 
-/* Offset every second row */
-.hex.offset {
-  transform: translateY(80px);
-  margin-left: -90px;
-}
-
-/* Continuous scrolling */
-@keyframes scroll-left {
+@keyframes scrollRow {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-20%);
   }
 }
 
