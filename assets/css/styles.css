@@ -488,18 +488,18 @@ body.light-theme {
 
   -webkit-mask-image: linear-gradient(to right,
                       transparent 0%,
-                      transparent 35%,   /* Fade in ENDS, visible starts here */
-                      black 45%,         /* Fully visible at 45% */
-                      black 55%,         /* Stays fully visible until 55% */
-                      transparent 65%,   /* Fade out STARTS here */
+                      transparent 20%,   /* Fade in ENDS, visible starts here */
+                      black 30%,         /* Fully visible at 45% */
+                      black 70%,         /* Stays fully visible until 55% */
+                      transparent 80%,   /* Fade out STARTS here */
                       transparent 100%
                     );
   mask-image: linear-gradient(to right,
                       transparent 0%,
-                      transparent 35%,
-                      black 45%,
-                      black 55%,
-                      transparent 65%,
+                      transparent 20%,
+                      black 30%,
+                      black 70%,
+                      transparent 80%,
                       transparent 100%
                     );
 
