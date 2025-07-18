@@ -514,6 +514,9 @@ body.light-theme {
   position: relative;
   /*flex-shrink: 0;*/
   transform: translateY(-1px); /* move up */
+
+  /* Add transitions for the new hover effects on the hex itself */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Add transition for transform and box-shadow */
 }
 
 
@@ -522,12 +525,21 @@ body.light-theme {
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%);
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition: filter 0.3s ease;
+}
+
+.hex:hover {
+  /* Apply the pop-out effect to the .hex container */
+  transform: translateY(-95px) scale(1.1); /* Slightly more translateY to simulate lifting, and scale the whole hex */
+                                         /* Adjust translateY value. -90px was original, -95px lifts it more. */
+                                         /* Scale up to 1.1 or 1.15 for a noticeable pop */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Add a significant shadow for 3D depth */
+  z-index: 10; /* Important: Bring the hovered hex to the front of its siblings */
 }
 
 .hex:hover img {
   filter: grayscale(0%);
-  transform: scale(1.1);
+  /*transform: scale(1.1);*/
 }
 
 
@@ -541,7 +553,6 @@ body.light-theme {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 
 /*=============== BUTTONS ===============*/
 .button {
