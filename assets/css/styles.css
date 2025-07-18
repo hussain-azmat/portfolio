@@ -416,6 +416,7 @@ body.light-theme {
   transform: rotate(-90deg);
 }
 
+/*
 .hex-collage {
   display: flex;
   justify-content: center;
@@ -472,8 +473,8 @@ body.light-theme {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+*/
 
-/*
 .hex-grid {
   display: flex;
   flex-wrap: wrap;
@@ -524,7 +525,7 @@ body.light-theme {
   100% {
     transform: translateX(-50%);
   }
-}*/
+}
 
 
 /*=============== BUTTONS ===============*/
