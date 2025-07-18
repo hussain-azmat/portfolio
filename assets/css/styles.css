@@ -475,44 +475,41 @@ body.light-theme {
 }
 */
 
-.hex-wrapper {
+
+
+.hex-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   width: 100%;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-}
-
-.hex-collage-container {
-  display: flex;
-  animation: scrollLeft 40s linear infinite;
-  width: max-content;
-}
-
-.hex-column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
 }
 
 .hex-row {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: -26px; /* overlap for honeycomb shape */
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0.75rem 0;
 }
 
 .hex-row.offset {
-  margin-left: 60px;
+  margin-left: 90px;
 }
 
 .hex {
-  width: 120px;
-  height: 104px;
+  width: 180px;
+  height: 156px;
   clip-path: polygon(
     50% 0%, 93% 25%, 93% 75%,
     50% 100%, 7% 75%, 7% 25%
   );
   overflow: hidden;
-  background: #ccc;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .hex img {
@@ -521,12 +518,16 @@ body.light-theme {
   object-fit: cover;
 }
 
-/* Scroll animation */
+.hex-wrapper {
+  display: flex;
+  animation: scrollLeft 30s linear infinite;
+  width: max-content;
+}
+
 @keyframes scrollLeft {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 
 
 /*=============== BUTTONS ===============*/
