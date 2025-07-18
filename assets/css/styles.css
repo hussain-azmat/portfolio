@@ -416,28 +416,17 @@ body.light-theme {
   transform: rotate(-90deg);
 }
 
-.home__collage-wrapper {
-  perspective: 1000px;
-  width: 250px;
-  height: 250px;
+.hex-collage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 800px;
   margin: 2rem auto;
 }
 
-.home__collage-rotate {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s ease;
-}
-
-.home__collage-wrapper:hover .home__collage-rotate {
-  transform: rotateY(360deg);
-}
-
-.collage__face {
-  position: absolute;
-  width: 120px;
+.hex {
+  width: 140px;
   height: 120px;
   clip-path: polygon(
     25% 0%, 75% 0%, 
@@ -445,28 +434,35 @@ body.light-theme {
     25% 100%, 0% 50%
   );
   overflow: hidden;
+  animation: floatIn 3s ease-in-out infinite alternate;
+  opacity: 0.6;
+  transition: filter 0.4s ease;
   filter: grayscale(100%);
-  transition: filter 0.4s ease, transform 0.4s ease;
 }
 
-.collage__face:hover {
+.hex:hover {
   filter: grayscale(0%);
-  transform: scale(1.05);
+  opacity: 1;
 }
 
-.collage__face img {
+.hex img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Positioning the faces in 3D hexagon (6 sides) */
-.collage__face:nth-child(1) { transform: rotateY(0deg) translateZ(140px); }
-.collage__face:nth-child(2) { transform: rotateY(60deg) translateZ(140px); }
-.collage__face:nth-child(3) { transform: rotateY(120deg) translateZ(140px); }
-.collage__face:nth-child(4) { transform: rotateY(180deg) translateZ(140px); }
-.collage__face:nth-child(5) { transform: rotateY(240deg) translateZ(140px); }
-.collage__face:nth-child(6) { transform: rotateY(300deg) translateZ(140px); }
+/* Animation: fade-in and float */
+@keyframes floatIn {
+  0% {
+    transform: translateX(-50px) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
 
 
 /*=============== BUTTONS ===============*/
