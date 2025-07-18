@@ -515,12 +515,12 @@ body.light-theme {
 .hex-row {
   display: flex;
   justify-content: center;
-  gap: -0.5rem;
+  gap: 0.25rem;
   margin: 0.25rem 0;
 }
 
 .hex-row.offset {
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 .hex {
