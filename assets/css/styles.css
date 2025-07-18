@@ -416,33 +416,30 @@ body.light-theme {
   transform: rotate(-90deg);
 }
 
-.hex-collage {
+.hex-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  max-width: 800px;
-  margin: 2rem auto;
+  max-width: 1000px;
+  margin: 3rem auto;
+  position: relative;
+  animation: scroll-left 30s linear infinite;
+  overflow: hidden;
 }
 
 .hex {
-  width: 140px;
-  height: 120px;
+  width: 180px;
+  height: 155px;
   clip-path: polygon(
-    25% 0%, 75% 0%, 
-    100% 50%, 75% 100%, 
+    25% 0%, 75% 0%,
+    100% 50%, 75% 100%,
     25% 100%, 0% 50%
   );
   overflow: hidden;
-  animation: floatIn 3s ease-in-out infinite alternate;
-  opacity: 0.6;
-  transition: filter 0.4s ease;
   filter: grayscale(100%);
-}
-
-.hex:hover {
-  filter: grayscale(0%);
-  opacity: 1;
+  transition: filter 0.4s ease;
+  flex-shrink: 0;
 }
 
 .hex img {
@@ -451,18 +448,25 @@ body.light-theme {
   object-fit: cover;
 }
 
-/* Animation: fade-in and float */
-@keyframes floatIn {
-  0% {
-    transform: translateX(-50px) scale(0.9);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
+.hex:hover {
+  filter: grayscale(0%);
 }
 
+/* Offset every second row */
+.hex.offset {
+  transform: translateY(80px);
+  margin-left: -90px;
+}
+
+/* Continuous scrolling */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 
 /*=============== BUTTONS ===============*/
