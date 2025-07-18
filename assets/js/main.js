@@ -343,14 +343,17 @@ sr.reveal(`.footer, footer__container`, {
   distance: "30px",
 });
 
-// Image collage animation (put this at the end)
-const hexImages = document.querySelectorAll('.hex-image');
+// At the bottom of main.js
+document.addEventListener('DOMContentLoaded', () => {
+  const hexImages = document.querySelectorAll('.hex-image');
+  if (!hexImages.length) return; // Avoid running if no images found
 
-let index = 0;
-setInterval(() => {
-  hexImages.forEach((img, i) => {
-    img.classList.remove('active');
-  });
-  hexImages[index].classList.add('active');
-  index = (index + 1) % hexImages.length;
-}, 3000);
+  let index = 0;
+  setInterval(() => {
+    hexImages.forEach((img, i) => {
+      img.classList.remove('active');
+    });
+    hexImages[index].classList.add('active');
+    index = (index + 1) % hexImages.length;
+  }, 3000);
+});
