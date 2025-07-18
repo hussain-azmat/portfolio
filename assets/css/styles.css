@@ -301,6 +301,7 @@ body.light-theme {
   position: relative;
   row-gap: 4.5rem;
   padding-top: 2rem;
+  z-index: 1;
 }
 
 .home__data {
@@ -488,6 +489,7 @@ body.light-theme {
   mask-image: linear-gradient(to right, transparent, black 50%, black 50%, transparent);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
+  z-index: 100;
 }
 
 .hex-row {
