@@ -373,7 +373,7 @@ body.light-theme {
   left: 0;
   display: grid;
   row-gap: 0.5rem;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .home__social-link {
@@ -407,7 +407,7 @@ body.light-theme {
   display: grid;
   row-gap: 2.25rem;
   justify-items: center;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .home__scroll-icon {
