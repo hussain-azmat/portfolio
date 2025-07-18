@@ -534,8 +534,8 @@ body.light-theme {
 .hex:hover {
   /* Combine translateY with translateZ and scale for the pop-out effect */
   transform: translateY(-1px) /* Keep original Y position, or adjust slightly if you want a subtle lift too */
-             translateZ(50px)   /* Move towards the viewer by 50px. Adjust for stronger pop. */
-             scale(1.1);        /* Scale up to 110% of its size. Adjust for larger pop. */
+             translateZ(75px)   /* Move towards the viewer by 50px. Adjust for stronger pop. */
+             scale(1.25);        /* Scale up to 110% of its size. Adjust for larger pop. */
 
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Significant shadow for 3D depth. Adjust as needed. */
   z-index: 10; /* Bring the hovered hex to the front of its siblings */
