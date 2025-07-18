@@ -516,7 +516,9 @@ body.light-theme {
   transform: translateY(-1px); /* move up */
 
   /* Add transitions for the new hover effects on the hex itself */
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Add transition for transform and box-shadow */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, z-index 0s; /* Z-index transition should be instant */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Base shadow, no shadow by default */
+  will-change: transform, box-shadow; /* Optimize for smooth animation */
 }
 
 
@@ -528,16 +530,19 @@ body.light-theme {
   transition: filter 0.3s ease;
 }
 
+
 .hex:hover {
-  /* Apply the pop-out effect to the .hex container */
-  transform: translateY(-95px) scale(1.1); /* Slightly more translateY to simulate lifting, and scale the whole hex */
-                                         /* Adjust translateY value. -90px was original, -95px lifts it more. */
-                                         /* Scale up to 1.1 or 1.15 for a noticeable pop */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Add a significant shadow for 3D depth */
-  z-index: 10; /* Important: Bring the hovered hex to the front of its siblings */
+  /* Combine translateY with translateZ and scale for the pop-out effect */
+  transform: translateY(-1px) /* Keep original Y position, or adjust slightly if you want a subtle lift too */
+             translateZ(50px)   /* Move towards the viewer by 50px. Adjust for stronger pop. */
+             scale(1.1);        /* Scale up to 110% of its size. Adjust for larger pop. */
+
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Significant shadow for 3D depth. Adjust as needed. */
+  z-index: 10; /* Bring the hovered hex to the front of its siblings */
 }
 
 .hex:hover img {
+  
   filter: grayscale(0%);
   /*transform: scale(1.1);*/
 }
