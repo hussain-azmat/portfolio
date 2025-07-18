@@ -416,39 +416,58 @@ body.light-theme {
   transform: rotate(-90deg);
 }
 
-.home__collage {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-  justify-items: center;
-  padding: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
+.home__collage-wrapper {
+  perspective: 1000px;
+  width: 250px;
+  height: 250px;
+  margin: 2rem auto;
 }
 
-.collage__item {
-  width: 100px;
-  height: 100px;
+.home__collage-rotate {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+.home__collage-wrapper:hover .home__collage-rotate {
+  transform: rotateY(360deg);
+}
+
+.collage__face {
+  position: absolute;
+  width: 120px;
+  height: 120px;
   clip-path: polygon(
     25% 0%, 75% 0%, 
     100% 50%, 75% 100%, 
     25% 100%, 0% 50%
-  ); /* Hexagon shape */
+  );
   overflow: hidden;
-  transition: transform 0.3s ease, filter 0.3s ease;
   filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
 }
 
-.collage__item:hover {
-  transform: scale(1.05);
+.collage__face:hover {
   filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
-.collage__item img {
+.collage__face img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+/* Positioning the faces in 3D hexagon (6 sides) */
+.collage__face:nth-child(1) { transform: rotateY(0deg) translateZ(140px); }
+.collage__face:nth-child(2) { transform: rotateY(60deg) translateZ(140px); }
+.collage__face:nth-child(3) { transform: rotateY(120deg) translateZ(140px); }
+.collage__face:nth-child(4) { transform: rotateY(180deg) translateZ(140px); }
+.collage__face:nth-child(5) { transform: rotateY(240deg) translateZ(140px); }
+.collage__face:nth-child(6) { transform: rotateY(300deg) translateZ(140px); }
+
 
 /*=============== BUTTONS ===============*/
 .button {
