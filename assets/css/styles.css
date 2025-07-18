@@ -505,7 +505,7 @@ body.light-theme {
 
 .hex {
   width: 135px;
-  height: 125px;
+  height: 135px;
   clip-path: polygon(
     50% 0%, 93% 25%, 93% 75%,
     50% 100%, 7% 75%, 7% 25%
@@ -513,7 +513,7 @@ body.light-theme {
   overflow: hidden;
   position: relative;
   /*flex-shrink: 0;*/
-  transform: translateY(-12px); /* move up */
+  transform: translateY(-1px); /* move up */
 }
 
 
