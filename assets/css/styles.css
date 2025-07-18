@@ -416,6 +416,40 @@ body.light-theme {
   transform: rotate(-90deg);
 }
 
+.home__collage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  padding: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.collage__item {
+  width: 100px;
+  height: 100px;
+  clip-path: polygon(
+    25% 0%, 75% 0%, 
+    100% 50%, 75% 100%, 
+    25% 100%, 0% 50%
+  ); /* Hexagon shape */
+  overflow: hidden;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.collage__item:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.collage__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
