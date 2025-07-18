@@ -464,6 +464,15 @@ body.light-theme {
   filter: grayscale(0%);
 }
 
+.hex-collage:hover .hex-container {
+  animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /*
 .hex-grid {
   display: flex;
