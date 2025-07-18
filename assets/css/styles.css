@@ -485,8 +485,23 @@ body.light-theme {
   position: relative;
   width: 100%;
   overflow: hidden;
+
+  -webkit-mask-image: linear-gradient(to right,
+                      transparent 0%,     /* Starts transparent at 0% */
+                      black 20%,         /* Becomes fully visible at 20% */
+                      black 80%,         /* Stays fully visible until 80% */
+                      transparent 100%   /* Becomes fully transparent at 100% */
+                    );
+  mask-image: linear-gradient(to right,
+                      transparent 0%,
+                      black 20%,
+                      black 80%,
+                      transparent 100%
+
+  /*
   -webkit-mask-image: linear-gradient(to right, transparent, black 50%, black 50%, transparent);
   mask-image: linear-gradient(to right, transparent, black 50%, black 50%, transparent);
+  */
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
   z-index: 10000;
@@ -556,7 +571,7 @@ body.light-theme {
 
 @keyframes scrollLeft {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-30%); }
+  100% { transform: translateX(-50%); }
 }
 
 /*=============== BUTTONS ===============*/
