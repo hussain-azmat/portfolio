@@ -495,8 +495,8 @@ body.light-theme {
 .hex-row {
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
-  margin: 0.75rem 0;
+  gap: 0.25rem;
+  margin: 0.25rem 0;
 }
 
 .hex-row.offset {
