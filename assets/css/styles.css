@@ -555,7 +555,7 @@ body.light-theme {
   /* Inherit the clip-path from the parent .hex so the shadow follows the hex shape */
   clip-path: inherit;
   /* Make sure it's behind the image/content but within the hex */
-  z-index: -1;
+  z-index: 2;
 
   /* Initialize shadow to transparent for transition */
   box-shadow: 0 0 0 transparent;
