@@ -475,23 +475,33 @@ body.light-theme {
 }
 */
 
+.hex-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
 .hex-collage-container {
   display: flex;
+  animation: scrollLeft 40s linear infinite;
+  width: max-content;
+}
+
+.hex-column {
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 3cm;
-  gap: 0; /* tight stacking */
-  position: relative;
-  overflow: hidden;
+  gap: 0.5rem;
 }
 
 .hex-row {
   display: flex;
   gap: 0.5rem;
+  margin-bottom: -26px; /* overlap for honeycomb shape */
 }
 
 .hex-row.offset {
-  margin-left: 60px; /* offset by half hex width (120/2) */
+  margin-left: 60px;
 }
 
 .hex {
@@ -501,51 +511,22 @@ body.light-theme {
     50% 0%, 93% 25%, 93% 75%,
     50% 100%, 7% 75%, 7% 25%
   );
-  background: rgba(255,255,255,0.1); /* outline placeholder */
-  position: relative;
   overflow: hidden;
+  background: #ccc;
 }
 
 .hex img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: fadeInOut 8s infinite ease-in-out;
 }
 
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  20%, 80% { opacity: 1; }
+/* Scroll animation */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-
-
-.hex-fade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-}
-
-.hex.mirror {
-  position: absolute;
-  width: 120px;
-  height: 104px;
-  clip-path: polygon(
-    50% 0%, 93% 25%, 93% 75%,
-    50% 100%, 7% 75%, 7% 25%
-  );
-  background: #ccc; /* Or gradient */
-  opacity: 0.1;
-  animation: fadeMirror 8s infinite ease-in-out;
-}
-
-@keyframes fadeMirror {
-  0%, 100% { opacity: 0.05; }
-  50% { opacity: 0.15; }
-}
 
 
 /*=============== BUTTONS ===============*/
