@@ -332,6 +332,13 @@ body.light-theme {
   /* color: yellow; */
 }
 
+.animated-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
 .home__img {
   width: 160;
   scale: 1.2;
