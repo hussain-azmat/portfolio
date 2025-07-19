@@ -675,7 +675,7 @@ body.light-theme {
 
 .about__description {
   margin-bottom: 2rem;
-  text-align-last: auto|left|right|center|justify|start|end|initial|inherit;
+  text-align-last: justify;
 }
 
 /*=============== SKILLS ===============*/
