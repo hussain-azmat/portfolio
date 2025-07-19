@@ -332,12 +332,20 @@ body.light-theme {
   /* color: yellow; */
 }
 
+.home__animated-text-container {
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
 .animated-text {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   max-width: 100%;
+  vertical-align: top;
 }
+
 
 .home__img {
   width: 160;
