@@ -675,8 +675,21 @@ body.light-theme {
 
 .about__description {
   margin-bottom: 2rem;
-  text-align-last: left;
 }
+
+/* Styles for all paragraphs within .about__data */
+.about__data p {
+    text-align: justify; /* Aligns text to both left and right margins */
+    line-height: 1.6;    /* Improves readability for justified text */
+    text-rendering: optimizeLegibility; /* Optional: Helps with font rendering for justified text */
+    margin-bottom: 1rem; /* Gap between paragraphs */
+}
+
+/* Add larger gap after the last paragraph specifically */
+.about__data p:last-of-type {
+    margin-bottom: 2.5rem; /* Adjust for space between last paragraph and button */
+}
+
 
 /*=============== SKILLS ===============*/
 /* Skills wrapper to enable horizontal scrolling */
