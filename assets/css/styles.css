@@ -715,16 +715,14 @@ body.light-theme {
     --animation-duration: 30s; /* Total animation time for one loop */
     
     /* Default for larger screens: show ~2 cards at a time */
-    --cards-per-view: 2;
-    --card-width-calc: calc((100vw - var(--card-gap) * (var(--cards-per-view) + 1)) / var(--cards-per-view));
+    --card-base-width: 30%; 
+    --card-width-calc: calc(var(--card-base-width) - var(--card-gap) * 2 / var(--num-original-cards)); /* Distribute gap */
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .skills__container {
-        /* For smaller screens: show ~1 card at a time */
-        --cards-per-view: 1;
-        --card-width-calc: calc(100vw - var(--card-gap) * 2); /* Adjust for single card view */
+        --card-base-width: 80%; /* Make cards wider on small screens */
         --animation-duration: 40s; /* Adjust speed for fewer cards visible or longer total width */
     }
 }
