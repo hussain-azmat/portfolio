@@ -705,43 +705,155 @@ body.light-theme {
     margin-bottom: 2.5rem; /* Adjust for space between last paragraph and button */
 }
 
-
 /*=============== SKILLS ===============*/
+
+/* CSS Variables for easier adjustment */
+.skills__container {
+    /* Define these based on your desired layout */
+    --card-gap: 2rem; /* Space between cards */
+    --num-original-cards: 3; /* IMPORTANT: Number of unique skills__content divs */
+    --animation-duration: 30s; /* Total animation time for one loop */
+    
+    /* Default for larger screens: show ~2 cards at a time */
+    --cards-per-view: 2;
+    --card-width-calc: calc((100vw - var(--card-gap) * (var(--cards-per-view) + 1)) / var(--cards-per-view));
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .skills__container {
+        /* For smaller screens: show ~1 card at a time */
+        --cards-per-view: 1;
+        --card-width-calc: calc(100vw - var(--card-gap) * 2); /* Adjust for single card view */
+        --animation-duration: 40s; /* Adjust speed for fewer cards visible or longer total width */
+    }
+}
+
 /* Skills wrapper to enable horizontal scrolling */
 .skills__wrapper {
-  overflow: hidden; /* Hide scrollbars */
-  position: relative;
-  width: 100%; /* Full width */
-  height: 50vh; /* Adjust as needed */
-  /* height: 100vh; Ensure it takes full viewport height */
+    overflow: hidden; /* Hide scrollbars */
+    position: relative;
+    width: 100%; /* Full width */
+    height: 50vh; /* Adjust as needed, or remove if content defines height */
 }
+
+.skills__container {
+    display: flex; /* Make it a flex container to arrange cards horizontally */
+    /* Remove 'grid' from the class list in HTML for .skills__container if it's there,
+       as it conflicts with display: flex for this purpose. */
+    
+    /* This is crucial for infinite scroll: Make the container wide enough
+       to hold all original and duplicated content in a single row. */
+    width: max-content; /* Allows content to define width, important for animation */
+    
+    animation: scrollSkills var(--animation-duration) linear infinite; /* Apply the animation */
+}
+
+/* Individual skill cards */
+.skills__content {
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    /* Use the calculated width from CSS variables */
+    width: var(--card-width-calc);
+    margin-right: var(--card-gap); /* Space between cards */
+    
+    background-color: var(--container-color);
+    padding: 0.5rem;
+    border-radius: 1.25rem;
+    box-sizing: border-box; /* Ensure padding does not affect width */
+
+    /* Performance optimization for smooth scrolling */
+    will-change: transform;
+    transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Keyframes for infinite scrolling */
+@keyframes scrollSkills {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Translate by the width of ALL ORIGINAL cards + their margins.
+           This is the key to seamless looping. */
+        transform: translateX(calc(-1 * (var(--card-width-calc) + var(--card-gap)) * var(--num-original-cards)));
+    }
+}
+
+/* Existing styles for internal content of cards */
+.skills__title {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: var(--first-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.skills__box {
+    display: flex;
+    justify-content: center;
+    column-gap: 2.5rem;
+}
+
+.skills__group {
+    display: grid;
+    align-content: flex-start;
+    row-gap: 1rem;
+}
+
+.skills__data {
+    display: flex;
+    column-gap: 0.5rem;
+}
+
+.skills .bxs-badge-check {
+    font-size: 1rem;
+    color: var(--first-color);
+}
+
+.skills__name {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    line-height: 18px;
+}
+
+.skills__level {
+    font-size: var(--small-font-size);
+}
+/*=============== SKILLS ===============*/
+/* Skills wrapper to enable horizontal scrolling */
+/* .skills__wrapper {
+  overflow: hidden; /* Hide scrollbars */
+  /*position: relative;
+  width: 100%; /* Full width */
+  /*height: 50vh; /* Adjust as needed */
+  /* height: 100vh; Ensure it takes full viewport height */
+/*}
 
 .skills__container {
   /* row-gap: 2rem;
   padding-top: 1rem;  */
-  display: flex;
+  /*display: flex;
   /* transition: transform 0.5s ease; Smooth scrolling effect */
-  animation: scroll 30s linear infinite; /* Adjust duration and easing as needed */
-  white-space: nowrap; /* Prevent wrapping */
+  /*animation: scroll 30s linear infinite; /* Adjust duration and easing as needed */
+  /*white-space: nowrap; /* Prevent wrapping */
 
   /* Add transitions for the hover effects */
   /*transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, z-index 0s 0.3s; /* z-index transition is tricky, setting delay */
   /*z-index: 1; /* Base z-index */
-}
+/*}
 
 
 .skills__content {
   flex: 0 0 auto; /* Each section takes full width of the container */
-  min-width: 50%;
+  /*min-width: 50%;
   background-color: var(--container-color);
   padding: 0.5rem;
   border-radius: 1.25rem;
   box-sizing: border-box; /* Ensure padding does not affect width */
-  display: inline-block; /* Flexbox for horizontal alignment */
-}
+  /*display: inline-block; /* Flexbox for horizontal alignment */
+/*}
 
 /* Keyframes for infinite scrolling */
-@keyframes scroll {
+/*@keyframes scroll {
   0% {
     transform: translateX(0);
   }
@@ -789,7 +901,7 @@ body.light-theme {
 .skills__level {
   font-size: var(--small-font-size);
 }
-
+ */
 
 /*=============== SERVICES ===============*/
 .services__container {
