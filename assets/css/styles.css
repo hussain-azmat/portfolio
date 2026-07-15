@@ -903,19 +903,20 @@ body.light-theme {
 
 /*=============== SERVICES ===============*/
 .services__container {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(360px, 1fr));
+  gap: 2rem;
   padding-top: 1rem;
-  
-  /*z-index: 10; */
+  width: min(100%, 1040px);
+  margin: 0 auto;
 }
 
 .services__card {
   background-color: var(--container-color);
-  padding: 3rem 1.5rem 1.5em;
+  padding: 3rem 2rem 1.5rem;
   border-radius: 1.25rem;
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth transition for both effects */
   z-index: 10;
+  min-height: 18rem;
 }
 
 .services__card:hover {
@@ -967,13 +968,12 @@ body.modal-open .services__card {
   position: fixed;
   inset: 0;
   background-color: hsl(var(--second-hue), 28%, 16%, 0.7);
-  padding: 2rem 1rem;
-  display: grid;
-  place-items: center;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: 0.4s;
   z-index: var(--z-modal);
-  /* z-index: var(z-modal); */
-  /*z-index: 9999;*/
   visibility: hidden;
   opacity: 0;
 }
@@ -986,10 +986,13 @@ body.modal-open .services__card {
 
 .services__modal-content {
   background-color: var(--body-color);
-  padding: 4.5rem 1.5rem 2.5rem;
+  padding: 3rem 2rem 2rem;
   border-radius: 1.5rem;
   position: relative;
-  /*z-index: var(--z-modal);*/
+  width: min(92vw, 760px);
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .services__modal-title,
@@ -1450,17 +1453,20 @@ body.modal-open .services__card {
   }
 
   .services__container {
-    grid-template-columns: repeat(3, 177px);
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
     justify-content: center;
+    gap: 2rem;
   }
 
   .services__modal-content {
-    width: 500px;
-    padding: 4.5rem 2.5rem 2.5rem;
+    width: min(92vw, 680px);
+    max-height: calc(100vh - 120px);
+    padding: 3rem 2rem 2rem;
+    overflow-y: auto;
   }
 
   .services__modal-description {
-    padding: 0 3.5rem;
+    padding: 0 1.5rem;
   }
 
   .work__container {
