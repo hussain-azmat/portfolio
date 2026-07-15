@@ -1278,54 +1278,84 @@ body.modal-open .services__card {
 }
 /*=============== FOOTER ===============*/
 .footer {
-  background-color: var(--first-color);
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.28));
+  background-color: var(--container-color);
+  border-top: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 -12px 30px rgba(0,0,0,0.45);
+  padding: 2.5rem 0 3rem;
 }
 
 .footer__container {
-  padding: 0 0 6rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 968px;
+  margin: 0 auto;
 }
 
 .footer__title,
 .footer__link {
-  color: var(--body-color);
+  color: var(--title-color);
 }
 
 .footer__title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
 }
 
 .footer__list {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 1.5rem;
-  margin-bottom: 2rem;
+  column-gap: 1.25rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer__link {
+  color: var(--text-color-light);
+  font-weight: var(--font-medium);
+  padding: 0.25rem 0.5rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer__link:hover {
+  color: var(--first-color-alt);
+  transform: translateY(-2px);
 }
 
 .footer__social {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 1.25rem;
+  column-gap: 1rem;
 }
 
 .footer__social-link {
-  background-color: var(--body-color);
-  color: var(--first-color);
-  padding: 0.35rem;
-  border-radius: 0.25rem;
+  background-color: transparent;
+  color: var(--title-color);
+  padding: 0.45rem;
+  border-radius: 0.4rem;
   font-size: 1rem;
   display: inline-flex;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.footer__social-link:hover {
+  background-color: var(--first-color);
+  color: var(--body-color);
 }
 
 .footer__copy {
   display: block;
-  margin-top: 4.5rem;
-  color: var(--container-color);
+  margin-top: 0.5rem;
+  color: var(--text-color-light);
   text-align: center;
   font-size: var(--smaller-font-size);
-  margin-bottom: 2rem;
 }
 
 /*=============== SCROLL BAR ===============*/
