@@ -712,7 +712,7 @@ body.light-theme {
     /* Define these based on your desired layout */
     --card-gap: 2rem; /* Space between cards */
     --num-original-cards: 3; /* IMPORTANT: Number of unique skills__content divs */
-    --animation-duration: 30s; /* Total animation time for one loop */
+    --animation-duration: 10s; /* Total animation time for one loop */
     
     /* Default for larger screens: show ~2 cards at a time */
     --card-base-width: 75%; 
