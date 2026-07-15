@@ -711,11 +711,11 @@ body.light-theme {
 .skills__container {
     /* Define these based on your desired layout */
     --card-gap: 2rem; /* Space between cards */
-    --num-original-cards: 3; /* IMPORTANT: Number of unique skills__content divs */
-    --animation-duration: 24s; /* Total animation time for one loop */
+    --num-original-cards: 6; /* IMPORTANT: Number of unique skills__content divs */
+    --animation-duration: 36s; /* Total animation time for one loop */
     
     /* Default width for cards - reduced to about 60% of the previous value */
-    --card-base-width: 15%; 
+    --card-base-width: 12%; 
     --card-width-calc: calc(var(--card-base-width) - var(--card-gap) * 2 / var(--num-original-cards)); /* Distribute gap */
 }
 
