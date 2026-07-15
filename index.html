@@ -1242,60 +1242,44 @@ document.addEventListener('DOMContentLoaded', function() {
     let position = 0;
 
     function getStep() {
-        // step equals the visible viewport width so scroll matches other sections
-        return list.parentElement.clientWidth;
+        // get height of one row (2 items in 2-column grid)
+        const card = list.querySelector('.work__card');
+        if (!card) return 0;
+        const cardHeight = card.getBoundingClientRect().height;
+        const gap = parseInt(getComputedStyle(list).gap) || 20;
+        return cardHeight + gap; // height of one row
     }
 
     function clampPos(pos){
-        const maxScroll = Math.max(0, list.scrollWidth - list.parentElement.clientWidth);
+        const maxScroll = Math.max(0, list.scrollHeight - list.parentElement.clientHeight);
         return Math.max(-maxScroll, Math.min(0, pos));
     }
 
     btnLeft.addEventListener('click', () => {
         const step = getStep();
         position = clampPos(position + step);
-        list.style.transform = `translateX(${position}px)`;
+        list.style.transform = `translateY(${position}px)`;
     });
 
     btnRight.addEventListener('click', () => {
         const step = getStep();
         position = clampPos(position - step);
-        list.style.transform = `translateX(${position}px)`;
+        list.style.transform = `translateY(${position}px)`;
     });
 
-    // allow dragging with mouse for convenience
-    let isDown = false, startX, startPos;
-    list.parentElement.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.clientX;
-        startPos = position;
-        list.style.transition = 'none';
-    });
-    window.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        const dx = e.clientX - startX;
-        position = clampPos(startPos + dx);
-        list.style.transform = `translateX(${position}px)`;
-    });
-    window.addEventListener('mouseup', () => {
-        if (!isDown) return;
-        isDown = false;
-        list.style.transition = '';
-    });
-
-    // mouse wheel horizontal/fallback scrolling
+    // mouse wheel vertical scrolling
     list.parentElement.addEventListener('wheel', (e) => {
-        // allow vertical scroll on small screens where arrows are hidden
-        if (window.innerWidth <= 768) return;
+        if (window.innerWidth <= 968) return;
         e.preventDefault();
-        position = clampPos(position - e.deltaY);
-        list.style.transform = `translateX(${position}px)`;
+        const step = getStep();
+        position = clampPos(position - (e.deltaY > 0 ? step : -step));
+        list.style.transform = `translateY(${position}px)`;
     }, { passive: false });
 
     // recompute position bounds on resize
     window.addEventListener('resize', () => {
         position = clampPos(position);
-        list.style.transform = `translateX(${position}px)`;
+        list.style.transform = `translateY(${position}px)`;
     });
 });
 </script>

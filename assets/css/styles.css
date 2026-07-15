@@ -1061,6 +1061,7 @@ body.modal-open .services__card {
   max-width: 968px;
   margin: 0 auto;
   overflow: hidden;
+  max-height: calc((350px + 1.25rem) * 2); /* show exactly 2 rows (4 projects) */
 }
 
 .work__list {
