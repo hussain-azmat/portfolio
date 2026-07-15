@@ -712,10 +712,10 @@ body.light-theme {
     /* Define these based on your desired layout */
     --card-gap: 2rem; /* Space between cards */
     --num-original-cards: 6; /* IMPORTANT: Number of unique skills__content divs */
-    --animation-duration: 36s; /* Total animation time for one loop */
+    --animation-duration: 30s; /* Total animation time for one loop */
     
     /* Default width for cards - reduced to about 60% of the previous value */
-    --card-base-width: 12%; 
+    --card-base-width: 13%; 
     --card-width-calc: calc(var(--card-base-width) - var(--card-gap) * 2 / var(--num-original-cards)); /* Distribute gap */
 }
 
@@ -733,7 +733,7 @@ body.light-theme {
     position: relative;
     width: 100%; /* Stretch to the full content area */
     max-width: 100%;
-    height: 65vh; /* Adjust as needed, or remove if content defines height */
+    height: 75vh; /* Adjust as needed, or remove if content defines height */
 }
 
 .skills__container {
