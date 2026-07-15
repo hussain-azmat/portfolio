@@ -1067,7 +1067,7 @@ body.modal-open .services__card {
 .work__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.25rem !important;
+  gap: 0.35rem !important;
   justify-items: center;
   transition: transform 0.45s cubic-bezier(.22,.9,.35,1);
   width: 100%;
@@ -1124,7 +1124,7 @@ body.modal-open .services__card {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 0.75rem;
+  column-gap: 0.35rem;
   margin-bottom: 2rem;
 }
 
