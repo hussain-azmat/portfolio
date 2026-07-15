@@ -1137,7 +1137,7 @@ body.modal-open .services__card {
 
 .work__card {
   background-color: var(--container-color);
-  width: 10% !important;
+  width: 50% !important;
   padding: 1rem;
   border-radius: 1rem;
   z-index: 2;
