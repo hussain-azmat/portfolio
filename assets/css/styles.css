@@ -1067,14 +1067,14 @@ body.modal-open .services__card {
 .work__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem !important;
+  gap: 0.25rem !important;
   justify-items: center;
   transition: transform 0.45s cubic-bezier(.22,.9,.35,1);
   width: 100%;
 }
 
 .work__card {
-  width: 75%;
+  width: 90%;
   box-sizing: border-box;
 }
 
