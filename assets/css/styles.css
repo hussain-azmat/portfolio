@@ -712,7 +712,7 @@ body.light-theme {
     /* Define these based on your desired layout */
     --card-gap: 2rem; /* Space between cards */
     --num-original-cards: 3; /* IMPORTANT: Number of unique skills__content divs */
-    --animation-duration: 10s; /* Total animation time for one loop */
+    --animation-duration: 24s; /* Total animation time for one loop */
     
     /* Default for larger screens: show ~2 cards at a time */
     --card-base-width: 75%; 
@@ -723,7 +723,7 @@ body.light-theme {
 @media (max-width: 768px) {
     .skills__container {
         --card-base-width: 80%; /* Make cards wider on small screens */
-        --animation-duration: 40s; /* Adjust speed for fewer cards visible or longer total width */
+        --animation-duration: 26s; /* Slightly slower on mobile */
     }
 }
 
@@ -732,7 +732,7 @@ body.light-theme {
     overflow: hidden; /* Hide scrollbars */
     position: relative;
     width: 85%; /* Full width */
-    height: 60vh; /* Adjust as needed, or remove if content defines height */
+    height: 65vh; /* Adjust as needed, or remove if content defines height */
 }
 
 .skills__container {
@@ -740,11 +740,9 @@ body.light-theme {
     /* Remove 'grid' from the class list in HTML for .skills__container if it's there,
        as it conflicts with display: flex for this purpose. */
     
-    /* This is crucial for infinite scroll: Make the container wide enough
-       to hold all original and duplicated content in a single row. */
     width: max-content; /* Allows content to define width, important for animation */
     
-    animation: scrollSkills var(--animation-duration) linear infinite; /* Apply the animation */
+    animation: scrollSkills var(--animation-duration) linear infinite;
 }
 
 /* Individual skill cards */
@@ -770,8 +768,8 @@ body.light-theme {
         transform: translateX(0);
     }
     100% {
-        /* Translate by the width of ALL ORIGINAL cards + their margins.
-           This is the key to seamless looping. */
+        /* Translate by the width of all original cards + margins.
+           This is required for a seamless loop once the originals are duplicated. */
         transform: translateX(calc(-1 * (var(--card-width-calc) + var(--card-gap)) * var(--num-original-cards)));
     }
 }
