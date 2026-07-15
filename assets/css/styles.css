@@ -1067,13 +1067,13 @@ body.modal-open .services__card {
 .work__list {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
-  gap: 0.75rem;
+  gap: 1rem;
   transition: transform 0.45s cubic-bezier(.22,.9,.35,1);
   width: 100%;
 }
 
 .work__card {
-  width: 100% !important;
+  width: 70% !important;
   box-sizing: border-box;
 }
 
@@ -1137,8 +1137,8 @@ body.modal-open .services__card {
 
 .work__card {
   background-color: var(--container-color);
-  width: 75% !important;
-  padding: 3rem;
+  
+  padding: 4rem;
   border-radius: 1rem;
   z-index: 2;
 
