@@ -715,7 +715,7 @@ body.light-theme {
     --animation-duration: 24s; /* Total animation time for one loop */
     
     /* Default width for cards - reduced to about 60% of the previous value */
-    --card-base-width: 10%; 
+    --card-base-width: 15%; 
     --card-width-calc: calc(var(--card-base-width) - var(--card-gap) * 2 / var(--num-original-cards)); /* Distribute gap */
 }
 
