@@ -714,15 +714,15 @@ body.light-theme {
     --num-original-cards: 3; /* IMPORTANT: Number of unique skills__content divs */
     --animation-duration: 24s; /* Total animation time for one loop */
     
-    /* Default for larger screens: show ~2 cards at a time */
-    --card-base-width: 75%; 
+    /* Default width for cards - reduced to about 60% of the previous value */
+    --card-base-width: 45%; 
     --card-width-calc: calc(var(--card-base-width) - var(--card-gap) * 2 / var(--num-original-cards)); /* Distribute gap */
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .skills__container {
-        --card-base-width: 80%; /* Make cards wider on small screens */
+        --card-base-width: 50%; /* Make cards narrower on small screens */
         --animation-duration: 26s; /* Slightly slower on mobile */
     }
 }
@@ -731,7 +731,8 @@ body.light-theme {
 .skills__wrapper {
     overflow: hidden; /* Hide scrollbars */
     position: relative;
-    width: 85%; /* Full width */
+    width: 100%; /* Stretch to the full content area */
+    max-width: 100%;
     height: 65vh; /* Adjust as needed, or remove if content defines height */
 }
 
@@ -741,14 +742,15 @@ body.light-theme {
        as it conflicts with display: flex for this purpose. */
     
     width: max-content; /* Allows content to define width, important for animation */
+    margin: 0; /* Override any container centering */
+    padding: 0;
     
     animation: scrollSkills var(--animation-duration) linear infinite;
 }
 
 /* Individual skill cards */
 .skills__content {
-    flex-shrink: 0; /* Prevent cards from shrinking */
-    /* Use the calculated width from CSS variables */
+    flex: 0 0 var(--card-width-calc); /* Keep each card fixed to the calculated width */
     width: var(--card-width-calc);
     margin-right: var(--card-gap); /* Space between cards */
     

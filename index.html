@@ -441,7 +441,7 @@
                         <div class="about__box">
                             <i class='bx bx-award about__icon'></i>
                             <h3 class="about__title">Experience</h3>
-                            <span class="about__subtitle">5 Years Working</span>
+                            <span id="experienceYears" class="about__subtitle">5 Years Working</span>
                         </div>
                         <div class="about__box">
                             <i class='bx bx-briefcase-alt about__icon'></i>
@@ -487,7 +487,7 @@
                 <h2 class="section__title">Expertise Driving Innovation</h2>
                 
             <div class="skills__wrapper"> <!-- added line -->
-                <div class="skills__container container">
+                <div class="skills__container">
                     
                     <div class="skills__content">
                         <h3 class="skills__title">Innovation, Product Realization and Consultancy</h3>
@@ -1065,6 +1065,25 @@
     });
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const experienceSpan = document.getElementById('experienceYears');
+        if (!experienceSpan) return;
+
+        const startDate = new Date(2019, 7, 16); // August 16, 2019
+        const today = new Date();
+        let years = today.getFullYear() - startDate.getFullYear();
+
+        if (
+            today.getMonth() < startDate.getMonth() ||
+            (today.getMonth() === startDate.getMonth() && today.getDate() < startDate.getDate())
+        ) {
+            years -= 1;
+        }
+
+        experienceSpan.textContent = `${years} Years Working`;
+    });
+</script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1072,8 +1091,12 @@
             const wrapper = document.querySelector('.skills__wrapper');
 
             if (container) {
-                const originalCards = Array.from(container.children);
-                originalCards.forEach(card => container.appendChild(card.cloneNode(true)));
+                const originalCards = Array.from(container.querySelectorAll('.skills__content'));
+                const currentCards = container.querySelectorAll('.skills__content').length;
+
+                if (originalCards.length && currentCards === originalCards.length) {
+                    originalCards.forEach(card => container.appendChild(card.cloneNode(true)));
+                }
             }
         
             let isCursorOverContainer = false;
