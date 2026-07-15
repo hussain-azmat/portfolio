@@ -731,8 +731,8 @@ body.light-theme {
 .skills__wrapper {
     overflow: hidden; /* Hide scrollbars */
     position: relative;
-    width: 100%; /* Full width */
-    height: 30vh; /* Adjust as needed, or remove if content defines height */
+    width: 85%; /* Full width */
+    height: 60vh; /* Adjust as needed, or remove if content defines height */
 }
 
 .skills__container {
