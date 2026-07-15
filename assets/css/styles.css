@@ -1072,30 +1072,32 @@ body.modal-open .services__card {
 }
 
 .work__card {
-  flex: 0 0 300px; /* fixed card width to keep consistent grid */
-  width: 300px;
+  flex: 0 0 calc((100% - 2.5rem) / 3); /* 3 columns visible by default (accounting for gaps) */
+  width: calc((100% - 2.5rem) / 3);
+  box-sizing: border-box;
 }
 
 .work__arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(0,0,0,0.45);
-  color: var(--title-color);
-  border: 1px solid rgba(255,255,255,0.03);
+  min-width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: transparent; /* transparent to match page */
+  color: var(--first-color);
+  border: 1px solid rgba(255,255,255,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
+  font-size: 2rem; /* larger arrows */
   cursor: pointer;
   z-index: 20;
+  backdrop-filter: blur(4px);
 }
 
-.work__arrow--left { left: -12px; }
-.work__arrow--right { right: -12px; }
+.work__arrow--left { left: 8px; }
+.work__arrow--right { right: 8px; }
 
 /* Hide arrows and revert to regular flow on small screens */
 @media screen and (max-width: 768px) {
