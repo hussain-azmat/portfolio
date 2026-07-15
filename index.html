@@ -905,14 +905,18 @@
             <span class="section__subtitle">Actions Speak Louder</span>
             <h2 class="section__title">Recent Works</h2>
 
+            <!-- Filters temporarily disabled while adding scrolling control
             <div class="work__filters">
                 <span class="work__item active-work" data-filter='all'>All</span>
                 <span class=" work__item" data-filter='.robotics'>Robotics</span>
                 <span class=" work__item" data-filter='.web'>Web Dev</span>
                 <span class=" work__item" data-filter='.embedded'>Embedded/IoT</span>
             </div>
+            -->
 
-            <div class="work__container container grid">
+            <div class="work__viewport">
+                <button class="work__arrow work__arrow--left" aria-label="Previous projects">&#8249;</button>
+                <div class="work__list work__container container grid">
                 <div class="work__card mix web">
                     <img src="assets/img/tracker.png" alt="" class="work__img">
 
@@ -973,6 +977,8 @@
                     </a>
                 </div>
 
+                </div>
+                <button class="work__arrow work__arrow--right" aria-label="Next projects">&#8250;</button>
             </div>
         </section>
 
@@ -1219,8 +1225,49 @@
         });
 
         // Trigger click on the default filter button to show all work cards initially
-        document.querySelector('.work__item.active-work').click();
+        // Filters are disabled for now; keep default view
+        const filterBtn = document.querySelector('.work__item.active-work');
+        if (filterBtn) try { filterBtn.click(); } catch(e){}
     });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const list = document.querySelector('.work__list');
+    const btnLeft = document.querySelector('.work__arrow--left');
+    const btnRight = document.querySelector('.work__arrow--right');
+    if (!list || !btnLeft || !btnRight) return;
+
+    const gap = parseInt(getComputedStyle(list).gap) || 20;
+    const card = list.querySelector('.work__card');
+    const cardWidth = card ? card.getBoundingClientRect().width : 300;
+    const visibleCols = 3; // number of columns visible per viewport
+    const step = (cardWidth + gap) * visibleCols;
+    let position = 0;
+
+    function clampPos(pos){
+        const maxScroll = Math.max(0, list.scrollWidth - list.parentElement.clientWidth);
+        return Math.max(-maxScroll, Math.min(0, pos));
+    }
+
+    btnLeft.addEventListener('click', () => {
+        position = clampPos(position + step);
+        list.style.transform = `translateX(${position}px)`;
+    });
+
+    btnRight.addEventListener('click', () => {
+        position = clampPos(position - step);
+        list.style.transform = `translateX(${position}px)`;
+    });
+
+    // Optional: mousewheel horizontal scroll inside viewport
+    list.parentElement.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return; // prefer default
+        e.preventDefault();
+        position = clampPos(position - e.deltaY);
+        list.style.transform = `translateX(${position}px)`;
+    }, { passive: false });
+});
 </script>
 
 <script>
