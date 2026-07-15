@@ -1635,8 +1635,10 @@ body.modal-open .services__card {
   }
 
   .skills__container {
-    grid-template-columns: repeat(2, 460px);
-    column-gap: 3rem;
+    display: flex;
+    grid-template-columns: none;
+    column-gap: 0;
+    justify-content: flex-start;
   }
 
   .skills__title {
