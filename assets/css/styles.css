@@ -732,7 +732,7 @@ body.light-theme {
     overflow: hidden; /* Hide scrollbars */
     position: relative;
     width: 100%; /* Full width */
-    height: 50vh; /* Adjust as needed, or remove if content defines height */
+    height: 30vh; /* Adjust as needed, or remove if content defines height */
 }
 
 .skills__container {
