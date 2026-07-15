@@ -1065,15 +1065,16 @@ body.modal-open .services__card {
 }
 
 .work__list {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  justify-items: center;
   transition: transform 0.45s cubic-bezier(.22,.9,.35,1);
   width: 100%;
 }
 
 .work__card {
-  width: 70% !important;
+  width: 66%;
   box-sizing: border-box;
 }
 
@@ -1138,7 +1139,7 @@ body.modal-open .services__card {
 .work__card {
   background-color: var(--container-color);
   
-  padding: 4rem;
+  padding: 2rem;
   border-radius: 1rem;
   z-index: 2;
 
