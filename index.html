@@ -1399,51 +1399,118 @@
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     const list = document.querySelector('.work__list');
+    const viewport = list?.parentElement;
     const btnLeft = document.querySelector('.work__arrow--left');
     const btnRight = document.querySelector('.work__arrow--right');
-    if (!list || !btnLeft || !btnRight) return;
+    if (!list || !viewport || !btnLeft || !btnRight) return;
 
+    const ROWS = 2;
+    const visibleColumns = 3;
+    const originalCards = Array.from(list.children);
+    if (!originalCards.length) return;
+
+    const clonesCount = visibleColumns * ROWS;
+    const prefixClones = originalCards.slice(-clonesCount).map(card => card.cloneNode(true));
+    const suffixClones = originalCards.slice(0, clonesCount).map(card => card.cloneNode(true));
+
+    prefixClones.forEach(clone => list.insertBefore(clone, list.firstChild));
+    suffixClones.forEach(clone => list.appendChild(clone));
+
+    let step = 0;
+    let startOffset = 0;
+    let currentColumn = 0;
     let position = 0;
+    let isResetting = false;
 
     function getStep() {
-        // get width of one column (scroll left/right)
         const card = list.querySelector('.work__card');
         if (!card) return 0;
         const cardWidth = card.getBoundingClientRect().width;
         const gap = parseFloat(getComputedStyle(list).columnGap) || parseFloat(getComputedStyle(list).gap) || 20;
-        return cardWidth + gap; // width of one column
+        return cardWidth + gap;
     }
 
-    function clampPos(pos){
-        const maxScroll = Math.max(0, list.scrollWidth - list.parentElement.clientWidth);
-        return Math.max(-maxScroll, Math.min(0, pos));
+    function applyTransform(value, animate = true) {
+        if (!animate) {
+            const previousTransition = list.style.transition;
+            list.style.transition = 'none';
+            list.style.transform = `translateX(${value}px)`;
+            requestAnimationFrame(() => {
+                list.style.transition = previousTransition || 'transform 0.45s cubic-bezier(.22,.9,.35,1)';
+            });
+        } else {
+            list.style.transform = `translateX(${value}px)`;
+        }
     }
+
+    function updateLayout() {
+        step = getStep();
+        startOffset = visibleColumns * step;
+        position = -(startOffset + currentColumn * step);
+        applyTransform(position, false);
+    }
+
+    function getTotalColumns() {
+        return Math.ceil(originalCards.length / ROWS);
+    }
+
+    function normalizeColumnIndex() {
+        const totalColumns = getTotalColumns();
+        if (currentColumn < 0) currentColumn += totalColumns;
+        if (currentColumn >= totalColumns) currentColumn -= totalColumns;
+    }
+
+    function handleEdgeReset() {
+        const totalColumns = getTotalColumns();
+        if (currentColumn < 0) {
+            currentColumn += totalColumns;
+            position = -(startOffset + currentColumn * step);
+            isResetting = true;
+            applyTransform(position, false);
+        } else if (currentColumn >= totalColumns) {
+            currentColumn -= totalColumns;
+            position = -(startOffset + currentColumn * step);
+            isResetting = true;
+            applyTransform(position, false);
+        }
+    }
+
+    updateLayout();
+
+    list.addEventListener('transitionend', () => {
+        if (isResetting) {
+            isResetting = false;
+            return;
+        }
+        handleEdgeReset();
+    });
 
     btnLeft.addEventListener('click', () => {
-        const step = getStep();
-        position = clampPos(position + step);
-        list.style.transform = `translateX(${position}px)`;
+        const totalColumns = getTotalColumns();
+        if (totalColumns <= 0) return;
+        currentColumn -= 1;
+        position = -(startOffset + currentColumn * step);
+        applyTransform(position, true);
     });
 
     btnRight.addEventListener('click', () => {
-        const step = getStep();
-        position = clampPos(position - step);
-        list.style.transform = `translateX(${position}px)`;
+        const totalColumns = getTotalColumns();
+        if (totalColumns <= 0) return;
+        currentColumn += 1;
+        position = -(startOffset + currentColumn * step);
+        applyTransform(position, true);
     });
 
-    // mouse wheel horizontal scrolling
-    list.parentElement.addEventListener('wheel', (e) => {
-        if (window.innerWidth <= 968) return;
+    viewport.addEventListener('wheel', (e) => {
+        if (window.innerWidth <= 768) return;
         e.preventDefault();
-        const step = getStep();
-        position = clampPos(position - (e.deltaY > 0 ? step : -step));
-        list.style.transform = `translateX(${position}px)`;
+        currentColumn += e.deltaY > 0 ? 1 : -1;
+        position = -(startOffset + currentColumn * step);
+        applyTransform(position, true);
     }, { passive: false });
 
-    // recompute position bounds on resize
     window.addEventListener('resize', () => {
-        position = clampPos(position);
-        list.style.transform = `translateX(${position}px)`;
+        updateLayout();
     });
 });
 </script>

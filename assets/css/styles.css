@@ -1059,17 +1059,18 @@ body.modal-open .services__card {
 /* Project scrolling viewport and arrows */
 .work__viewport {
   position: relative;
-  max-width: 100%;
+  width: min(100%, 58rem);
+  max-width: 58rem;
   margin: 0 auto;
   overflow: hidden;
-  height: calc(2 * 22.5rem + 2rem); /* exactly 2 rows visible */
+  height: auto;
 }
 
 .work__list {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(2, minmax(0, auto));
-  grid-auto-columns: minmax(22rem, 1fr);
+  grid-auto-columns: 18rem;
   gap: 1.8rem;
   justify-items: center;
   transition: transform 0.45s cubic-bezier(.22,.9,.35,1);
@@ -1077,7 +1078,7 @@ body.modal-open .services__card {
 }
 
 .work__card {
-  width: 22rem;
+  width: 18rem;
   box-sizing: border-box;
 }
 
@@ -1110,11 +1111,6 @@ body.modal-open .services__card {
 
 .work__arrow--left { left: 8px; }
 .work__arrow--right { right: 8px; }
-
-/* Adjust for medium screens - keep horizontal scrolling */
-@media screen and (max-width: 1200px) {
-  .work__list { grid-template-columns: repeat(2, 1fr); }
-}
 
 /* Hide arrows and revert to regular flow on small screens */
 @media screen and (max-width: 768px) {
