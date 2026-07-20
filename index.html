@@ -1410,7 +1410,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const card = list.querySelector('.work__card');
         if (!card) return 0;
         const cardWidth = card.getBoundingClientRect().width;
-        const gap = parseInt(getComputedStyle(list).gap) || 20;
+        const gap = parseFloat(getComputedStyle(list).columnGap) || parseFloat(getComputedStyle(list).gap) || 20;
         return cardWidth + gap; // width of one column
     }
 

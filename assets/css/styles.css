@@ -1081,11 +1081,6 @@ body.modal-open .services__card {
   box-sizing: border-box;
 }
 
-.work__card {
-  width: 90%;
-  box-sizing: border-box;
-}
-
 .work__arrow {
   position: absolute;
   top: 50%;
