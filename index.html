@@ -1406,14 +1406,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const ROWS = 2;
     const visibleColumns = 3;
-    const originalCards = Array.from(list.children);
+    const originalCards = Array.from(list.querySelectorAll('.work__card'));
     if (!originalCards.length) return;
 
     const clonesCount = visibleColumns * ROWS;
     const prefixClones = originalCards.slice(-clonesCount).map(card => card.cloneNode(true));
     const suffixClones = originalCards.slice(0, clonesCount).map(card => card.cloneNode(true));
 
-    prefixClones.forEach(clone => list.insertBefore(clone, list.firstChild));
+    const firstCard = list.firstElementChild;
+    prefixClones.forEach(clone => list.insertBefore(clone, firstCard));
     suffixClones.forEach(clone => list.appendChild(clone));
 
     let step = 0;
@@ -1470,7 +1471,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    updateLayout();
+    requestAnimationFrame(updateLayout);
 
     list.addEventListener('transitionend', () => {
         if (isResetting) {
