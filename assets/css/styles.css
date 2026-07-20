@@ -1059,19 +1059,21 @@ body.modal-open .services__card {
 /* Project scrolling viewport and arrows */
 .work__viewport {
   position: relative;
-  max-width: 968px;
+  max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  max-height: calc((350px + 1.25rem) * 2); /* show exactly 2 rows (4 projects) */
+  max-height: calc((350px + 3.5rem) * 2); /* show exactly 2 rows (6 projects) with more row gap */
 }
 
 .work__list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.35rem !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem 0.35rem;
+  row-gap: 3.5rem;
   justify-items: center;
   transition: transform 0.45s cubic-bezier(.22,.9,.35,1);
   width: 100%;
+  min-width: fit-content;
 }
 
 .work__card {
@@ -1109,10 +1111,15 @@ body.modal-open .services__card {
 .work__arrow--left { left: 8px; }
 .work__arrow--right { right: 8px; }
 
+/* Adjust for medium screens - keep horizontal scrolling */
+@media screen and (max-width: 1200px) {
+  .work__list { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Hide arrows and revert to regular flow on small screens */
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 768px) {
   .work__viewport { overflow: visible; }
-  .work__list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; transform: none !important; }
+  .work__list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; row-gap: 2rem; transform: none !important; }
   .work__card { width: 100%; flex: 1 1 auto; }
   .work__arrow { display: none; }
 }

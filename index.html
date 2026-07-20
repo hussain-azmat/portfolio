@@ -1406,44 +1406,44 @@ document.addEventListener('DOMContentLoaded', function() {
     let position = 0;
 
     function getStep() {
-        // get height of one row (2 items in 2-column grid)
+        // get width of one column (scroll left/right)
         const card = list.querySelector('.work__card');
         if (!card) return 0;
-        const cardHeight = card.getBoundingClientRect().height;
+        const cardWidth = card.getBoundingClientRect().width;
         const gap = parseInt(getComputedStyle(list).gap) || 20;
-        return cardHeight + gap; // height of one row
+        return cardWidth + gap; // width of one column
     }
 
     function clampPos(pos){
-        const maxScroll = Math.max(0, list.scrollHeight - list.parentElement.clientHeight);
+        const maxScroll = Math.max(0, list.scrollWidth - list.parentElement.clientWidth);
         return Math.max(-maxScroll, Math.min(0, pos));
     }
 
     btnLeft.addEventListener('click', () => {
         const step = getStep();
         position = clampPos(position + step);
-        list.style.transform = `translateY(${position}px)`;
+        list.style.transform = `translateX(${position}px)`;
     });
 
     btnRight.addEventListener('click', () => {
         const step = getStep();
         position = clampPos(position - step);
-        list.style.transform = `translateY(${position}px)`;
+        list.style.transform = `translateX(${position}px)`;
     });
 
-    // mouse wheel vertical scrolling
+    // mouse wheel horizontal scrolling
     list.parentElement.addEventListener('wheel', (e) => {
         if (window.innerWidth <= 968) return;
         e.preventDefault();
         const step = getStep();
         position = clampPos(position - (e.deltaY > 0 ? step : -step));
-        list.style.transform = `translateY(${position}px)`;
+        list.style.transform = `translateX(${position}px)`;
     }, { passive: false });
 
     // recompute position bounds on resize
     window.addEventListener('resize', () => {
         position = clampPos(position);
-        list.style.transform = `translateY(${position}px)`;
+        list.style.transform = `translateX(${position}px)`;
     });
 });
 </script>
