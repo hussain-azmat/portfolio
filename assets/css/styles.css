@@ -1062,18 +1062,23 @@ body.modal-open .services__card {
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  max-height: calc((350px + 3.5rem) * 2); /* show exactly 2 rows (6 projects) with more row gap */
+  height: calc(2 * 22.5rem + 2rem); /* exactly 2 rows visible */
 }
 
 .work__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.35rem 0.35rem;
-  row-gap: 3.5rem;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, minmax(0, auto));
+  grid-auto-columns: minmax(22rem, 1fr);
+  gap: 1.8rem;
   justify-items: center;
   transition: transform 0.45s cubic-bezier(.22,.9,.35,1);
-  width: 100%;
-  min-width: fit-content;
+  width: max-content;
+}
+
+.work__card {
+  width: 22rem;
+  box-sizing: border-box;
 }
 
 .work__card {
