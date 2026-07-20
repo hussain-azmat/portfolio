@@ -1059,8 +1059,8 @@ body.modal-open .services__card {
 /* Project scrolling viewport and arrows */
 .work__viewport {
   position: relative;
-  width: min(100%, 58rem);
-  max-width: 58rem;
+  width: min(100%, calc(3 * 18rem + 2 * 1.8rem));
+  max-width: calc(3 * 18rem + 2 * 1.8rem);
   margin: 0 auto;
   overflow: hidden;
   height: auto;

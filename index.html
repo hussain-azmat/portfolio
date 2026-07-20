@@ -1417,8 +1417,7 @@ document.addEventListener('DOMContentLoaded', function() {
     suffixClones.forEach(clone => list.appendChild(clone));
 
     let step = 0;
-    let startOffset = 0;
-    let currentColumn = 0;
+    let currentIndex = visibleColumns;
     let position = 0;
     let isResetting = false;
 
@@ -1443,33 +1442,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function updateLayout() {
-        step = getStep();
-        startOffset = visibleColumns * step;
-        position = -(startOffset + currentColumn * step);
-        applyTransform(position, false);
-    }
-
     function getTotalColumns() {
         return Math.ceil(originalCards.length / ROWS);
     }
 
-    function normalizeColumnIndex() {
-        const totalColumns = getTotalColumns();
-        if (currentColumn < 0) currentColumn += totalColumns;
-        if (currentColumn >= totalColumns) currentColumn -= totalColumns;
+    function updateLayout() {
+        step = getStep();
+        position = -(currentIndex * step);
+        applyTransform(position, false);
     }
 
     function handleEdgeReset() {
         const totalColumns = getTotalColumns();
-        if (currentColumn < 0) {
-            currentColumn += totalColumns;
-            position = -(startOffset + currentColumn * step);
+        const minIndex = visibleColumns;
+        const maxIndex = visibleColumns + totalColumns;
+
+        if (currentIndex < minIndex) {
+            currentIndex += totalColumns;
+            position = -(currentIndex * step);
             isResetting = true;
             applyTransform(position, false);
-        } else if (currentColumn >= totalColumns) {
-            currentColumn -= totalColumns;
-            position = -(startOffset + currentColumn * step);
+        } else if (currentIndex >= maxIndex) {
+            currentIndex -= totalColumns;
+            position = -(currentIndex * step);
             isResetting = true;
             applyTransform(position, false);
         }
@@ -1486,26 +1481,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     btnLeft.addEventListener('click', () => {
-        const totalColumns = getTotalColumns();
-        if (totalColumns <= 0) return;
-        currentColumn -= 1;
-        position = -(startOffset + currentColumn * step);
+        currentIndex -= 1;
+        position = -(currentIndex * step);
         applyTransform(position, true);
     });
 
     btnRight.addEventListener('click', () => {
-        const totalColumns = getTotalColumns();
-        if (totalColumns <= 0) return;
-        currentColumn += 1;
-        position = -(startOffset + currentColumn * step);
+        currentIndex += 1;
+        position = -(currentIndex * step);
         applyTransform(position, true);
     });
 
     viewport.addEventListener('wheel', (e) => {
         if (window.innerWidth <= 768) return;
         e.preventDefault();
-        currentColumn += e.deltaY > 0 ? 1 : -1;
-        position = -(startOffset + currentColumn * step);
+        currentIndex += e.deltaY > 0 ? 1 : -1;
+        position = -(currentIndex * step);
         applyTransform(position, true);
     }, { passive: false });
 
