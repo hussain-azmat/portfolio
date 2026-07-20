@@ -252,11 +252,12 @@ body.light-theme {
 
 .nav__menu {
   position: fixed;
-  bottom: 1rem;
+  bottom: 0.5rem;
   background-color: hsla(var(--second-hue), 32%, 16%, 0.8);
-  width: 90%;
+  width: 95%;
+  left: 2.5%;
   border-radius: 4rem;
-  padding: 1rem 2.25rem;
+  padding: 0.6rem 2.25rem;
   backdrop-filter: blur(10px);
   transition: 0.4s;
 }
@@ -270,7 +271,7 @@ body.light-theme {
 .nav__link {
   color: var(--text-color);
   font-size: 1.25rem;
-  padding: 0.4rem;
+  padding: 0.3rem;
   font-weight: var(--font-medium);
   text-decoration: none;
   transition: 0.4s;
@@ -1211,10 +1212,17 @@ body.modal-open .services__card {
   margin-bottom: 3rem;
 }
 
-.testimonial__img {
-  width: 60px;
-  border-radius: 3rem;
+.testimonial__icon {
+  font-size: 2.5rem;
+  color: var(--first-color);
+  display: block;
   margin-bottom: 1rem;
+  transition: 0.3s;
+}
+
+.testimonial__card:hover .testimonial__icon {
+  transform: scale(1.2) rotate(10deg);
+  text-shadow: 0 0 10px hsla(var(--first-hue), var(--sat), var(--lig), 0.6);
 }
 
 .testimonial__name {
