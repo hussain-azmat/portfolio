@@ -116,6 +116,69 @@ workLinks.forEach((wl) => {
   });
 });
 
+const projectArticleMap = {
+  "Indoor Asset Tracking": "projects/indoor-asset-tracking.html",
+  "Driverless Car": "projects/driverless-car.html",
+  "Jazari - The Robot": "projects/jazari-the-robot.html",
+  "Weeding Robot": "projects/weeding-machine.html",
+  "RVM": "projects/rvm.html",
+  "Kinetic Display": "projects/kinetic-display.html",
+  "Smart Energy Meter": "projects/energy-meter.html",
+  "Embedded Systems Thesis": "projects/ms-thesis.html",
+  "Leonardo General Purpose Board": "projects/leonardo-board.html",
+  "LoRa SOS Alarm System": "projects/sos-emergency-alarm.html",
+  "Pest Detection in Agricultural Field": "projects/pest-detection.html",
+  "Audience Insight": "projects/audience-insight.html",
+  "Smart Gardening System": "projects/gardening-system.html",
+  "Maze Solver Robot Simulation": "projects/maze-solver-robot.html",
+};
+
+const projectPublicationMap = {
+  "Weeding Robot": "https://www.mdpi.com/2075-1702/11/2/287",
+  "RVM": "https://www.mdpi.com/2313-4321/7/5/70",
+  "Embedded Systems Thesis": "projects/ms-thesis.html",
+};
+
+const workCards = document.querySelectorAll(".work__card");
+workCards.forEach((card) => {
+  const title = card.querySelector(".work__title")?.textContent?.trim();
+  const link = card.querySelector(".work__button");
+
+  if (title && projectArticleMap[title] && link) {
+    link.href = projectArticleMap[title];
+    link.setAttribute("aria-label", `Open case study for ${title}`);
+  }
+
+  const publicationUrl = title ? projectPublicationMap[title] : null;
+  if (publicationUrl) {
+    if (!card.querySelector(".work__publication")) {
+      const actions = link?.closest(".work__actions") || document.createElement("div");
+      actions.classList.add("work__actions");
+
+      if (!link?.parentElement.classList.contains("work__actions")) {
+        if (link) {
+          const wrapper = document.createElement("div");
+          wrapper.classList.add("work__actions");
+          link.parentNode.insertBefore(wrapper, link.nextSibling);
+          wrapper.appendChild(link);
+        } else {
+          card.appendChild(actions);
+        }
+      }
+
+      const publicationLink = document.createElement("a");
+      publicationLink.href = publicationUrl;
+      publicationLink.className = "work__publication";
+      publicationLink.target = "_blank";
+      publicationLink.rel = "noreferrer";
+      publicationLink.textContent = "Publication";
+
+      const actionContainer = link?.closest(".work__actions") || card.querySelector(".work__actions");
+      actionContainer.appendChild(publicationLink);
+    }
+  }
+});
+
 /*=============== SWIPER TESTIMONIAL ===============*/
 
 /*let swiperTestimonial = new Swiper(".testimonial__container", {

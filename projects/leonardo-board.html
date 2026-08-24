@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leonardo General Purpose Board | Azmat Hussain</title>
+    <meta
+      name="description"
+      content="General purpose Leonardo board design and fabrication project article."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="article.css" />
+  </head>
+  <body class="article-page">
+    <header class="article-header">
+      <div class="container article-nav">
+        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+        <span class="article-kicker">Case Study</span>
+      </div>
+
+      <div class="container article-hero">
+        <p class="section__subtitle">Embedded Design</p>
+        <h1>Leonardo General Purpose Board</h1>
+        <p class="lead">
+          A flexible ATmega32U4-based development board created to serve as a reusable platform for embedded programming, USB interfacing, and future prototyping work.
+        </p>
+
+        <div class="article-meta">
+          <div>
+            <span>Role</span>
+            <strong>Electronics Designer</strong>
+          </div>
+          <div>
+            <span>Timeline</span>
+            <strong>2019</strong>
+          </div>
+          <div>
+            <span>Stack</span>
+            <strong>PCB, AVR, USB</strong>
+          </div>
+          <div>
+            <span>Outcome</span>
+            <strong>Reusable prototype board</strong>
+          </div>
+        </div>
+
+        <div class="article-toc">
+          <span class="toc-label">On this page</span>
+          <nav class="article-toc-nav">
+            <a href="#overview">Overview</a>
+            <a href="#challenge">Challenge</a>
+            <a href="#journey">Journey</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#impact">Impact</a>
+            <a href="#gallery">Gallery</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="container article-content">
+      <section class="article-block" id="overview">
+        <div class="article-section-heading">
+          <span class="section-tag">Overview</span>
+          <h2>Context</h2>
+        </div>
+        <p>
+          This project focused on building a general-purpose microcontroller board that could be reused across different prototypes and experiments. Rather than designing a single-purpose device, the goal was to create a practical electronics platform with enough flexibility for different assignments, USB-driven communication, and future development work.
+        </p>
+      </section>
+
+      <section class="article-block split-layout" id="challenge">
+        <div>
+          <div class="article-section-heading">
+            <span class="section-tag">Challenge</span>
+            <h2>The design problem</h2>
+          </div>
+          <p>
+            A reusable board has to balance flexibility with manufacturability. The challenge was selecting the right microcontroller architecture, ensuring the board could be fabricated reliably, and validating that the design would support real programming workflows through Arduino and Python toolchains.
+          </p>
+        </div>
+
+        <aside class="article-aside">
+          <h3>Project Snapshot</h3>
+          <ul>
+            <li><strong>Platform:</strong> ATmega32U4</li>
+            <li><strong>Focus:</strong> Board design, fabrication, and programming</li>
+            <li><strong>Impact:</strong> Reusable embedded development base</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="article-block" id="journey">
+        <div class="article-section-heading">
+          <span class="section-tag">Journey</span>
+          <h2>From schematic to working board</h2>
+        </div>
+        <p>
+          The board was designed after reviewing the ATmega32U4 datasheet and mapping the required power, USB, and I/O needs. The next stages included updating the schematic, fixing design issues, milling the PCB, soldering components, and then validating the board by burning the bootloader and uploading simple test programs. This was a valuable exercise in translating capability into a tangible, working electronics platform.
+        </p>
+      </section>
+
+      <section class="article-block" id="architecture">
+        <div class="article-section-heading">
+          <span class="section-tag">Architecture</span>
+          <h2>System thinking</h2>
+        </div>
+        <div class="article-grid two-col">
+          <div class="article-card">
+            <h3>Hardware</h3>
+            <p>The board integrated a USB-enabled AVR controller, power regulation, I/O access, and the necessary support components for a flexible development environment.</p>
+          </div>
+          <div class="article-card">
+            <h3>Software</h3>
+            <p>It was successfully tested in Arduino and Python-based workflows, showing how the same hardware could support different programming environments and use cases.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-block" id="impact">
+        <div class="article-section-heading">
+          <span class="section-tag">Impact</span>
+          <h2>Results and lessons</h2>
+        </div>
+        <p>
+          The outcome was a board that could serve as a reusable prototyping foundation for future embedded projects. More importantly, the process reinforced how much value lies in understanding the datasheet, the pinout, and the system-level design decisions behind a board that may seem simple but becomes powerful when used correctly.
+        </p>
+      </section>
+
+      <section class="article-block" id="gallery">
+        <div class="article-section-heading">
+          <span class="section-tag">Gallery</span>
+          <h2>Visual documentation</h2>
+        </div>
+
+        <div class="article-gallery">
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo0.jpeg" alt="Milled Leonardo board" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo1.jpeg" alt="Board soldering and assembly" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo2.jpeg" alt="Completed Leonardo board" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+        </div>
+      </section>
+
+      <div class="article-footer-nav">
+        <a href="jazari-the-robot.html" class="project-nav project-nav--prev">
+          <span>Previous</span>
+          <strong>Jazari Robot</strong>
+        </a>
+
+        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+        <a href="vending-machine.html" class="project-nav project-nav--next">
+          <span>Next</span>
+          <strong>Vending Machine</strong>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1142,10 +1142,12 @@ body.modal-open .services__card {
 
 .work__card {
   background-color: var(--container-color);
-  
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
   border-radius: 1rem;
   z-index: 2;
+  height: 100%;
 
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 
@@ -1171,6 +1173,10 @@ body.modal-open .services__card {
 
 
 .work__img {
+  width: 100%;
+  height: 11.5rem;
+  object-fit: cover;
+  object-position: center;
   border-radius: 1rem;
   margin-bottom: 0.75rem;
   z-index: 1;
@@ -1182,14 +1188,66 @@ body.modal-open .services__card {
   margin-bottom: 0.25rem;
 }
 
-.work__button {
-  width: max-content;
-  color: var(--first-color);
-  font-size: var(--small-font-size);
+.work__actions {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.work__button,
+.work__publication {
+  width: max-content;
+  font-size: var(--small-font-size);
+  display: inline-flex;
   align-items: center;
   column-gap: 0.25rem;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.work__button {
+  color: var(--first-color);
+}
+
+.work__publication {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.38rem 0.7rem;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--title-color);
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.work__publication::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.18), rgba(125, 211, 252, 0.12));
+  transform: translateX(-110%);
+  transition: transform 0.3s ease;
+}
+
+.work__publication:hover::before,
+.work__publication:focus-visible::before {
+  transform: translateX(0);
+}
+
+.work__publication:hover,
+.work__publication:focus-visible {
+  border-color: rgba(94, 234, 212, 0.38);
+  box-shadow: 0 8px 18px rgba(94, 234, 212, 0.14);
+  color: var(--article-accent, #5eead4);
+  transform: translateY(-2px);
+}
+
+.work__publication > * {
+  position: relative;
+  z-index: 1;
 }
 
 .work__button:hover .work__icon {
