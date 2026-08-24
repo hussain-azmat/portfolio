@@ -1208,6 +1208,32 @@ body.modal-open .services__card {
 }
 
 /*=============== TESTIMONIAL ===============*/
+.testimonial__container {
+  overflow: hidden;
+}
+
+.testimonial__container .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+  width: max-content;
+  gap: 1.5rem;
+  animation: testimonial-scroll 17s linear infinite;
+  animation-play-state: paused;
+}
+
+.testimonial__container:hover .swiper-wrapper {
+  animation-play-state: running;
+}
+
+@keyframes testimonial-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
 .testimonial__card {
   background-color: var(--container-color);
   padding: 1.25rem 1.5rem;
@@ -1215,7 +1241,14 @@ body.modal-open .services__card {
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 220px;
+  width: 100%;
+  flex: 0 0 320px;
+}
+
+.testimonial__container .swiper-slide {
+  display: flex;
+  height: auto;
 }
 
 .testimonial__header {
@@ -1248,6 +1281,8 @@ body.modal-open .services__card {
   font-size: var(--small-font-size);
   margin: 0;
   flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
 }
 
 /* Swiper class */
@@ -1257,6 +1292,17 @@ body.modal-open .services__card {
 
 .swiper-pagination-bullet-active {
   background-color: var(--first-color);
+}
+
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.testimonial__container .swiper-pagination {
+  margin-top: 1.5rem;
 }
 
 /*=============== CONTACT ===============*/

@@ -141,56 +141,47 @@ workLinks.forEach((wl) => {
 
 /*=============== SWIPER TESTIMONIAL ===============*/
 
-let swiperTestimonial = new Swiper(".testimonial__container", {
-  spaceBetween: 24,
-  loop: true, // Keep loop for continuous effect
-  grabCursor: true,
-
-  // Autoplay configuration for when it IS running:
-  autoplay: {
-    delay: 0, // Set delay to 0 for a continuous, "without delay" feel between slides
-    disableOnInteraction: false, // Keeps autoplay running even if user interacts
-  },
-  // Speed of the transition animation itself (how fast one slide moves to the next)
-  // Adjust this value (e.g., 2500 for 2.5 seconds) to match the "speed as in skills section"
-  speed: 2500, // Higher value = slower visual scroll, giving a "continuous" feel
-
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-
-  breakpoints: {
-    576: {
-      slidesPerView: 2,
-    },
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 48,
-    },
-  },
-});
-
-// IMPORTANT: Stop autoplay immediately after initialization
-// This prevents it from scrolling automatically when the page loads.
-swiperTestimonial.autoplay.stop();
-
-// Get the testimonial container element to attach hover events
 const testimonialContainer = document.querySelector(".testimonial__container");
+const testimonialTrack = document.querySelector(".testimonial__container .swiper-wrapper");
+const testimonialCards = document.querySelectorAll(".testimonial__card");
 
-// Add event listeners to control autoplay based on mouse hover
-if (testimonialContainer) {
-    testimonialContainer.addEventListener('mouseenter', () => {
-        swiperTestimonial.autoplay.start(); // Start autoplay when mouse enters
-        console.log("Testimonials: Autoplay started on mouseenter"); // For debugging
-    });
+if (testimonialContainer && testimonialTrack && testimonialCards.length) {
+  const cards = Array.from(testimonialCards);
 
-    testimonialContainer.addEventListener('mouseleave', () => {
-        swiperTestimonial.autoplay.stop(); // Stop autoplay when mouse leaves
-        console.log("Testimonials: Autoplay stopped on mouseleave"); // For debugging
+  cards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    testimonialTrack.appendChild(clone);
+  });
+
+  const pagination = document.querySelector(".swiper-pagination");
+  if (pagination) {
+    pagination.innerHTML = "";
+    cards.forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.className = "swiper-pagination-bullet" + (index === 0 ? " swiper-pagination-bullet-active" : "");
+      pagination.appendChild(dot);
     });
-} else {
-    console.warn("Testimonial container not found for hover control.");
+  }
+
+  const style = getComputedStyle(testimonialTrack);
+  const gap = parseFloat(style.gap || style.columnGap || "24");
+  const firstCard = cards[0];
+  const cardWidth = firstCard.getBoundingClientRect().width + gap;
+  const repeatedCards = testimonialTrack.children.length;
+  const totalWidth = repeatedCards * cardWidth;
+
+  testimonialTrack.style.setProperty("--testimonial-total-width", `${totalWidth}px`);
+  testimonialTrack.style.animation = "testimonial-scroll 26s linear infinite";
+  testimonialTrack.style.animationPlayState = "paused";
+
+  testimonialContainer.addEventListener("mouseenter", () => {
+    testimonialTrack.style.animationPlayState = "running";
+  });
+
+  testimonialContainer.addEventListener("mouseleave", () => {
+    testimonialTrack.style.animationPlayState = "paused";
+  });
 }
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
