@@ -1057,21 +1057,33 @@ body.modal-open .services__card {
 }
 
 /* Project scrolling viewport and arrows */
+.work__gallery {
+  position: relative;
+  width: min(100%, calc(3 * 18rem + 2 * 1.8rem + 110mm));
+  max-width: calc(3 * 18rem + 2 * 1.8rem + 110mm);
+  margin: 0 auto;
+}
+
 .work__viewport {
   position: relative;
-  width: min(100%, calc(3 * 18rem + 2 * 1.8rem));
-  max-width: calc(3 * 18rem + 2 * 1.8rem);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   height: auto;
 }
 
 .work__list {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(2, minmax(0, auto));
   grid-auto-columns: 18rem;
-  gap: 1.8rem;
+  gap: 2.5rem;
   justify-items: center;
   transition: transform 0.45s cubic-bezier(.22,.9,.35,1);
   width: max-content;
@@ -1088,19 +1100,20 @@ body.modal-open .services__card {
   transform: translateY(-50%);
   min-width: 70px;
   min-height: 70px;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 700px;
   border-radius: 14px;
-  background: transparent; /* transparent to match page */
+  background: rgba(15, 23, 42, 0.38);
   color: var(--first-color);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 0px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.8rem; /* much larger arrows */
+  font-size: 8rem;
   cursor: pointer;
-  z-index: 20;
-  backdrop-filter: blur(4px);
+  z-index: 1000;
+  backdrop-filter: transparent;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.18);
   transition: all 0.3s ease;
 }
 
@@ -1109,8 +1122,8 @@ body.modal-open .services__card {
   border-color: rgba(255,255,255,0.15);
 }
 
-.work__arrow--left { left: 8px; }
-.work__arrow--right { right: 8px; }
+.work__arrow--left { left: -120px; }
+.work__arrow--right { right: -120px; }
 
 /* Hide arrows and revert to regular flow on small screens */
 @media screen and (max-width: 768px) {

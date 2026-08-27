@@ -140,6 +140,7 @@ const projectPublicationMap = {
 };
 
 const workCards = document.querySelectorAll(".work__card");
+
 workCards.forEach((card) => {
   const title = card.querySelector(".work__title")?.textContent?.trim();
   const link = card.querySelector(".work__button");
