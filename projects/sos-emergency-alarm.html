@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOS Emergency Alarm System | Azmat Hussain</title>
+    <title>LoRa SOS Emergency Alarm System | Azmat Hussain</title>
     <meta
       name="description"
-      content="LoRa-based SOS emergency alarm system concept and design overview."
+      content="Long-range LoRa-based SOS emergency alarm system designed for industrial environments where WiFi and standard site infrastructure are unreliable."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
@@ -19,28 +19,28 @@
       </div>
 
       <div class="container article-hero">
-        <p class="section__subtitle">IoT Safety Systems</p>
-        <h1>SOS Emergency Alarm System</h1>
+        <p class="section__subtitle">IoT / Industrial Safety</p>
+        <h1>LoRa SOS Emergency Alarm System</h1>
         <p class="lead">
-          A LoRa-enabled emergency response concept designed to transmit distress alerts over long distances where conventional communication may be unreliable.
+          A long-range, infrastructure-independent SOS alerting device for an industrial site, built as a fallback when WiFi and other communication channels could not be trusted for emergency signaling.
         </p>
 
         <div class="article-meta">
           <div>
             <span>Role</span>
-            <strong>IoT System Designer</strong>
+            <strong>Sole Designer & Builder</strong>
           </div>
           <div>
             <span>Timeline</span>
-            <strong>Concept study</strong>
+            <strong>Prototype deployment</strong>
           </div>
           <div>
             <span>Stack</span>
-            <strong>LoRa, sensing, alerts</strong>
+            <strong>Arduino Nano, LoRa serial module (433MHz), custom PCB, 3D-printed enclosure</strong>
           </div>
           <div>
             <span>Outcome</span>
-            <strong>Emergency communication concept</strong>
+            <strong>Working master–slave pair, field-tested to 10km</strong>
           </div>
         </div>
 
@@ -65,7 +65,7 @@
           <h2>Context</h2>
         </div>
         <p>
-          Emergency communication becomes critically important when infrastructure is weak, connectivity is intermittent, or the environment is remote. This project explored a LoRa-based SOS alarm system as a practical response mechanism for sending immediate distress signals with low-power, long-range communication characteristics.
+          At Engro's power plant in Ghotki, existing communication infrastructure was not reliable enough to be trusted for emergency signaling. In an industrial plant environment, that is not a minor inconvenience: if a worker needs help and the network is down or out of coverage, there is no fallback. The brief was to build a dedicated radio-based emergency alert device that did not depend on the site network at all — something that could operate independently of WiFi coverage, congestion, or outages.
         </p>
       </section>
 
@@ -76,16 +76,16 @@
             <h2>The problem</h2>
           </div>
           <p>
-            The design challenge was building an alerting system that could remain reliable under constrained power and communication conditions while still being simple enough to deploy in urgent scenarios. A useful emergency system must prioritize low latency, safety, and dependable signal transmission over complexity.
+            The device needed to work over real industrial distances, and plant sites can span kilometres. It also had to be simple enough for a worker to trigger under stress — a single physical button, not a menu or app — physically robust enough for harsh industrial use, and cheap enough to replicate. Engro also proposed an attendance-tracking use case for the same hardware as a longer-term second feature, though the core requirement remained the emergency SOS function.
           </p>
         </div>
 
         <aside class="article-aside">
           <h3>Project Snapshot</h3>
           <ul>
-            <li><strong>Domain:</strong> Safety and emergency response</li>
-            <li><strong>Focus:</strong> Long-range alert transmission</li>
-            <li><strong>Impact:</strong> Faster communication under adverse conditions</li>
+            <li><strong>Environment:</strong> Power plant and industrial site</li>
+            <li><strong>Focus:</strong> Independent emergency communication</li>
+            <li><strong>Impact:</strong> Reliable SOS fallback beyond WiFi coverage</li>
           </ul>
         </aside>
       </section>
@@ -96,7 +96,13 @@
           <h2>What was built</h2>
         </div>
         <p>
-          The concept centered around an emergency node that could detect user-triggered distress conditions and send a structured SOS signal through a LoRa communication link. The project emphasized the importance of architecture decisions such as low-power design, robust alert messaging, and minimal dependency on conventional mobile or internet infrastructure.
+          The design centered on a 433MHz LoRa serial radio module paired with an Arduino Nano as the controller. Both the PCB and the enclosure were designed from scratch: a custom board carrying the Nano and the LoRa module, and a custom CAD 3D-printed casing sized for a single physical trigger button. Every part of the design — PCB, CAD, and firmware — was created end to end.
+        </p>
+        <p>
+          The system was built as a master–slave radio pair. Pressing the trigger on the slave unit sent an SOS signal over the dedicated LoRa link to the master, which could sit in a monitoring location or relay onward to plant security or response staff. Because the link was a dedicated point-to-point radio connection rather than shared network infrastructure, it remained dependable exactly when standard communications were most unreliable.
+        </p>
+        <p>
+          Attendance tracking using the same paired-device concept was discussed as a future extension after the SOS prototype proved out, but once COVID-19 hit and site priorities shifted, the focus stayed on the safety function rather than expanding the scope prematurely.
         </p>
       </section>
 
@@ -107,12 +113,20 @@
         </div>
         <div class="article-grid two-col">
           <div class="article-card">
-            <h3>Sensor and trigger layer</h3>
-            <p>The system is designed around a clear distress trigger path, ensuring the emergency signal is generated immediately when needed.</p>
+            <h3>Radio link</h3>
+            <p>A 433MHz LoRa serial transceiver on each end provided long-range operation at low power and simple UART-level integration with the Nano. The module handled the RF layer, reducing the need for a custom radio protocol stack.</p>
           </div>
           <div class="article-card">
-            <h3>Communication layer</h3>
-            <p>LoRa provides the long-range, low-power communication backbone appropriate for critical but sparse alert transmissions.</p>
+            <h3>Controller and trigger</h3>
+            <p>The Arduino Nano on each unit read the trigger button on the slave side and drove the module's serial interface. This kept the interface simple and resilient under pressure.</p>
+          </div>
+          <div class="article-card">
+            <h3>Enclosure and packaging</h3>
+            <p>A self-designed 3D-printed housing was built specifically around the PCB layout and button placement, rather than adapting an off-the-shelf enclosure.</p>
+          </div>
+          <div class="article-card">
+            <h3>Operational model</h3>
+            <p>The system intentionally separated the emergency signal path from standard plant communications so that a WiFi outage or network congestion would not block the SOS trigger itself.</p>
           </div>
         </div>
       </section>
@@ -123,7 +137,10 @@
           <h2>Results and lessons</h2>
         </div>
         <p>
-          This concept illustrates how embedded communication can transform emergency response planning, especially where infrastructure is limited. It reinforces a larger engineering principle: safety systems are not only about the technology in the device, but also about building a dependable path from event detection to action in the least reliable conditions.
+          The single master–slave prototype pair was field-tested at both 1km and 10km separation, and the SOS signal was received reliably at both distances. That validation proved LoRa was a viable fallback channel in environments where standard network coverage could not be guaranteed. As a single-purpose, single-button device with its own radio link, it solved the exact failure mode it was designed to address: no WiFi outage or congestion event could take the emergency path down with it.
+        </p>
+        <p>
+          The project also showed discipline in scope management. Attendance tracking was a natural extension on the same hardware, but rather than half-building two features, the emergency capability was completed and tested before any future feature work was considered. That kept the product aligned with the real operational priority and avoided a diluted design.
         </p>
       </section>
 
@@ -134,16 +151,16 @@
         </div>
 
         <div class="article-gallery">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Long-range IoT device" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Emergency communication systems" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&q=80" alt="Connected embedded hardware" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          <img src="../assets/img/sos.jpeg" alt="SOS Alarm Master Device" />
+          <img src="../assets/img/sos2.jpg" alt="LoRa Module" />
+          <img src="../assets/img/sos3.jpeg" alt="SOS Alarm Slave Device" />
         </div>
       </section>
 
       <div class="article-footer-nav">
         <a href="vending-machine.html" class="project-nav project-nav--prev">
           <span>Previous</span>
-          <strong>Vending Machine</strong>
+          <strong>Automated Vending Machine</strong>
         </a>
 
         <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>

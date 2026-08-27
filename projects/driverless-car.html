@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Driverless Car | Azmat Hussain</title>
-    <meta name="description" content="Driverless Car project article and technical overview." />
+    <title>Autonomous Driverless Car | Azmat Hussain</title>
+    <meta
+      name="description"
+      content="Autonomous driverless car project at NCAI with RTK GNSS, LIDAR, tracking cameras, ROS integration, and a successful autonomous drive test in 2023–2024."
+    />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
@@ -17,16 +20,16 @@
 
       <div class="container article-hero">
         <p class="section__subtitle">Autonomous Systems</p>
-        <h1>Driverless Car</h1>
+        <h1>Autonomous Driverless Car</h1>
         <p class="lead">
-          A self-driving vehicle concept focused on perception, control, and decision-making workflows for autonomous navigation in constrained environments.
+          A 2023–2024 autonomous driving project transforming electric vehicles into perception-driven research platforms using RTK GNSS, LIDAR, tracking cameras, ROS, and a successful autonomous drive test.
         </p>
 
         <div class="article-meta">
-          <div><span>Role</span><strong>Systems Engineer</strong></div>
-          <div><span>Timeline</span><strong>2022</strong></div>
-          <div><span>Stack</span><strong>Robotics / Vision / Controls</strong></div>
-          <div><span>Outcome</span><strong>Autonomous prototype</strong></div>
+          <div><span>Role</span><strong>Autonomous Systems Engineer / Researcher</strong></div>
+          <div><span>Timeline</span><strong>2023–2024</strong></div>
+          <div><span>Stack</span><strong>ROS, GNSS, LIDAR, Intel T265, ZED 2i, EV platform</strong></div>
+          <div><span>Outcome</span><strong>Successful autonomous drive test</strong></div>
         </div>
 
         <div class="article-toc">
@@ -47,7 +50,10 @@
       <section class="article-block" id="overview">
         <div class="article-section-heading"><span class="section-tag">Overview</span><h2>Context</h2></div>
         <p>
-          Autonomous navigation requires a careful combination of signal processing, perception, and motion control. This project explored how those layers can come together in a compact experimental platform to reason about environment awareness and safe motion decisions.
+          This project began when two electric vehicles were delivered to NED University as the foundation for a research-driven autonomous driving platform. The goal was to transform them from conventional EVs into robotic testbeds capable of sensing the environment, localizing themselves, and executing controlled autonomous motion. The effort combined hardware integration, software pipeline setup, and iterative system testing to move from concept development toward real-world autonomous driving behavior.
+        </p>
+        <p>
+          The work was not only about adding sensors—it was about building a complete perception and navigation ecosystem. That meant understanding the vehicle specification, setting up charging and testing infrastructure, integrating state-of-the-art localization and sensing hardware, and validating the system through live motion tests. The outcome was a successful autonomous drive test, after which the project continued to evolve while the lead researcher later moved on from the role.
         </p>
       </section>
 
@@ -55,15 +61,18 @@
         <div>
           <div class="article-section-heading"><span class="section-tag">Challenge</span><h2>The problem</h2></div>
           <p>
-            The challenge was to reduce complexity into a functional autonomous driving stack: environment sensing, route understanding, and actuation logic that can move a vehicle in a controlled, repeatable way.
+            The core challenge was turning a regular electric vehicle into an autonomous platform with reliable perception and navigation. This required careful integration of GPS/RTK localization, inertial and visual tracking, 3D mapping sensors, steering actuation work, and robotics middleware for system coordination. The project also had to manage real-world constraints such as mounting stability, calibration quality, signal reliability, and safe vehicle operation in dynamic environments.
+          </p>
+          <p>
+            In addition to the technical complexity, the project involved a large coordination effort. A team of interns was brought in to help develop and refine the steering mechanism, while simultaneous work was underway on perception, mapping, and system validation. The challenge was not just to invent a system, but to make it robust enough to run in a real vehicle under real sensing and safety constraints.
           </p>
         </div>
         <aside class="article-aside">
           <h3>Project Snapshot</h3>
           <ul>
-            <li><strong>Domain:</strong> Autonomous vehicles</li>
-            <li><strong>Focus:</strong> Perception and motion control</li>
-            <li><strong>Impact:</strong> System-level prototyping</li>
+            <li><strong>Domain:</strong> Autonomous vehicles / research robotics</li>
+            <li><strong>Focus:</strong> Localization, perception, steering automation, ROS integration</li>
+            <li><strong>Outcome:</strong> Successful autonomous drive test completed in 2023–2024</li>
           </ul>
         </aside>
       </section>
@@ -71,31 +80,53 @@
       <section class="article-block" id="journey">
         <div class="article-section-heading"><span class="section-tag">Journey</span><h2>What was built</h2></div>
         <p>
-          The system combined sensor-driven understanding with practical control strategies to emulate autonomous behavior in a constrained environment. The emphasis was not only on technical feasibility but also on reducing the decision-making pipeline into something testable, understandable, and iterative.
+          The project began with procurement and initial setup: the vehicles were carefully unpacked, inspected, and studied for their mechanical and electrical characteristics. Once the basic setup was understood, work moved into vehicle preparation, charging station setup, and hardware calibration. From there, the project expanded into a multi-layer autonomous architecture that combined precise localization, environmental awareness, and actuation support.
+        </p>
+        <p>
+          The team focused heavily on autonomous steering development. Interns and collaborators worked on designing and refining mechanisms that could translate sensor feedback into steering motion, while the broader system integrated real-time positioning and situational awareness. The vehicle platform was then assembled around a ROS-based architecture used for sensor fusion, robot state monitoring, and data visualization in tools such as RViz.
+        </p>
+        <p>
+          This was an applied research effort rather than a purely academic exercise. The goal was to make real vehicles capable of autonomous driving in a practical laboratory environment and to establish a usable platform for future experimentation, testing, and expansion.
         </p>
       </section>
 
       <section class="article-block" id="architecture">
         <div class="article-section-heading"><span class="section-tag">Architecture</span><h2>System thinking</h2></div>
         <div class="article-grid two-col">
-          <div class="article-card"><h3>Perception</h3><p>Sensor integration and environment reading formed the foundation for autonomous decision-making.</p></div>
-          <div class="article-card"><h3>Control</h3><p>Applied motion logic translated perception into safe and deliberate vehicle behavior.</p></div>
+          <div class="article-card">
+            <h3>Localization</h3>
+            <p>Reach RS2+ multi-band RTK GNSS was used for vehicle localization, with ROS nodes configured to stream live GNSS data and verify positional accuracy through topic-level validation.</p>
+          </div>
+          <div class="article-card">
+            <h3>Perception</h3>
+            <p>Intel T265 tracking cameras and ZED 2i depth cameras were installed to provide visual and inertial perception, while LiDAR data was fused into the system for robust sensing of the local environment.</p>
+          </div>
+          <div class="article-card">
+            <h3>3D sensing</h3>
+            <p>RoboSense LiDAR was mounted on the vehicle roof and integrated into ROS, enabling real-time 3D awareness and environmental mapping while requiring careful calibration to account for vibration and placement effects.</p>
+          </div>
+          <div class="article-card">
+            <h3>Autonomy stack</h3>
+            <p>The software stack centered around ROS, where sensor streams and robot states were unified to support autonomous driving experiments, navigation logic, and visualization of the system in real time.</p>
+          </div>
         </div>
       </section>
 
       <section class="article-block" id="impact">
         <div class="article-section-heading"><span class="section-tag">Impact</span><h2>Results and lessons</h2></div>
         <p>
-          This project reinforced how autonomous systems are as much about system architecture and disciplined design as they are about raw hardware or algorithms. It became a practical study in making complex behavior manageable, reliable, and explainable.
+          The project demonstrated that autonomous driving is not just a software problem; it is a complete systems integration challenge that spans hardware procurement, mechanical mounting, calibration, sensor synchronization, and runtime validation. The successful autonomous drive test was a strong outcome, confirming that the platform could operate in a practical driving scenario rather than only in a simulated environment.
+        </p>
+        <p>
+          The broader lesson was that autonomy depends heavily on disciplined engineering: proper sensor placement, accurate calibration, robust mounting, consistent ROS integration, and iterative testing. These are exactly the kinds of issues that make research vehicles hard to build and hard to trust, but also the areas that define meaningful progress in autonomous systems. The project created a strong foundation for continued research, even though the work was later paused after the lead researcher moved on from the role.
         </p>
       </section>
 
       <section class="article-block" id="gallery">
         <div class="article-section-heading"><span class="section-tag">Gallery</span><h2>Visual documentation</h2></div>
         <div class="article-gallery">
-          <div class="gallery-placeholder">Add vehicle concept image</div>
-          <div class="gallery-placeholder">Add sensing setup</div>
-          <div class="gallery-placeholder">Add control flow diagram</div>
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwifmrQUFJ9PV8LStm00oftVDvTVrifbt0xBgHg3S1wRZAliUv9vq3wew4re5CxXsZvGZmYuQVGm_Gr8zQ2KEtR2vSjTawWGWv3wsUfyeA7eRxaq-y_WkC1FvslvqkxeKGxgDFND503t0Ewr1VD2zO-ufoGMz6JnBMPnkEu3EGo7Jly-pueDB8eeV5IfrM/s1280/work2.jpeg" alt="Driverless EV setup and autonomous research platform" />
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrFTVe2d8V9tbfxFoRuqatBwFRYbvYIgqBAjloPEiQKeKGkxe8PNG4C0rdjjOUPWYM-lFuKhaLkeuiLia-hjv5X0ee6-9zKdy1I7Jv8_1IWsSBJ3wm3cTmuGB7OBfqW0Adh4VeXR79AiD0fFkjn6XwKaVvRCwWgZ3k4ningl7P3i_1ZLDudf2f4yTbd9Z9/s1280/WhatsApp%20Image%202024-08-02%20at%201.20.50%20PM.jpeg" alt="ZED 2i perception setup" />
         </div>
       </section>
 

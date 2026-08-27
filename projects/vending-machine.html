@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vending Machine | Azmat Hussain</title>
+    <title>Automated Vending Machine | Azmat Hussain</title>
     <meta
       name="description"
-      content="Automated vending machine project article and design overview."
+      content="Group machine-design project combining mechanical fabrication, embedded control, and a barcode-based cashless vending flow built at Fab Lab Khairpur."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
@@ -19,28 +19,28 @@
       </div>
 
       <div class="container article-hero">
-        <p class="section__subtitle">Machine Design</p>
-        <h1>Vending Machine</h1>
+        <p class="section__subtitle">Machine Design · Fab Academy</p>
+        <h1>Automated Vending Machine</h1>
         <p class="lead">
-          A machine design project focused on automating product dispensing while adding a barcode-based, cashless purchase experience that fits real campus and retail usage.
+          A group machine-design project combining mechanical fabrication, embedded control, and an early cashless, barcode-based purchase flow built around SMS-linked mobile credit, designed and built at Fab Lab Khairpur.
         </p>
 
         <div class="article-meta">
           <div>
             <span>Role</span>
-            <strong>Machine Designer / Embedded Engineer</strong>
+            <strong>Embedded Programmer (team of 5)</strong>
           </div>
           <div>
             <span>Timeline</span>
-            <strong>2019</strong>
+            <strong>2019, Fab Academy</strong>
           </div>
           <div>
             <span>Stack</span>
-            <strong>Automation, LCD, motors</strong>
+            <strong>Arduino Leonardo, 360° servos, 16x2 LCD, HC-05 Bluetooth, barcode-to-SMS payment app</strong>
           </div>
           <div>
             <span>Outcome</span>
-            <strong>Smart product dispenser</strong>
+            <strong>Working 6-slot vending prototype</strong>
           </div>
         </div>
 
@@ -65,7 +65,7 @@
           <h2>Context</h2>
         </div>
         <p>
-          Vending machines are a classic example of how mechanical design, embedded control, and user experience can be combined into a highly practical system. This project set out to build an automated dispensing machine that could simplify transactions, reduce waiting time, and make the purchasing process more convenient in everyday settings like campuses, cafeterias, and high-traffic retail spaces.
+          The brief for this machine-design assignment was open-ended: build a machine that combined mechanism, actuation, and automation as a team, and document both the group build and each member's individual contribution. The team chose a vending machine because it forced CAD, CNC fabrication, electronics, programming, and mobile/wireless work to interlock rather than operate in isolation.
         </p>
       </section>
 
@@ -76,16 +76,16 @@
             <h2>The problem</h2>
           </div>
           <p>
-            The challenge was not just moving products automatically — it was integrating product selection, verification, automation logic, and user feedback into one coherent experience. The solution also needed to support payment flexibility, including barcode-based digital transactions, while remaining robust and easy to operate.
+            Beyond the mechanical challenge of six independent dispensing units, the team wanted to solve a genuine local pain point: cash-based vending is awkward in Pakistan. Customers often lack exact change, shopkeepers struggle to make change, and queues can become long in high-traffic settings like university cafeterias where a simple chocolate purchase should not take minutes. The machine needed a cashless purchase path without depending on card payment infrastructure unavailable in those settings.
           </p>
         </div>
 
         <aside class="article-aside">
           <h3>Project Snapshot</h3>
           <ul>
-            <li><strong>Use case:</strong> Campus and convenience retail</li>
-            <li><strong>Focus:</strong> Automation and interface logic</li>
-            <li><strong>Impact:</strong> Faster, cashless product access</li>
+            <li><strong>Fabrication:</strong> Laser-cut and MDF/CNC build</li>
+            <li><strong>Focus:</strong> Six-slot dispensing and barcode payment flow</li>
+            <li><strong>Impact:</strong> Proved a cashless, scan-to-dispense concept</li>
           </ul>
         </aside>
       </section>
@@ -96,7 +96,13 @@
           <h2>What was built</h2>
         </div>
         <p>
-          The system involved testing motors, integrating an LCD display, mapping signal and control logic, and connecting the dispensing mechanism to a barcode-driven product selection workflow. The project then evolved into a more complete solution where users could identify an item, validate the transaction, and trigger the vending sequence with minimal friction.
+          Work was split five ways: CAD modeling, CNC milling, electronics, programming, and the wireless/mobile application layer. The body went through two fabrication passes. First, a laser-cut 4mm cardboard prototype validated the CAD joints and press-fits. Then the final body was milled in 16mm laminated MDF on a ShopBot, with the front panel cut separately in acrylic.
+        </p>
+        <p>
+          Six 360° continuous servos — hand-converted from standard 180° servos because true continuous-rotation servos were not available in the lab — powered six dispensing slots. Product selection ran through a 16x2 LCD and an HC-05 Bluetooth module bridging into the mobile payment side of the system. Each product had its own vinyl-cut barcode. A customer used a phone app called Scan to Arduino to scan the item they wanted; the app sent the code to the machine over Bluetooth, which then dispensed the matching item and displayed confirmation and thank-you messages on the LCD.
+        </p>
+        <p>
+          Payment rode on a telecom-issued SIM-based prepaid credit flow through Jazz: users preloaded credit, each purchase deducted the item price, and confirmation arrived by SMS, eliminating the need for cash, card readers, or POS integration.
         </p>
       </section>
 
@@ -107,12 +113,20 @@
         </div>
         <div class="article-grid two-col">
           <div class="article-card">
-            <h3>Mechanical system</h3>
-            <p>The dispensing mechanism and product storage were designed to handle simple, reliable movement and controlled release of each item.</p>
+            <h3>Control board</h3>
+            <p>An Arduino Leonardo read incoming barcode-derived product codes over serial and drove the matching servo, LCD update, and dispensing sequence.</p>
           </div>
           <div class="article-card">
-            <h3>Control stack</h3>
-            <p>Embedded logic coordinated input validation, motor actuation, display feedback, and the barcode-based user interaction flow.</p>
+            <h3>Product logic</h3>
+            <p>The firmware mapped a small set of numeric codes to specific SKUs and triggered that slot's servo for a fixed duration before resetting and returning to an idle scrolling display.</p>
+          </div>
+          <div class="article-card">
+            <h3>Wireless bridge</h3>
+            <p>The HC-05 module received the scanned barcode value from the phone and passed it into the Leonardo's serial buffer, where it was parsed and matched against the product table.</p>
+          </div>
+          <div class="article-card">
+            <h3>Mechanical execution</h3>
+            <p>Each servo sat behind a dispensing slot, allowing one product to be released at a time while the machine remained compact and modular enough to iterate rapidly.</p>
           </div>
         </div>
       </section>
@@ -123,7 +137,10 @@
           <h2>Results and lessons</h2>
         </div>
         <p>
-          This vending machine project highlighted how a simple product dispensing concept can be transformed into a useful, user-centric automation platform with the right combination of mechanical design and embedded intelligence. It demonstrated that effective machine design often comes down to understanding the flow of user interaction, product logic, and reliability under real operating conditions.
+          The finished prototype dispensed products correctly against scanned barcodes and displayed live purchase confirmations, validating the core idea: a phone-scan-to-dispense flow riding on prepaid mobile credit, with no cash or card hardware required. The two-stage fabrication approach — cardboard proof followed by MDF/acrylic final — caught fit issues early and meant the CNC pass came out clean on the first attempt.
+        </p>
+        <p>
+          The project also reinforced the practical reality that constraints drive design. Converting hobby servos to continuous rotation, rather than sourcing different hardware, kept the six-slot design working within the lab's parts inventory. The team also noted real limits in the prototype: capacity was small, payment security was minimal, and large-scale deployment would require direct telecom cooperation. Those were realistic trade-offs for a concept prototype rather than a production rollout.
         </p>
       </section>
 
@@ -134,9 +151,9 @@
         </div>
 
         <div class="article-gallery">
-          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week16/IMG-20190521-WA0014.jpg" alt="Barcode-based vending item labels" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week16/lcd1.png" alt="Vending machine LCD display" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week16/5af8f9d4-8c4d-4d11-b42d-5025480a3ec8.jpg" alt="Vending machine product scanning concept" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week16/IMG-20190521-WA0014.jpg" alt="Automated vending machine front panel" />
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week16/lcd1.png" alt="Vending machine LCD display" />
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week16/5af8f9d4-8c4d-4d11-b42d-5025480a3ec8.jpg" alt="Barcode-based product scanning concept" />
         </div>
       </section>
 
@@ -150,7 +167,7 @@
 
         <a href="sos-emergency-alarm.html" class="project-nav project-nav--next">
           <span>Next</span>
-          <strong>SOS Alarm</strong>
+          <strong>LoRa SOS Alarm</strong>
         </a>
       </div>
     </main>

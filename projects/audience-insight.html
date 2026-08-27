@@ -6,7 +6,7 @@
     <title>Audience Insight | Azmat Hussain</title>
     <meta
       name="description"
-      content="Audience insight system for people counting, advertising engagement analysis, and real-time footfall monitoring."
+      content="Audience Insight project based on the TPL Trakker AI app for real-time people detection, face analysis, gender classification, and monitoring analytics."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
@@ -22,25 +22,25 @@
         <p class="section__subtitle">Smart Analytics</p>
         <h1>Audience Insight</h1>
         <p class="lead">
-          A people-counting and engagement monitoring concept designed to understand how many people notice or interact with advertisements in public-facing spaces.
+          A real-time computer-vision analytics app for human detection, face recognition, gender classification, and audience-tracking summaries designed to convert raw video streams into actionable presence and engagement intelligence.
         </p>
 
         <div class="article-meta">
           <div>
             <span>Role</span>
-            <strong>Computer Vision / Analytics Engineer</strong>
+            <strong>Computer Vision / AI Engineer</strong>
           </div>
           <div>
             <span>Timeline</span>
-            <strong>Analytics concept</strong>
+            <strong>Applied AI application</strong>
           </div>
           <div>
             <span>Stack</span>
-            <strong>Vision, sensing, analytics</strong>
+            <strong>Python, OpenCV, YOLOv8, ViT, Tkinter</strong>
           </div>
           <div>
             <span>Outcome</span>
-            <strong>Audience engagement insight</strong>
+            <strong>Live audience analytics dashboard</strong>
           </div>
         </div>
 
@@ -65,7 +65,10 @@
           <h2>Context</h2>
         </div>
         <p>
-          Advertisers and public spaces often need a clearer picture of how their content performs beyond impression counts. This project explored a system for measuring audience flow and engagement by counting people and identifying when they appear to look at or interact with an advertisement.
+          The TPL Trakker AI application was designed to transform live camera input into audience insight data. Instead of capturing only generic video, the system interpreted people flows and demographic cues in real time, producing meaningful measurements such as total counts, gaze indicators, and gender distribution. The goal was to support smarter analytics for environments where visitor attention and engagement matter, such as retail, events, and public-facing displays.
+        </p>
+        <p>
+          The application brings together detection, classification, and reporting in one workflow. It logs useful summaries over time and can present a user-friendly operational interface while retaining a strong technical backbone in computer vision and model inference.
         </p>
       </section>
 
@@ -76,16 +79,19 @@
             <h2>The problem</h2>
           </div>
           <p>
-            Traditional audience metrics can be limited, especially when the goal is to understand real attention rather than just occupancy. The challenge was designing a monitoring system that could infer pass-through behavior, estimate counts, and provide meaningful engagement cues from a practical sensing setup.
+            The real challenge was building an analytics workflow that could operate in real time while remaining practical to run and monitor. The system had to detect human presence, classify faces, estimate whether a person was looking toward the camera, and store the results in a structured way. On top of that, it needed a GUI for easy control and a logging system for hourly and final summaries.
+          </p>
+          <p>
+            This required balancing detection reliability, model performance, and usability. The app needed to run as a usable product rather than just a research experiment, so it included a user interface, persistent logging, and a re-login model that enforced periodic access checks.
           </p>
         </div>
 
         <aside class="article-aside">
           <h3>Project Snapshot</h3>
           <ul>
-            <li><strong>Domain:</strong> Digital analytics</li>
-            <li><strong>Focus:</strong> Footfall and attention analysis</li>
-            <li><strong>Impact:</strong> Better ad-effectiveness insights</li>
+            <li><strong>Domain:</strong> Computer vision analytics</li>
+            <li><strong>Focus:</strong> Real-time detection, face analysis, reporting</li>
+            <li><strong>Impact:</strong> Automated audience and engagement metrics</li>
           </ul>
         </aside>
       </section>
@@ -96,7 +102,10 @@
           <h2>What was built</h2>
         </div>
         <p>
-          The concept centered on vision-based observation for counting people as they passed through a monitored area and assessing whether they engaged with an advertisement display. By combining detection with attention heuristics, it created a more informative way to understand how people respond to media in public environments.
+          The application was built around a layered detection pipeline. Human detection was performed using YOLOv8, which identified people in the video frame and localized them with confidence scores. For face-related analysis, the system used OpenCV Haar Cascade and then classified gender using a Vision Transformer (ViT) model from Hugging Face. This made the app capable of combining object detection with identity-aware analysis in real time.
+        </p>
+        <p>
+          The project also included a monitoring layer that stored CSV logs, accumulated hourly summaries, and created final session reports at the end of a run. A Tkinter-based GUI allowed the operator to start and stop detection cleanly while keeping the process responsive. The ability to require login every 30 days added a simple access-control layer appropriate for a working application.
         </p>
       </section>
 
@@ -107,12 +116,20 @@
         </div>
         <div class="article-grid two-col">
           <div class="article-card">
-            <h3>People detection</h3>
-            <p>The vision layer estimates footfall and tracks movement patterns in the monitored zone.</p>
+            <h3>Video intelligence</h3>
+            <p>The system used computer vision models to detect people in the frame and locate faces for further analysis, turning live footage into structured analytics.</p>
           </div>
           <div class="article-card">
-            <h3>Engagement analysis</h3>
-            <p>Behavior cues and dwell-time indicators help interpret whether a billboard or display captured attention.</p>
+            <h3>Classification and logging</h3>
+            <p>Face crops were processed for gender classification while the app logged hourly counts, summaries, and event-level outputs to CSV files for later review.</p>
+          </div>
+          <div class="article-card">
+            <h3>Operational interface</h3>
+            <p>TKinter provided a simple front-end for start/stop control, while the detection logic ran in a dedicated thread to keep the interface responsive during processing.</p>
+          </div>
+          <div class="article-card">
+            <h3>Reporting</h3>
+            <p>Outputs were summarized into per-hour and end-of-session reports so the system could support analysis beyond raw frame-level observation.</p>
           </div>
         </div>
       </section>
@@ -123,7 +140,10 @@
           <h2>Results and lessons</h2>
         </div>
         <p>
-          This project demonstrates how perception-based analytics can go beyond simple counting and provide richer decision support for marketing and public-space design. It reflects a broader engineering principle: when sensing systems are designed around human behavior, they can reveal insights that basic occupancy metrics alone cannot capture.
+          The project shows how a practical AI application can move beyond experimentation and become a monitoring tool. It converts passive video streams into active insight: people counts, gender distribution, attendance trends, and attention-oriented metrics. This is especially valuable in public spaces, storefronts, and presentation environments where understanding audience response can inform more effective decisions.
+        </p>
+        <p>
+          The larger takeaway is that impactful AI systems are not only about model performance — they also depend on data handling, usability, and a clear reporting layer. TPL Trakker AI demonstrates this well: the technical pipeline does the inference, but the application value comes from turning that inference into useful, structured operational knowledge.
         </p>
       </section>
 
@@ -134,9 +154,9 @@
         </div>
 
         <div class="article-gallery">
-          <img src="../assets/img/cv.jpeg" alt="Audience insight analytics" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="../assets/img/cv2.png" alt="Person detection and safety monitoring in the field" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Data analysis dashboard" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          <img src="../assets/img/cv.jpeg" alt="Audience insight analytics dashboard" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          <img src="../assets/img/cv2.png" alt="Person detection and tracking in the field" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          
         </div>
       </section>
 

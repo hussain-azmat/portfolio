@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maze Solver Robot Simulation | Azmat Hussain</title>
+    <title>Maze Solver Robot | Azmat Hussain</title>
     <meta
       name="description"
-      content="Maze solver robot simulation developed in CoppeliaSim for a customer project in 2026."
+      content="CoppeliaSim-based autonomous maze-solving rover that explores an unknown grid, maps reachable cells, and traverses the maze without crossing boundary exits."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
@@ -19,28 +19,28 @@
       </div>
 
       <div class="container article-hero">
-        <p class="section__subtitle">Simulation + Robotics</p>
-        <h1>Maze Solver Robot Simulation</h1>
+        <p class="section__subtitle">Robotics / Simulation</p>
+        <h1>Maze Solver Robot</h1>
         <p class="lead">
-          A maze-solving robot simulation implemented in CoppeliaSim for a customer project, focused on autonomous path planning and navigation behavior in a constrained environment.
+          A CoppeliaSim-based autonomous navigation and mapping project built around the JPL Open Source Rover, designed to explore an unknown maze, map each visited cell, and fully traverse the environment without leaving the maze boundary.
         </p>
 
         <div class="article-meta">
           <div>
             <span>Role</span>
-            <strong>Robotics Simulation Engineer</strong>
+            <strong>Robotics Software Developer</strong>
           </div>
           <div>
             <span>Timeline</span>
-            <strong>2026</strong>
+            <strong>Simulation project</strong>
           </div>
           <div>
             <span>Stack</span>
-            <strong>CoppeliaSim, robotics, control</strong>
+            <strong>CoppeliaSim, Python, Bullet physics, Ackermann kinematics</strong>
           </div>
           <div>
             <span>Outcome</span>
-            <strong>Autonomous navigation simulation</strong>
+            <strong>Full maze traversal + 2D map export</strong>
           </div>
         </div>
 
@@ -65,7 +65,10 @@
           <h2>Context</h2>
         </div>
         <p>
-          This project was developed for a customer in 2026 and focused on simulating a robot that could explore a maze and determine a path to the goal. The work centered on autonomous navigation logic, environment interaction, and validating how control strategies behave in a constrained virtual world.
+          The project set out to answer a deceptively simple question: could a wheeled planetary rover, dropped into the center of an unmapped 15×15 grid maze, drive itself out while building a complete and accurate map of every traversed cell? Rather than simplifying the system into a differential-drive platform, the build used a full simulated model of the JPL Open Source Rover, a six-wheeled, four-steerable-joint rocker-bogie platform that introduced realistic vehicle kinematics, wheel slip, and collision behavior into the navigation problem.
+        </p>
+        <p>
+          The simulation ran in CoppeliaSim Edu using the Bullet 2.78 physics engine inside a 15m × 15m maze built from 1m × 1m cells with 0.1m walls. The maze contained no unreachable pockets, but there were open exits along its outer boundary that the rover had to learn to identify and treat as forbidden; otherwise, the robot could confuse them with ordinary corridors and leave the maze prematurely.
         </p>
       </section>
 
@@ -76,16 +79,19 @@
             <h2>The problem</h2>
           </div>
           <p>
-            A maze-solving robot must balance sensing, decision-making, and motion control under uncertain conditions. The challenge was building a robust simulation environment where the robot could reason about walls, turns, and goal detection while preserving a clear and testable control strategy.
+            There were two interconnected challenges. First, the rover had to navigate continuously through the maze without leaving it, using realistic vehicle motion rather than pivoting in place. This meant implementing true Ackermann steering geometry, computing different inner and outer wheel angles and speeds for each turn, and converting linear velocity commands into the correct angular velocity of each of the six independently driven wheels.
+          </p>
+          <p>
+            Second, the system needed to map the maze as it explored it, visiting every reachable cell and recording each cell's grid position, position in meters relative to the maze center, and which sides were open or walled. Repeated readings of the same cell needed to be merged to cancel out sensor noise and produce a reliable map instead of a noisy grid.
           </p>
         </div>
 
         <aside class="article-aside">
           <h3>Project Snapshot</h3>
           <ul>
-            <li><strong>Client:</strong> Customer project</li>
-            <li><strong>Focus:</strong> Autonomous maze navigation</li>
-            <li><strong>Impact:</strong> Validated navigation logic in simulation</li>
+            <li><strong>Platform:</strong> CoppeliaSim, Bullet physics</li>
+            <li><strong>Focus:</strong> Autonomous maze exploration and mapping</li>
+            <li><strong>Impact:</strong> Full traversal with exported 2D map</li>
           </ul>
         </aside>
       </section>
@@ -96,7 +102,16 @@
           <h2>What was built</h2>
         </div>
         <p>
-          The project used CoppeliaSim to model the robot and the maze environment, then tested motion and logic strategies in a controlled simulation. This allowed rapid iteration on pathfinding behavior and design adjustments before translating the concept into a physical or more advanced implementation.
+          The rover carried a single Hokuyo URG-04LX-UG01 laser rangefinder on a rotating joint, sweeping a 240° arc to read distance in three directions — left, front, and right — at each decision point. A four-state machine managed the full system behavior:
+        </p>
+        <ul>
+          <li><strong>FORWARD:</strong> cruises at 0.50 m/s, reads the laser every cycle, and slows to 40% speed as a wall approaches.</li>
+          <li><strong>BACKUP:</strong> reverses at 0.25 m/s to safe clearance before a fresh scan.</li>
+          <li><strong>TURN_ACK:</strong> executes a 90° Ackermann turn using precomputed inner and outer steering angles, tracked through a low-pass-filtered yaw estimate.</li>
+          <li><strong>SPIN_180:</strong> performs an in-place counter-clockwise spin reserved for true dead ends.</li>
+        </ul>
+        <p>
+          At every junction, the rover evaluated left, straight, right, and back in that priority order and selected the direction leading to the least-visited neighboring cell. This made the robot actively steer toward unexplored territory rather than simply following a wall. A tried[] list at each junction prevented repeated failed attempts, and the state reset cleanly once the rover physically advanced into a new cell.
         </p>
       </section>
 
@@ -107,12 +122,20 @@
         </div>
         <div class="article-grid two-col">
           <div class="article-card">
-            <h3>Environment model</h3>
-            <p>The maze environment was defined to capture real constraints, including walls, turns, and goal locations that influence navigation decisions.</p>
+            <h3>Sensing and fallback</h3>
+            <p>The sensing pipeline used a three-tier fallback approach: reading the laser via string signal, point cloud, or joint rotation plus proximity sensor, whichever the simulation environment supported. This protected the rover from single-API failures and improved robustness under changing runtime conditions.</p>
           </div>
           <div class="article-card">
-            <h3>Control strategy</h3>
-            <p>Robot logic and movement behavior were tuned to explore the maze reliably and complete a route to the target through iterative sensing and correction.</p>
+            <h3>Kinematics and navigation</h3>
+            <p>True Ackermann steering was computed using physical geometry values including track width, wheelbase, and wheel radius. The turning radius and backup clearance were tuned to allow rotation within a 1m corridor while keeping wheels rolling without excessive slipping.</p>
+          </div>
+          <div class="article-card">
+            <h3>Cell classification</h3>
+            <p>Laser readings under ~1.10m were treated as walls, readings between ~1.10m and 4.50m were considered open corridor, and readings at or beyond 4.50m were treated as maze exits and explicitly excluded from the map. This prevented the rover from mistaking the boundary for a traversable corridor.</p>
+          </div>
+          <div class="article-card">
+            <h3>Mapping logic</h3>
+            <p>Every visit to a cell merged newly read openings with prior readings, allowing the system to avoid false walls or false openings from noisy single scans and preserve a stable map.</p>
           </div>
         </div>
       </section>
@@ -123,7 +146,10 @@
           <h2>Results and lessons</h2>
         </div>
         <p>
-          This project demonstrates how simulation is a powerful tool for validating robotics logic before deployment. It highlights the value of testing autonomy in a controlled environment, where algorithmic decisions can be refined quickly and used to support more robust physical implementation later.
+          The rover successfully traversed the full maze and produced a complete cell-by-cell map, including a rendered grid view and a diagnostic printout, while never crossing an open boundary exit. The work exposed several realistic simulation issues: a laser API that did not exist in the installed CoppeliaSim version, junction logic that could trap the rover in infinite loops, exit readings being misclassified as open corridor data, and Ackermann turns clipping walls until the turning radius and backup clearance were retuned.
+        </p>
+        <p>
+          The broader lesson was that autonomous navigation engineering is rarely about a single headline algorithm. A large share of the real effort lives in sensing robustness, state transitions, edge-case handling, and making the system resilient to API quirks, sensor noise, and repeated junction encounters. The project therefore became a strong demonstration of disciplined system design rather than just maze traversal.
         </p>
       </section>
 
@@ -134,9 +160,9 @@
         </div>
 
         <div class="article-gallery">
-          <img src="../assets/img/maze_rover1.png" alt="Maze solver robot in simulation" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="../assets/img/maze_rover2.png" alt="Maze rover simulation screenshot" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="../assets/img/maze_rover3.png" alt="Autonomous robot and path planning" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          <img src="../assets/img/maze_rover1.png" alt="Maze solver robot in CoppeliaSim" />
+          <img src="../assets/img/maze_rover2.png" alt="Maze rover simulation screenshot" />
+          <img src="../assets/img/maze_rover3.png" alt="Generated maze map and rover path" />
         </div>
       </section>
 
@@ -150,7 +176,7 @@
 
         <a href="sos-emergency-alarm.html" class="project-nav project-nav--next">
           <span>Next</span>
-          <strong>SOS Alarm</strong>
+          <strong>LoRa SOS Alarm</strong>
         </a>
       </div>
     </main>

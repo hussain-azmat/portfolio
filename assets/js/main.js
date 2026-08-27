@@ -122,9 +122,9 @@ const projectArticleMap = {
   "Jazari - The Robot": "projects/jazari-the-robot.html",
   "Weeding Robot": "projects/weeding-machine.html",
   "RVM": "projects/rvm.html",
-  "Kinetic Display": "projects/kinetic-display.html",
+  "Motion Display": "projects/kinetic-display.html",
   "Smart Energy Meter": "projects/energy-meter.html",
-  "Embedded Systems Thesis": "projects/ms-thesis.html",
+  "GPS-Denied Navigation": "projects/ms-thesis.html",
   "Leonardo General Purpose Board": "projects/leonardo-board.html",
   "LoRa SOS Alarm System": "projects/sos-emergency-alarm.html",
   "Pest Detection in Agricultural Field": "projects/pest-detection.html",
@@ -136,7 +136,7 @@ const projectArticleMap = {
 const projectPublicationMap = {
   "Weeding Robot": "https://www.mdpi.com/2075-1702/11/2/287",
   "RVM": "https://www.mdpi.com/2313-4321/7/5/70",
-  "Embedded Systems Thesis": "projects/ms-thesis.html",
+  "GPS-Denied Navigation": "projects/ms-thesis.html",
 };
 
 const workCards = document.querySelectorAll(".work__card");

@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RVM | Azmat Hussain</title>
-    <meta name="description" content="RVM project article and technical overview." />
+    <title>Reverse Vending Machine (RVM) System | Azmat Hussain</title>
+    <meta
+      name="description"
+      content="Low-cost deep-learning-based reverse vending machine combining embedded control, image classification, mechanical sorting, and a reward system for plastic bottle recycling."
+    />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
@@ -16,17 +19,29 @@
       </div>
 
       <div class="container article-hero">
-        <p class="section__subtitle">Embedded Systems</p>
-        <h1>RVM</h1>
+        <p class="section__subtitle">IoT / Deep Learning · Published Research</p>
+        <h1>Reverse Vending Machine (RVM) System</h1>
         <p class="lead">
-          A research-driven embedded platform that explored the practical intersection of automation, sensing, and iterative system design in a real operating context.
+          An incentive-based, deep-learning-powered reverse vending machine that identifies, sorts, and rewards the return of used plastic bottles, built as a low-cost, locally fabricated alternative to imported systems costing tens of thousands of dollars.
         </p>
 
         <div class="article-meta">
-          <div><span>Role</span><strong>Systems & Embedded Engineer</strong></div>
-          <div><span>Timeline</span><strong>2022</strong></div>
-          <div><span>Stack</span><strong>Embedded / IoT / Analysis</strong></div>
-          <div><span>Outcome</span><strong>Prototype system</strong></div>
+          <div>
+            <span>Role</span>
+            <strong>Embedded/IoT Engineer, NCAI Smart City Lab</strong>
+          </div>
+          <div>
+            <span>Timeline</span>
+            <strong>Two hardware iterations, deployed and field validated in 2022</strong>
+          </div>
+          <div>
+            <span>Stack</span>
+            <strong>Edge computing device, ESP32, MobileNet transfer learning, Firebase, TCP/JSON</strong>
+          </div>
+          <div>
+            <span>Outcome</span>
+            <strong>Peer-reviewed publication; 650kg+ plastic collected</strong>
+          </div>
         </div>
 
         <div class="article-toc">
@@ -45,71 +60,117 @@
 
     <main class="container article-content">
       <section class="article-block" id="overview">
-        <div class="article-section-heading"><span class="section-tag">Overview</span><h2>Context</h2></div>
+        <div class="article-section-heading">
+          <span class="section-tag">Overview</span>
+          <h2>Context</h2>
+        </div>
         <p>
-          Embedded systems often need to balance signal quality, hardware constraints, and real-world reliability. This project focused on creating a practical platform where those concerns could be studied in a compact, testable implementation.
+          Plastic bottle waste in Pakistan is largely unmanaged. Without a domestic recycling infrastructure, bottles are often burned, dumped, or informally resold by individual workers. Reverse vending machines are a proven way to incentivize public recycling elsewhere in the world, but the commercial options — typically using IR spectroscopy or barcode readers — run between $1,800 and $25,000, far beyond the reach of local deployment at scale. The goal was to build an end-to-end RVM with hardware, bottle-recognition intelligence, and a reward system designed for a Pakistani installation context.
+        </p>
+        <p>
+          The publication, <a href="https://www.mdpi.com/2313-4321/7/5/70" target="_blank" rel="noreferrer">Plastic Waste Management through the Development of a Low Cost and Light Weight Deep Learning Based Reverse Vending Machine</a>, was published in Recycling in 2022.
         </p>
       </section>
 
       <section class="article-block split-layout" id="challenge">
         <div>
-          <div class="article-section-heading"><span class="section-tag">Challenge</span><h2>The problem</h2></div>
+          <div class="article-section-heading">
+            <span class="section-tag">Challenge</span>
+            <h2>The problem</h2>
+          </div>
           <p>
-            The core challenge was designing a system that could collect meaningful data and support ongoing evaluation without sacrificing reliability or clarity in operation.
+            Object recognition had to work reliably on cheap, low-power compute instead of cloud GPUs, while still handling real-world bottle variation: different sizes, colors, crushed or deformed shapes, and reflections from plastic that confuse simpler classifiers. On the mechanical side, the machine needed to survive outdoor deployment in rain, dust, and temperature swings, sort bottles by size without human intervention, and track a reward balance per user without proprietary payment hardware.
           </p>
         </div>
+
         <aside class="article-aside">
           <h3>Project Snapshot</h3>
           <ul>
-            <li><strong>Domain:</strong> Embedded intelligence</li>
-            <li><strong>Focus:</strong> System logic and sensing</li>
-            <li><strong>Impact:</strong> Research and prototype validation</li>
+            <li><strong>Deployment:</strong> University campus in Karachi</li>
+            <li><strong>Focus:</strong> Bottle recognition, sorting, and reward automation</li>
+            <li><strong>Impact:</strong> 650kg+ recycled plastics and published validation</li>
           </ul>
         </aside>
       </section>
 
       <section class="article-block" id="journey">
-        <div class="article-section-heading"><span class="section-tag">Journey</span><h2>What was built</h2></div>
+        <div class="article-section-heading">
+          <span class="section-tag">Journey</span>
+          <h2>What was built</h2>
+        </div>
         <p>
-          The project followed an iterative design process, starting from the functional requirements and evolving into a working prototype. The emphasis was on learning as the system matured, validating assumptions, and improving the implementation with each stage.
+          Two full machine versions were built. The first was bulky, expensive, and indoor-only. The second — the version documented in the publication — was smaller, more accurate, and rated for outdoor operation, moving from IR to ultrasonic proximity sensing because IR was unreliable in dust, smoke, and mist, and rebuilding the enclosure in metal so electronics remained protected during heavy rain.
+        </p>
+        <p>
+          The interaction flow was practical and user-centered. Capacitive proximity sensors at the intake triggered a camera to capture images of the inserted object. These images were classified on an edge computing device using a locally trained deep learning model. Non-bottles were rejected back to the user, recognized bottles were classified by size, moved by a custom mechanical arm to a load-cell weighing platform, and logged against the user's account in Firebase once they entered their details on a keypad. Reward points were then accumulated before the arm dropped the bottle into the correct bin. A separate check continuously monitored bin fill level and emailed the site manager automatically when a bin became full.
+        </p>
+        <p>
+          The classification dataset was collected from scratch: nearly 11,000 images captured by a camera mounted inside the machine itself, covering large bottles, small bottles, and a wide non-bottle category including cups, paper, and wrappers under varying conditions such as with and without caps, labels, and deformations.
         </p>
       </section>
 
       <section class="article-block" id="architecture">
-        <div class="article-section-heading"><span class="section-tag">Architecture</span><h2>System thinking</h2></div>
+        <div class="article-section-heading">
+          <span class="section-tag">Architecture</span>
+          <h2>System thinking</h2>
+        </div>
         <div class="article-grid two-col">
-          <div class="article-card"><h3>Sensing layer</h3><p>Environmental and operational inputs were designed to provide useful data for validation and decision support.</p></div>
-          <div class="article-card"><h3>Decision layer</h3><p>Processing and control logic translated measured information into actionable system behavior.</p></div>
+          <div class="article-card">
+            <h3>Compute split</h3>
+            <p>An ESP32 acted as a secondary controller, reading the keypad, proximity sensors, and load cell over GPIO and sending data to the edge device as JSON over TCP. The edge device itself ran the TensorFlow Lite model and handled cloud/database communication.</p>
+          </div>
+          <div class="article-card">
+            <h3>Model selection</h3>
+            <p>MobileNetV2, ResNet50, and InceptionV3 were benchmarked using transfer learning on the custom bottle dataset. MobileNet performed best on the key embedded metrics, with the highest validation accuracy and only a fraction of the model size.</p>
+          </div>
+          <div class="article-card">
+            <h3>Mechanical design</h3>
+            <p>The enclosure was fabricated in metal and built around a conveyor belt feeding two size-based weighing and sorting stations. The design prioritized outdoor durability and low-cost fabrication over premium industrial packaging.</p>
+          </div>
+          <div class="article-card">
+            <h3>Database and reward logic</h3>
+            <p>Firebase stored user activity and reward balances while the machine kept an operational record of bottle counts, estimated weight, and bin status, making the system more useful as a recycling platform than a standalone prototype.</p>
+          </div>
         </div>
       </section>
 
       <section class="article-block" id="impact">
-        <div class="article-section-heading"><span class="section-tag">Impact</span><h2>Results and lessons</h2></div>
+        <div class="article-section-heading">
+          <span class="section-tag">Impact</span>
+          <h2>Results and lessons</h2>
+        </div>
         <p>
-          RVM showed how embedded systems are often most effective when designed around clarity, maintainability, and a strong understanding of the problem domain. The value came not only from the system itself but from the structured learning process behind it.
+          The MobileNet-based classification system reached 99.2% test accuracy and 99.6% validation accuracy, outperforming larger reference models while keeping deployment practical on low-power hardware. Yet whole-machine validation showed an important truth: a strong model alone was not enough. Early testing showed a 29% real-world misclassification rate, mostly caused by poor internal lighting and camera mounting angle distortion. Correcting the camera posture without changing the model cut the error rate by more than half to 13%, highlighting how installation details and physical system design can strongly affect deployed vision performance.
+        </p>
+        <p>
+          Across two machine versions, the system collected more than 650kg of plastic over more than six months at an estimated build cost below $750 per unit — far lower than the $1,800–$25,000 range of comparable commercial systems. Remaining limitations were candidly documented: a jerky, noisy conveyor motor as a cost trade-off and the significant transport weight of the metal enclosure built for outdoor reliability. The project demonstrated that a low-cost inference pipeline can be combined with a strong user incentive model to create a meaningful recycling intervention rather than just a technical experiment.
         </p>
       </section>
 
       <section class="article-block" id="gallery">
-        <div class="article-section-heading"><span class="section-tag">Gallery</span><h2>Visual documentation</h2></div>
+        <div class="article-section-heading">
+          <span class="section-tag">Gallery</span>
+          <h2>Visual documentation</h2>
+        </div>
+
         <div class="article-gallery">
-          <div class="gallery-placeholder">Add hardware image</div>
-          <div class="gallery-placeholder">Add block diagram</div>
-          <div class="gallery-placeholder">Add validation photo</div>
+          <img src="../assets/img/work5.png" alt="RVM" />
+          <img src="https://www.mdpi.com/recycling/recycling-07-00070/article_deploy/html/images/recycling-07-00070-g003.png" alt="RVM2" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />          
+          <img src="https://www.mdpi.com/recycling/recycling-07-00070/article_deploy/html/images/recycling-07-00070-g004.png" alt="LoRa Module" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
         </div>
       </section>
 
       <div class="article-footer-nav">
         <a href="weeding-machine.html" class="project-nav project-nav--prev">
           <span>Previous</span>
-          <strong>Weeding Machine</strong>
+          <strong>Weeding Robot</strong>
         </a>
 
         <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
 
         <a href="kinetic-display.html" class="project-nav project-nav--next">
           <span>Next</span>
-          <strong>Kinetic Display</strong>
+          <strong>Motion Display</strong>
         </a>
       </div>
     </main>

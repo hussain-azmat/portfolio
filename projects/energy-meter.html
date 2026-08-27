@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Energy Meter | Azmat Hussain</title>
+    <title>Smart IoT Based Energy Meter | Azmat Hussain</title>
     <meta
       name="description"
-      content="Smart IoT energy meter project article and technical case study."
+      content="Smart IoT based energy meter built around the ADE7757 metering IC, ESP8266 communication, and a local web dashboard for real-time power and energy monitoring."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
@@ -20,10 +20,9 @@
 
       <div class="container article-hero">
         <p class="section__subtitle">Embedded Systems + IoT</p>
-        <h1>Smart IoT Energy Meter</h1>
+        <h1>Smart IoT Based Energy Meter</h1>
         <p class="lead">
-          A smart metering concept designed to monitor energy usage in real time, improve billing transparency,
-          and make consumption patterns visible to both users and suppliers.
+          A smart metering device designed to measure electrical power and energy consumption in real time, update usage every second on a web interface, and help users and suppliers monitor consumption with greater transparency, accountability, and control.
         </p>
 
         <div class="article-meta">
@@ -37,11 +36,11 @@
           </div>
           <div>
             <span>Stack</span>
-            <strong>PCB, ADE7757, ESP8266</strong>
+            <strong>ADE7757, ESP8266, PCB design, LCD, web dashboard</strong>
           </div>
           <div>
             <span>Outcome</span>
-            <strong>Real-time smart meter</strong>
+            <strong>Functional smart energy meter prototype</strong>
           </div>
         </div>
 
@@ -66,7 +65,10 @@
           <h2>Context</h2>
         </div>
         <p>
-          Electricity consumption is often invisible to the end user until the bill arrives. This project explored a practical way to improve visibility by designing a smart energy monitoring system that could quantify usage in real time and expose the data through a web-connected interface. The result was a system intended to reduce energy waste, improve accountability, and support more transparent utility interaction.
+          The central idea behind this project was simple but highly practical: give people real visibility into power and energy consumption instead of leaving them to discover usage only when a bill arrives. The system was designed to measure electrical energy in real time and publish the current consumption to a web server, allowing both the end user and the utility provider to see live readings. That makes it useful for homes, rooms, or even individual appliances such as air conditioners, irons, or electric heaters.
+        </p>
+        <p>
+          In a setting where energy misuse, inaccurate billing, and load-shedding pressures are common concerns, a smart meter becomes more than a measurement device — it becomes a tool for accountability. By making energy consumption visible and easy to interpret, the system encourages more conscious usage and supports fairer billing correction workflows.
         </p>
       </section>
 
@@ -77,16 +79,19 @@
             <h2>The problem</h2>
           </div>
           <p>
-            The challenge was to design a compact and affordable energy sensing platform that could measure voltage and current accurately, convert that data into usable power and energy values, and communicate the result wirelessly. This had to be done while keeping the board practical to fabricate and robust enough for real household or appliance-level monitoring.
+            The challenge was to build a compact, low-cost, and reliable energy monitoring platform that could measure voltage and current accurately and convert those signals into usable power and energy values. That required careful attention to signal conditioning, safe AC interfacing, calibration, and the decision of how to communicate the results without adding unnecessary complexity.
+          </p>
+          <p>
+            On the implementation side, the project also needed to balance affordability with industrial-grade measurement quality. The design had to be easy to fabricate, robust enough for real loads, and practical enough to display both local readings and remote values through a web-connected interface. The final solution needed to work not just in simulation, but in a hardware system that could actually read energy use from a live single-phase supply.
           </p>
         </div>
 
         <aside class="article-aside">
           <h3>Project Snapshot</h3>
           <ul>
-            <li><strong>Industry:</strong> Smart energy</li>
-            <li><strong>Focus:</strong> Real-time monitoring and wireless reporting</li>
-            <li><strong>Impact:</strong> Better consumer awareness and billing transparency</li>
+            <li><strong>Application:</strong> Smart home and appliance-level monitoring</li>
+            <li><strong>Focus:</strong> Real-time measurement, calibration, and wireless reporting</li>
+            <li><strong>Impact:</strong> Better billing transparency and reduced misuse of electricity</li>
           </ul>
         </aside>
       </section>
@@ -97,7 +102,13 @@
           <h2>What was built</h2>
         </div>
         <p>
-          The design journey started with the ADE7757 energy metering IC, selected for its precision and suitability for single-phase energy measurement. From there, the work progressed into PCB design, component selection, signal conditioning, calibration, and firmware development for power and energy computation. The final system was intended to present values to the user through an LCD display and a web-based interface connected through an ESP8266 module.
+          The project began with the ADE7757 energy metering IC, chosen because it is designed for high-accuracy single-phase energy measurement and includes a built-in oscillator, on-chip power monitoring, and digital outputs that make it suitable for embedded metering applications. The ADE7757 provides average real power on the low-frequency outputs F1 and F2 and a high-frequency CF output intended for calibration and instantaneous power measurement.
+        </p>
+        <p>
+          The design then advanced into a complete embedded system: PCB design in EAGLE, component placement, milling, soldering, calibration, firmware integration, and 3D enclosure fabrication. The project included a voltage channel, a current channel, a shunt resistor-based sensing path, and a connection to an ESP8266 module for wireless communication. The meter also included an LCD display so local readings were visible without needing a connected device, and the web interface made remote observation possible if the device was connected to WiFi.
+        </p>
+        <p>
+          Programming involved reading the pulse output from the energy meter IC and converting pulse frequency into power and energy values. This was done with interrupt-based counting on the microcontroller, with the pulse width changing as the load changed. The idea was to correlate the pulse output with load level: when the load was low, pulse width was longer; as the load increased, pulse frequency also changed in a predictable way, enabling power and energy to be computed from the pulse stream.
         </p>
       </section>
 
@@ -108,12 +119,20 @@
         </div>
         <div class="article-grid two-col">
           <div class="article-card">
-            <h3>Hardware</h3>
-            <p>Energy measurement was handled by a dedicated metering IC, with support circuitry for sensing current and voltage, signal integrity, PCB routing, and 3D-printed enclosure integration.</p>
+            <h3>Measurement front end</h3>
+            <p>The ADE7757 formed the core metering stage. The voltage and current channels were designed to sense the live AC signal and shunt voltage drop, while the IC processed them into calibrated power-related output pulses. This output made the low-level signal conversion practical for an MCU to interpret.</p>
           </div>
           <div class="article-card">
-            <h3>Software</h3>
-            <p>Firmware converted pulse data into power and energy readings, while the connected interface exposed live values for monitoring and analysis over a local or web-based dashboard.</p>
+            <h3>Microcontroller and interfaces</h3>
+            <p>The ESP8266 used the meter output as an interrupt-driven signal source. It processed the pulse counts, calculated power and total energy, and exposed the results on a local display and web server. The digital interface was therefore doing both measurement and communication tasks.</p>
+          </div>
+          <div class="article-card">
+            <h3>PCB and fabrication</h3>
+            <p>The board was designed and milled in-house using CAD and digital fabrication workflows. The project demonstrated the full chain: schematic development, PCB routing, trace milling, drilling, soldering, and final assembly of the breakout board and enclosure.</p>
+          </div>
+          <div class="article-card">
+            <h3>Web and user interaction</h3>
+            <p>Once the hardware was functional, a simple web page was added so the measured power and energy values could be displayed over WiFi. This made the device practical not just as a standalone meter, but as a connected monitoring platform for users and suppliers.</p>
           </div>
         </div>
       </section>
@@ -124,7 +143,10 @@
           <h2>Results and lessons</h2>
         </div>
         <p>
-          The project showed how embedded measurement systems can make energy usage much more tangible. Beyond the technical work, it reinforced a broader lesson: the most useful smart systems are not just connected — they are understandable. When users can see how power is consumed, they are better positioned to act on it, whether that means improving efficiency, reducing waste, or solving billing disputes.
+          The final device was successfully tested with real loads, including 100W and 200W bulbs, and the pulse behavior changed as predicted with load variation. This validated the core measurement approach and the interrupt-based firmware model. The meter produced output pulses related to the instantaneous real power, which were then converted into power and energy values that could be displayed on the LCD and the web page.
+        </p>
+        <p>
+          More broadly, the project demonstrated a valuable engineering lesson: a smart system is not only about connectivity, but about making a meaningful physical quantity visible and actionable. By showing live consumption data, the system supports better decision-making, reduces misuse of electricity, and improves fairness in utility interaction. It also reinforced the practical value of combining digital fabrication, embedded systems, and software into a single product workflow.
         </p>
       </section>
 
@@ -135,16 +157,19 @@
         </div>
 
         <div class="article-gallery">
-          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/PosterNew.png" alt="Energy meter poster" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/funtional.JPG" alt="Energy meter functional layout" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/pffinal.PNG" alt="Final assembled energy meter" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/PosterNew.png" alt="Poster for smart energy meter project" />
+          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/funtional.JPG" alt="Functional energy meter architecture and signal chain" />
+          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/adepins.JPG" alt="ADE7757 pin configuration and energy metering IC" />
+          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/adeics.JPG" alt="ADE7757 energy meter circuit diagram" />
+          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/pf29.PNG" alt="Testing the energy meter under a real load" />
+          <img src="https://fabacademy.org/2020/labs/khairpur/students/faisal-rehman/graphics/pffinal.PNG" alt="Final assembled Smart IoT energy meter" />
         </div>
       </section>
 
       <div class="article-footer-nav">
         <a href="ms-thesis.html" class="project-nav project-nav--prev">
           <span>Previous</span>
-          <strong>Embedded Systems Thesis</strong>
+          <strong>GPS-Denied Navigation</strong>
         </a>
 
         <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>

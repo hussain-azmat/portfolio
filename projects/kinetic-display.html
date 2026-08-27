@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kinetic Display | Azmat Hussain</title>
-    <meta name="description" content="Kinetic Display project article and technical overview." />
+    <title>Motion Display | Azmat Hussain</title>
+    <meta
+      name="description"
+      content="Motion display project spanning the initial 5x5 thesis prototype and the later 1x10 implementation, focused on motion, mechanism design, and physical interaction."
+    />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
@@ -17,16 +20,16 @@
 
       <div class="container article-hero">
         <p class="section__subtitle">Physical Computing</p>
-        <h1>Kinetic Display</h1>
+        <h1>Motion Display</h1>
         <p class="lead">
-          An interactive physical display concept combining motion, structure, and user interaction to create a compelling digital-meets-mechanical experience.
+          A motion-based display project that began as a 5x5 thesis concept and evolved into a more practical 1x10 implementation focused on mechanical clarity, actuation, and expressive physical communication.
         </p>
 
         <div class="article-meta">
           <div><span>Role</span><strong>Design & Prototype Engineer</strong></div>
-          <div><span>Timeline</span><strong>2022</strong></div>
-          <div><span>Stack</span><strong>Physical UI / Prototyping</strong></div>
-          <div><span>Outcome</span><strong>Prototype system</strong></div>
+          <div><span>Timeline</span><strong>Thesis + later implementation</strong></div>
+          <div><span>Stack</span><strong>Mechanical prototyping, microcontrollers, actuation, CAD</strong></div>
+          <div><span>Outcome</span><strong>Functional kinetic display prototype</strong></div>
         </div>
 
         <div class="article-toc">
@@ -47,7 +50,10 @@
       <section class="article-block" id="overview">
         <div class="article-section-heading"><span class="section-tag">Overview</span><h2>Context</h2></div>
         <p>
-          Kinetic displays exist at the intersection of design, engineering, and interaction. The project explored how a physical object can communicate motion, rhythm, and information in a way that feels tangible rather than simply digital.
+          Kinetic displays sit at the intersection of industrial design, mechatronics, and interaction design. Instead of using a static screen, they communicate information through movement, rhythm, and physical form. This project started as a thesis exploration into a 5x5 kinetic display, where the goal was to understand how a physical matrix of moving elements could create expressive and legible patterns. The work later matured into a 1x10 display implementation that was easier to manufacture, control, and demonstrate in a compact form.
+        </p>
+        <p>
+          The progression from a matrix concept to a linear display was important because it exposed a core design truth: not every prototype scales cleanly into a final product. The early thesis research established the design and motion language, while the later 1x10 version focused on making that concept practical, reliable, and visually effective in a real-world installation context.
         </p>
       </section>
 
@@ -55,15 +61,18 @@
         <div>
           <div class="article-section-heading"><span class="section-tag">Challenge</span><h2>The problem</h2></div>
           <p>
-            The challenge was to turn a static visual idea into a living prototype that could demonstrate movement, intentional motion, and user engagement in a coherent system.
+            The main challenge was translating a concept in motion into a system that could actually move in a controlled, repeatable, and legible way. A kinetic display has to balance several competing demands: mechanical complexity, size, durability, actuation precision, visual readability, and control synchronization. A larger display grows quickly in complexity, while a smaller display can become visually weak if the motion language is not highly intentional.
+          </p>
+          <p>
+            The 5x5 prototype addressed the conceptual design problem by exploring spatial structure, movement patterns, and user perception. The later 1x10 version then simplified the problem into a more scalable form factor, making the display easier to prototype and easier to understand as an information artifact.
           </p>
         </div>
         <aside class="article-aside">
           <h3>Project Snapshot</h3>
           <ul>
-            <li><strong>Domain:</strong> Interactive design</li>
-            <li><strong>Focus:</strong> Motion-driven storytelling</li>
-            <li><strong>Impact:</strong> Concept prototype</li>
+            <li><strong>Initial concept:</strong> 5x5 thesis display</li>
+            <li><strong>Later build:</strong> 1x10 kinetic display</li>
+            <li><strong>Focus:</strong> Motion, mechanism, physical interaction</li>
           </ul>
         </aside>
       </section>
@@ -71,31 +80,54 @@
       <section class="article-block" id="journey">
         <div class="article-section-heading"><span class="section-tag">Journey</span><h2>What was built</h2></div>
         <p>
-          The concept evolved through iterative experimentation, balancing mechanical movement with design clarity. The result was a system that communicates presence and purpose through motion, not just static form.
+          The project began with a thesis-driven exploration of spatial motion and physical communication. The 5x5 prototype was a design testbed: it let the team study the behavior of moving elements, explore motion timing, and evaluate how well patterns could be read by a viewer. It was a conceptual platform for understanding the display language before committing to a more refined build.
+        </p>
+        <p>
+          The later 1x10 implementation represented the practical evolution of that idea. Instead of a dense 2D matrix, the system used a linear arrangement of moving elements, which made the display more compact, easier to fabricate, and more suitable for direct human interaction. The design shifted from “a large matrix to prove the concept” to “a focused physical interface to demonstrate the motion language effectively.”
+        </p>
+        <p>
+          This iterative move was valuable because it showed how research prototypes can mature into simpler, better-communicated devices. In mechanical design, simplification is often not a compromise — it is a way to improve clarity, reliability, and system performance.
         </p>
       </section>
 
       <section class="article-block" id="architecture">
         <div class="article-section-heading"><span class="section-tag">Architecture</span><h2>System thinking</h2></div>
         <div class="article-grid two-col">
-          <div class="article-card"><h3>Motion design</h3><p>Movement patterns were chosen to make the display dynamic, legible, and memorable.</p></div>
-          <div class="article-card"><h3>Interaction</h3><p>Human response and perception shaped how the design communicates signals and intent.</p></div>
+          <div class="article-card">
+            <h3>Mechanism design</h3>
+            <p>The display relied on a carefully designed moving structure where each element had to respond predictably, be visually legible, and operate with enough repeatability for pattern-based communication.</p>
+          </div>
+          <div class="article-card">
+            <h3>Control and timing</h3>
+            <p>Motion sequences were coordinated through embedded control logic so that each unit moved in a defined pattern rather than randomly. Timing became a central part of the display language.</p>
+          </div>
+          <div class="article-card">
+            <h3>Physical interaction</h3>
+            <p>Because the display was tangible, the system had to consider user perception as part of the design. The experience was not just about electronics; it was about how a person reads motion, rhythm, and sequence.</p>
+          </div>
+          <div class="article-card">
+            <h3>Iteration</h3>
+            <p>The project’s progression from 5x5 to 1x10 was itself a system-level design decision. It reflected the balancing act between ambition, practicality, and the ability to deliver a convincing demonstration.</p>
+          </div>
         </div>
       </section>
 
       <section class="article-block" id="impact">
         <div class="article-section-heading"><span class="section-tag">Impact</span><h2>Results and lessons</h2></div>
         <p>
-          This project reinforced that physical interfaces can be powerful storytelling tools when form, movement, and intent are designed together. It was a study in how interaction becomes richer when it is felt, not just observed.
+          The kinetic display project reinforced a core design insight: physical interfaces can communicate meaning in a way that conventional screens cannot. Motion creates attention, rhythm creates interpretation, and physicality creates presence. This is especially relevant in interactive installations, signaling systems, and expressive interfaces where meaning is carried by form as much as by content.
+        </p>
+        <p>
+          The shift from a 5x5 matrix to a 1x10 display also highlighted a practical lesson in engineering: good design is not always about maximizing complexity. Sometimes the most effective result comes from simplifying the architecture while keeping the expressive intent intact. That move made the project more credible as a prototype and gave it a clearer path toward real-world use.
         </p>
       </section>
 
       <section class="article-block" id="gallery">
         <div class="article-section-heading"><span class="section-tag">Gallery</span><h2>Visual documentation</h2></div>
         <div class="article-gallery">
-          <div class="gallery-placeholder">Add kinetic display prototype</div>
-          <div class="gallery-placeholder">Add motion detail</div>
-          <div class="gallery-placeholder">Add system diagram</div>
+          <img src="../assets/img/work6.jpeg" alt="Kinetic display product image" />
+          <img src="../assets/img/vision.jpg" alt="Physical prototype and motion concept documentation" />
+          <img src="../assets/img/drone.jpg" alt="Kinetic display concept and prototyping imagery" />
         </div>
       </section>
 
