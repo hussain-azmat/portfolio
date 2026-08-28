@@ -1157,7 +1157,7 @@ body.modal-open .services__card {
   background-color: var(--container-color);
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.25rem 1.1rem 1rem;
   border-radius: 1rem;
   z-index: 2;
   height: 100%;
@@ -1191,14 +1191,49 @@ body.modal-open .services__card {
   object-fit: cover;
   object-position: center;
   border-radius: 1rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
   z-index: 1;
+}
+
+.work__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
 }
 
 .work__title {
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
-  margin-bottom: 0.25rem;
+  margin: 0;
+  flex: 1;
+  line-height: 1.35;
+}
+
+.work__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(22, 163, 74, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.5);
+  color: #86efac;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.work__status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.18);
 }
 
 .work__actions {
@@ -1206,7 +1241,7 @@ body.modal-open .services__card {
   flex-wrap: wrap;
   gap: 0.55rem;
   align-items: center;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .work__button,
@@ -1215,7 +1250,7 @@ body.modal-open .services__card {
   font-size: var(--small-font-size);
   display: inline-flex;
   align-items: center;
-  column-gap: 0.25rem;
+  column-gap: 0.25rem; 
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -1224,11 +1259,13 @@ body.modal-open .services__card {
   color: var(--first-color);
 }
 
-.work__publication {
+.work__button--disabled {
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
   padding: 0.38rem 0.7rem;
-  background: rgba(255, 255, 255, 0.02);
+  cursor: default;
+  pointer-events: none;
   color: var(--title-color);
   font-weight: 500;
   position: relative;
