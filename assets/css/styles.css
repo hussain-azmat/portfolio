@@ -1282,6 +1282,15 @@ body.modal-open .services__card {
   transition: transform 0.3s ease;
 }
 
+/* Ensure the publication link's pseudo-element is confined to the link
+   itself rather than the whole card. This prevents the green overlay
+   from covering the entire project tile. */
+.work__publication {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
 .work__publication:hover::before,
 .work__publication:focus-visible::before {
   transform: translateX(0);
