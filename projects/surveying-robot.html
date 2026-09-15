@@ -3,108 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Surveying Robot for Agriculture | Azmat Hussain</title>
+    <title>A Field-Ready Robot for Crop Surveying | Azmat Hussain</title>
     <meta
       name="description"
-      content="Surveying Robot for Agriculture project article and technical overview."
+      content="A low-cost surveying robot built for real agricultural terrain, combining motion planning, sensing, and control to support crop monitoring and field data collection."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Current Project</p>
-        <h1>Surveying Robot for Agriculture</h1>
-        <p class="lead">
-          A field-surveying robotic platform designed to support crop monitoring, terrain understanding, and data collection in agricultural environments with practical, low-cost autonomy.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; current project</div>
+      <h1 class="title">A robot built to survey <em>real fields</em>, not test plots.</h1>
+      <p class="dek">
+        Agricultural fields punish autonomous systems with uneven terrain and variable crop
+        conditions. This robot is designed to move through the field, collect environmental
+        data, and support surveying workflows for agricultural decision-making — without
+        overcomplicating the system or its cost.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Robotics & Systems Engineer</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>Current</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>Robotics, Sensing, Control</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>Field survey platform</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Robotics &amp; Systems</div><div class="label">engineer</div></div>
+        <div class="readout"><div class="num">Current</div><div class="label">in active development</div></div>
+        <div class="readout"><div class="num">Robotics, Sensing</div><div class="label">&amp; control stack</div></div>
+        <div class="readout"><div class="num" style="color:var(--orchard-ink, var(--orchard))">Field</div><div class="label">survey platform</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Context</h2>
-        </div>
-        <p>
-          Agricultural fields present a challenging environment for autonomous systems: uneven terrain, variable crop conditions, and the need for consistent monitoring over time. This project focuses on a robot that can move through the field, collect environmental data, and support surveying workflows for agricultural decision-making.
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Context</h2>
+        <p class="lede">
+          Agricultural fields present a challenging environment for autonomous systems:
+          uneven terrain, variable crop conditions, and the need for consistent monitoring
+          over time. This project focuses on a robot that can move through the field,
+          collect environmental data, and support surveying workflows for agricultural
+          decision-making.
         </p>
+        <p>
+          Unlike a controlled lab or warehouse floor, a working field changes week to week —
+          crop height, soil moisture, and ground firmness all shift — which meant the
+          platform had to be designed around variability from the outset rather than tuned
+          to a single fixed test environment.
+        </p>
+
+        <figure class="report-figure">
+          <div class="gallery-placeholder">Add robot field image</div>
+          <figcaption>The robot out on real agricultural terrain, the variable ground condition the whole platform was designed around.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Robust, without overengineering</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              The main challenge is building a robust mobile platform that can handle real
+              agricultural conditions while remaining practical to operate and maintain.
+            </p>
+            <p>
+              The robot must support navigation, sensing, and data collection in open fields
+              without overcomplicating the overall system or making it unaffordable for real
+              use — a balance that rules out both a bare-bones platform that can't survive
+              the terrain and an over-engineered one that's too expensive to deploy at scale.
+            </p>
           </div>
-          <p>
-            The main challenge is building a robust mobile platform that can handle real agricultural conditions while remaining practical to operate and maintain. The robot must support navigation, sensing, and data collection in open fields without overcomplicating the overall system or making it unaffordable for real use.
-          </p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Built for agriculture and robotics &middot; focused on crop surveying and field
+            monitoring &middot; aimed at better field awareness and data-driven decisions.
+          </div>
         </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Industry:</strong> Agriculture / robotics</li>
-            <li><strong>Focus:</strong> Crop surveying and field monitoring</li>
-            <li><strong>Impact:</strong> Better field awareness and data-driven decisions</li>
-          </ul>
-        </aside>
       </section>
 
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>What was built</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>Building for the field, not the lab</h2>
         <p>
-          The project is centered on building a robot that can survey agricultural land, detect field variation, and collect operational data as it moves through the environment. The work combines motion planning, sensing, control logic, and field-oriented system design to create a useful tool for modern farm monitoring.
+          The project is centered on building a robot that can survey agricultural land,
+          detect field variation, and collect operational data as it moves through the
+          environment. The work combines motion planning, sensing, control logic, and
+          field-oriented system design to create a useful tool for modern farm monitoring.
         </p>
+        <p>
+          Each of those pieces had to be validated against actual field conditions rather
+          than idealized ones — motion planning that assumes flat, predictable ground doesn't
+          hold up once the robot is actually moving between crop rows, so the design work
+          kept circling back to what the terrain would really demand.
+        </p>
+
+        <figure class="report-figure">
+          <div class="gallery-placeholder">Add survey path view</div>
+          <figcaption>A recorded survey path, showing how the robot's motion planning adapted to the actual layout of the crop rows.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>Chassis and control</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Hardware</h3>
@@ -115,34 +118,50 @@
             <p>Navigation, motion control, and data acquisition workflows that help the system survey the field and generate consistent monitoring information.</p>
           </div>
         </div>
+
+        <figure class="report-figure">
+          <div class="gallery-placeholder">Add crop monitoring setup</div>
+          <figcaption>The sensor setup used for crop monitoring, selected to hold up against real soil and crop variability.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
         <p>
-          The platform is designed to support more informed agricultural monitoring through automation and structured field data collection. The work is still evolving, but the broader goal is clear: create a practical robot that can make field surveying easier, more consistent, and more valuable for real-world crop management.
+          The platform is designed to support more informed agricultural monitoring through
+          automation and structured field data collection.
+        </p>
+        <p>
+          The work is still evolving, but the broader goal is clear: create a practical robot
+          that can make field surveying easier, more consistent, and more valuable for
+          real-world crop management, rather than a research platform that only performs well
+          under controlled conditions.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">Robotics</span>
+              <span class="chip">Sensing</span>
+              <span class="chip">Control</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The same field-tested approach to low-cost autonomy runs through the TPL Locator platform.</p>
+          </div>
         </div>
 
-        <div class="article-gallery">
-          <div class="gallery-placeholder">Add robot field image</div>
-          <div class="gallery-placeholder">Add survey path view</div>
-          <div class="gallery-placeholder">Add crop monitoring setup</div>
+        <div class="report-footer-nav">
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-      </div>
+        <div class="note">Agricultural robotics &middot; field-ready sensing and control &middot; survey platform in active development</div>
+      </footer>
     </main>
   </body>
 </html>

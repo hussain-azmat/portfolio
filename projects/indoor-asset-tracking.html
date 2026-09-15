@@ -3,164 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indoor Asset Tracking | Azmat Hussain</title>
+    <title>Seeing Assets Where GPS Goes Blind | Azmat Hussain</title>
     <meta
       name="description"
-      content="Indoor Asset Tracking project article and technical overview."
+      content="A real-time indoor tracking system built to give operational visibility over assets in warehouses and facilities where GPS and conventional location services fail."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Indoor Tracking Platform</p>
-        <h1>Indoor Asset Tracking</h1>
-        <p class="lead">
-          A real-time indoor tracking system designed to improve visibility, operational control,
-          and asset utilization in dynamic environments where conventional GPS-based methods are unreliable.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; indoor tracking platform</div>
+      <h1 class="title">Locating what GPS <em>can't see indoors</em>.</h1>
+      <p class="dek">
+        Warehouses, facilities, and campuses need precise visibility over equipment, people,
+        and mobile assets, but conventional GPS location services fall apart indoors. This
+        system was built to close that blind spot with a live tracking architecture designed
+        around indoor constraints from the start.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Product & System Engineer</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>2023–2024</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>Web, IoT, Sensors</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>Live tracking system</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Product &amp; Systems</div><div class="label">engineer</div></div>
+        <div class="readout"><div class="num">2023&ndash;24</div><div class="label">project timeline</div></div>
+        <div class="readout"><div class="num">Web, IoT, Sensors</div><div class="label">core stack</div></div>
+        <div class="readout"><div class="num" style="color:var(--orchard-ink, var(--orchard))">Live</div><div class="label">tracking system</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Context</h2>
-        </div>
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Context</h2>
+        <p class="lede">
+          Indoor environments create a persistent blind spot for asset visibility.
+          Warehouses, facilities, campuses, and operational workspaces need precise
+          monitoring of equipment, people, or mobile assets, but GPS and conventional
+          location services become unreliable the moment those assets move indoors.
+        </p>
         <p>
-          Indoor environments often create a blind spot for asset visibility. Warehouses, facilities,
-          campuses, and operational workspaces require precise monitoring of equipment, people, or mobile assets,
-          but GPS and conventional location services become unreliable indoors.
+          The project set out to close that gap directly, rather than force an outdoor
+          positioning approach to work somewhere it structurally can't: a system built from
+          the start around indoor sensing, telemetry processing, and an operational dashboard
+          that non-technical stakeholders could actually use.
         </p>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Visibility without satellites</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              The core challenge was building a tracking architecture that could deliver
+              consistent location visibility, process telemetry reliably, and provide useful
+              operational insights without depending on external satellite infrastructure.
+            </p>
+            <p>
+              That meant balancing cost, system uptime, accuracy, and maintainability against
+              each other rather than optimizing any one of them in isolation — the kind of
+              constraint that punishes a design built around a single ideal condition instead
+              of the messier reality of a working facility.
+            </p>
           </div>
-          <p>
-            The core challenge was building a tracking architecture that could deliver consistent location visibility,
-            process telemetry reliably, and provide useful operational insights without depending on external satellite infrastructure.
-            This involved balancing cost, system uptime, accuracy, and maintainability.
-          </p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Built for smart facilities and logistics &middot; focused on indoor positioning
+            and monitoring &middot; delivered operational visibility and efficiency gains.
+          </div>
         </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Industry:</strong> Smart facilities / logistics</li>
-            <li><strong>Focus:</strong> Indoor positioning and monitoring</li>
-            <li><strong>Impact:</strong> Operational visibility and efficiency</li>
-          </ul>
-        </aside>
       </section>
 
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>What was built</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>Sensing to dashboard</h2>
         <p>
-          The project focused on designing a system that could monitor asset movement in real-time while still remaining scalable and practical for deployment.
-          The work spanned identifying the right sensing strategy, building the interfacing layer,
-          and designing the reporting and dashboard experience so non-technical stakeholders could use the output effectively.
+          The project focused on designing a system that could monitor asset movement in
+          real time while still remaining scalable and practical for deployment. The work
+          spanned identifying the right sensing strategy for indoor conditions, building the
+          interfacing layer to move telemetry off the sensor nodes reliably, and designing the
+          reporting and dashboard experience so non-technical stakeholders could use the
+          output effectively.
         </p>
+        <p>
+          Each of those layers had to hold up independently: the sensing strategy had to
+          survive real indoor RF and physical conditions, the interfacing layer had to move
+          data without loss or excessive latency, and the dashboard had to translate raw
+          location telemetry into something an operations team could act on without needing
+          to understand the underlying system.
+        </p>
+
+        <figure class="report-figure">
+          <div class="gallery-placeholder">Add deployment photo</div>
+          <figcaption>The sensor nodes installed on-site, in the indoor RF and physical conditions the design had to survive.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>Two halves of one system</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Hardware</h3>
-            <p>Sensor devices, tracking nodes, and connectivity components were selected to fit the constraints of indoor deployment and real-world operating environments.</p>
+            <p>Sensor devices, tracking nodes, and connectivity components were selected to fit the constraints of indoor deployment and real-world operating environments — favoring components that could hold up to facility conditions over lab-ideal parts.</p>
           </div>
           <div class="article-card">
             <h3>Software</h3>
-            <p>The software architecture focused on telemetry collection, data processing, and a clean dashboard experience for monitoring assets and operational status.</p>
+            <p>The software architecture focused on telemetry collection, data processing, and a clean dashboard experience for monitoring assets and operational status, turning raw sensor streams into something operations teams could read at a glance.</p>
           </div>
         </div>
+
+        <figure class="report-figure">
+          <div class="gallery-placeholder">Add system diagram</div>
+          <figcaption>How telemetry moves from sensor nodes through the interfacing layer to the operations dashboard.</figcaption>
+        </figure>
+
+        <figure class="report-figure">
+          <div class="gallery-placeholder">Add dashboard screenshot</div>
+          <figcaption>The dashboard view operations teams used to read asset location and status at a glance.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
         <p>
-          The platform demonstrated how practical, data-driven monitoring can transform day-to-day workflows, reduce blind spots, and improve operational decision making.
-          More than the technical implementation, the project highlighted the importance of designing systems that align with real operational needs and are usable by the teams relying on them every day.
+          The platform demonstrated how practical, data-driven monitoring can transform
+          day-to-day workflows, reduce blind spots, and improve operational decision making
+          in exactly the environments where GPS-based systems fall short.
+        </p>
+        <p>
+          More than the technical implementation, the project highlighted the importance of
+          designing systems that align with real operational needs and are usable by the
+          teams relying on them every day — visibility only matters if the people on the
+          floor can act on it.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">Web</span>
+              <span class="chip">IoT</span>
+              <span class="chip">Sensors</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The same GPS-denied sensing problem, at vehicle scale, is what the Driverless Car project tackled next.</p>
+          </div>
         </div>
 
-        <div class="article-gallery">
-          <div class="gallery-placeholder">Add system diagram</div>
-          <div class="gallery-placeholder">Add dashboard screenshot</div>
-          <div class="gallery-placeholder">Add deployment photo</div>
+        <div class="report-footer-nav">
+          <a href="kinetic-display.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Motion Display</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="driverless-car.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Driverless Car</strong>
+          </a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="kinetic-display.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>Motion Display</strong>
-        </a>
-
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-
-        <a href="driverless-car.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>Driverless Car</strong>
-        </a>
-      </div>
+        <div class="note">Indoor tracking platform &middot; Web + IoT + sensors &middot; live system deployed 2023&ndash;24</div>
+      </footer>
     </main>
   </body>
 </html>

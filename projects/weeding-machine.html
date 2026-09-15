@@ -3,117 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weeding Robot | Azmat Hussain</title>
+    <title>Killing Weeds With a Laser, Not a Chemical | Azmat Hussain</title>
     <meta
       name="description"
-      content="Low-cost precision weeding robot for smallholder farms in Pakistan, combining agricultural robotics, computer vision, and laser-based weed control."
+      content="A low-cost, laser-based weeding robot for smallholder farms in Pakistan, combining CAD fabrication, RS485 electronics, and YOLOv5 vision — published in Machines, 2023."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Agricultural Robotics · Published Research</p>
-        <h1>Weeding Robot</h1>
-        <p class="lead">
-          A low-cost, laser-based weeding vehicle built for smallholder farms in Pakistan — a fully integrated mechanical, electronic, and computer-vision system designed to be affordable, replicable, and practical for local research groups.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; agricultural robotics &middot; published research</div>
+      <h1 class="title">Aiming a 20W laser at a weed <em>and only the weed</em>.</h1>
+      <p class="dek">
+        A low-cost, laser-based weeding vehicle built for smallholder farms in
+        Pakistan — a fully integrated mechanical, electronic, and computer-vision
+        system designed to be affordable, replicable, and practical for local
+        research groups.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Applied Research Lead, NCAI Smart City Lab</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>Field-tested and published 2023</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>ROS, Raspberry Pi + Arduino (RS485), CAD, 20W laser module, YOLOv5</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>Peer-reviewed publication in Machines</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Applied research lead</div><div class="label">NCAI Smart City Lab</div></div>
+        <div class="readout"><div class="num">2023</div><div class="label">field-tested and published</div></div>
+        <div class="readout"><div class="num">ROS + YOLOv5</div><div class="label">core stack</div></div>
+        <div class="readout"><div class="num">Peer-reviewed</div><div class="label">published in Machines</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Context</h2>
-        </div>
-        <p>
-          Weed control is one of the most labor-intensive tasks in agriculture, and in Pakistan it is still done almost entirely by hand. The project set out to build a weeding robot that broke from the pattern of commercial systems by prioritizing precision, low cost, and easy replication over raw speed. The broader goal was to create a solution that could be affordable enough for a smallholder farm or local research group and practical enough to operate in actual field conditions.
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Context</h2>
+        <p class="lede">
+          Weed control is one of the most labor-intensive tasks in agriculture, and in
+          Pakistan it is still done almost entirely by hand. The project set out to
+          build a weeding robot that broke from the pattern of commercial systems by
+          prioritizing precision, low cost, and easy replication over raw speed. The
+          broader goal was to create a solution that could be affordable enough for a
+          smallholder farm or local research group and practical enough to operate in
+          actual field conditions.
         </p>
         <p>
-          The publication, <a href="https://www.mdpi.com/2075-1702/11/2/287" target="_blank" rel="noreferrer">Development of Cost-Effective and Easily Replicable Robust Weeding Machine — Premiering Precision Agriculture in Pakistan</a>, was published in Machines in 2023.
+          The work was carried through to publication: <a href="https://www.mdpi.com/2075-1702/11/2/287" target="_blank" rel="noreferrer">Development of Cost-Effective and Easily Replicable Robust Weeding Machine — Premiering Precision Agriculture in Pakistan</a>, published in <em>Machines</em> in 2023, giving the project both a field validation and a peer-reviewed record of its performance data.
         </p>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Every existing approach fails differently</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              Existing weeding approaches all failed in different ways: chemical
+              spraying pollutes soil and water and contributes to herbicide
+              resistance, mechanical weeding can damage crops and compact soil, and
+              hand weeding is reliable but slow, expensive, and physically demanding.
+            </p>
+            <p>
+              A viable robotic alternative needed to be precise enough to kill a weed
+              without touching adjacent crop plants, light enough to avoid field
+              compaction, adjustable enough for different furrow widths, and
+              affordable enough for local adoption — a combination that ruled out
+              simply scaling down an existing commercial machine.
+            </p>
           </div>
-          <p>
-            Existing weeding approaches all failed in different ways: chemical spraying pollutes soil and water and contributes to herbicide resistance, mechanical weeding can damage crops and compact soil, and hand weeding is reliable but slow, expensive, and physically demanding. A viable robotic alternative needed to be precise enough to kill a weed without touching adjacent crop plants, light enough to avoid field compaction, adjustable enough for different furrow widths, and affordable enough for local adoption.
-          </p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Field: Agro Living Lab, Gadap Town &middot; focus: precision weed killing
+            and crop-safe operation &middot; impact: autonomous field trials with
+            published performance data.
+          </div>
         </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Field:</strong> Agro Living Lab, Gadap Town</li>
-            <li><strong>Focus:</strong> precision weed killing and crop-safe operation</li>
-            <li><strong>Impact:</strong> autonomous field trials with published performance data</li>
-          </ul>
-        </aside>
       </section>
 
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>What was built</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>What was built</h2>
         <p>
-          The robot's chassis was a 1.524m cube-frame assembly of 12 machined and welded metal parts, deliberately over-engineered toward simplicity so it could be assembled and disassembled with minimal tooling. Each limb paired a brushed DC motor with a chain-sprocket drive and a custom hydraulic shock absorber for rough terrain, plus a 3D-printed encoder disc for position feedback.
+          The robot's chassis was a 1.524m cube-frame assembly of 12 machined and
+          welded metal parts, deliberately over-engineered toward simplicity so it
+          could be assembled and disassembled with minimal tooling. Each limb paired a
+          brushed DC motor with a chain-sprocket drive and a custom hydraulic shock
+          absorber for rough terrain, plus a 3D-printed encoder disc for position
+          feedback.
+        </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/work4.jpeg" alt="RVM" />
+          <figcaption>The welded cube-frame chassis mid-build, deliberately over-engineered for easy field assembly and disassembly.</figcaption>
+        </figure>
+
+        <p>
+          The weed-killing mechanism itself was a repurposed 20W engraving laser
+          mounted on a two-axis rail gantry driven by stepper motors. Rather than
+          building bespoke laser hardware, the team extracted the instruction stream
+          from the laser's engraving software and converted it into an Arduino-driven
+          routine to treat weed removal as the same process as engraving a shape but
+          aimed at a plant stem instead of a material sheet.
         </p>
         <p>
-          The weed-killing mechanism itself was a repurposed 20W engraving laser mounted on a two-axis rail gantry driven by stepper motors. Rather than building bespoke laser hardware, the team extracted the instruction stream from the laser's engraving software and converted it into an Arduino-driven routine to treat weed removal as the same process as engraving a shape but aimed at a plant stem instead of a material sheet.
+          A computer-vision model — a YOLOv5 variant retrained by transfer learning on
+          a self-collected dataset of roughly 9,000 images covering three crops and
+          four weed species — ran on an NVIDIA Jetson Xavier AGX to identify weed
+          plants for the laser to target.
         </p>
-        <p>
-          A computer-vision model — a YOLOv5 variant retrained by transfer learning on a self-collected dataset of roughly 9,000 images covering three crops and four weed species — ran on an NVIDIA Jetson Xavier AGX to identify weed plants for the laser to target.
-        </p>
+
+        <figure class="report-figure">
+          <img src="https://www.mdpi.com/machines/machines-11-00287/article_deploy/html/images/machines-11-00287-g001.png" alt="Weedbot" />
+          <figcaption>The assembled weeding robot as depicted in the published Machines paper, gantry, chassis, and vision stack together.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>System thinking</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Electronics and communication</h3>
@@ -132,47 +140,73 @@
             <p>Vision-guided targeting allowed the system to aim the laser at the weed stem with enough precision to minimize crop damage while maximizing weed kill probability.</p>
           </div>
         </div>
+
+        <figure class="report-figure">
+          <img src="https://www.mdpi.com/machines/machines-11-00287/article_deploy/html/images/machines-11-00287-g009.png" alt="Weed Detection" />
+          <figcaption>The retrained YOLOv5 model detecting weeds against crop plants, the input that told the laser gantry where to fire.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
         <p>
-          Field trials were conducted at the Agro Living Lab in Gadap Town, Karachi, on a 201m × 20m okra field with 132 furrows. At the tested speed of 0.07 m/s and with roughly 5 seconds of laser time to kill each weed, the calculated time to weed a full acre was about 23.7 hours. This was slower than a human crew, but it ran unattended, without chemical inputs, and without measurable crop damage. The vision model reached 88% mean average precision with only 0.4s inference time, fast enough for real-time targeting on edge hardware.
+          Field trials were conducted at the Agro Living Lab in Gadap Town, Karachi,
+          on a 201m &times; 20m okra field with 132 furrows. At the tested speed of
+          0.07 m/s and with roughly 5 seconds of laser time to kill each weed, the
+          calculated time to weed a full acre was about 23.7 hours. This was slower
+          than a human crew, but it ran unattended, without chemical inputs, and
+          without measurable crop damage. The vision model reached 88% mean average
+          precision with only 0.4s inference time, fast enough for real-time targeting
+          on edge hardware.
         </p>
         <p>
-          The biggest lesson came from the plant-specific behavior of the laser itself: different weeds required different intensities. Grasses needed only about 55% power, while tougher weeds like horseweed required close to the full setting. The project also identified the clearest path to a faster practical next version: a 35–50W laser would reduce weed-kill time to roughly one second, and solar charging would remove the multi-hour battery-charging bottleneck. This made the system very capable as a research and field-validation platform, while also clarifying exactly what changes would make it commercially stronger.
+          The biggest lesson came from the plant-specific behavior of the laser
+          itself: different weeds required different intensities. Grasses needed only
+          about 55% power, while tougher weeds like horseweed required close to the
+          full setting. The project also identified the clearest path to a faster
+          practical next version: a 35–50W laser would reduce weed-kill time to
+          roughly one second, and solar charging would remove the multi-hour
+          battery-charging bottleneck. This made the system very capable as a research
+          and field-validation platform, while also clarifying exactly what changes
+          would make it commercially stronger.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">ROS</span>
+              <span class="chip">Raspberry Pi + Arduino (RS485)</span>
+              <span class="chip">CAD</span>
+              <span class="chip">20W laser module</span>
+              <span class="chip">YOLOv5</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The Ackermann steering and encoder/IMU compensation used here built directly on the navigation approach first proven in the maze solver rover simulation.</p>
+          </div>
         </div>
 
-        <div class="article-gallery">
-          <img src="../assets/img/work4.jpeg" alt="RVM" />
-          <img src="https://www.mdpi.com/machines/machines-11-00287/article_deploy/html/images/machines-11-00287-g001.png" alt="Weedbot" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />          
-          <img src="https://www.mdpi.com/machines/machines-11-00287/article_deploy/html/images/machines-11-00287-g009.png" alt="Weed Detection" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+        <div class="report-footer-nav">
+          <a href="jazari-the-robot.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Jazari - The Robot</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="rvm.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Reverse Vending Machine</strong>
+          </a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="jazari-the-robot.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>Jazari - The Robot</strong>
-        </a>
-
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-
-        <a href="rvm.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>Reverse Vending Machine</strong>
-        </a>
-      </div>
+        <div class="note">NCAI Smart City Lab &middot; peer-reviewed in Machines (2023) &middot; field-tested at Agro Living Lab, Gadap Town</div>
+      </footer>
     </main>
   </body>
 </html>

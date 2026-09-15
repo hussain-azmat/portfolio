@@ -3,156 +3,180 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pest Detection in Agricultural Field | Azmat Hussain</title>
+    <title>ESP32-CAM Pest Monitoring for the Field | Azmat Hussain</title>
     <meta
       name="description"
-      content="ESP32-CAM-based pest detection project for smart agricultural monitoring and early intervention."
+      content="A low-cost ESP32-CAM field-imaging concept for earlier crop pest detection and lower crop loss in smart agriculture."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Agriculture + Vision</p>
-        <h1>Pest Detection in Agricultural Field</h1>
-        <p class="lead">
-          An ESP32-CAM-based monitoring concept for detecting crop pests in the field and enabling timely intervention before damage spreads.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; agriculture + vision</div>
+      <h1 class="title">Catching a pest outbreak <em>before</em> it spreads.</h1>
+      <p class="dek">
+        A low-cost ESP32-CAM concept for capturing field imagery and supporting earlier
+        pest detection, aimed at cutting crop loss without expensive infrastructure.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Embedded Vision Engineer</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>Field monitoring concept</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>ESP32-CAM, image sensing, automation</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>Early pest monitoring concept</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Vision engineer</div><div class="label">role on the project</div></div>
+        <div class="readout"><div class="num">Field concept</div><div class="label">when it happened</div></div>
+        <div class="readout"><div class="num">ESP32-CAM</div><div class="label">core hardware</div></div>
+        <div class="readout"><div class="num">Monitoring concept</div><div class="label">what was proven</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Context</h2>
-        </div>
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Context</h2>
+        <p class="lede">
+          Agricultural productivity is highly sensitive to pest outbreaks. Early
+          detection can reduce crop loss, lower pesticide usage, and help farmers make
+          informed intervention decisions. This project explored a low-cost monitoring
+          approach based on the ESP32-CAM to capture field images and support pest
+          detection workflows.
+        </p>
         <p>
-          Agricultural productivity is highly sensitive to pest outbreaks. Early detection can reduce crop loss, lower pesticide usage, and help farmers make informed intervention decisions. This project explored a low-cost monitoring approach based on the ESP32-CAM to capture field images and support pest detection workflows.
+          The appeal of the ESP32-CAM specifically was that it put camera-based
+          monitoring within reach of a smallholder budget: a single low-cost module
+          could sit in the field and produce the imagery needed for a human or an
+          automated system to spot pest activity, rather than requiring dedicated
+          agronomy staff to walk every row on a fixed schedule.
         </p>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Invisible until it isn't</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              Pests often remain invisible until their spread becomes significant. The
+              challenge was designing a compact, affordable monitoring system that
+              could operate outdoors, capture useful crop imagery, and support timely
+              identification without requiring expensive infrastructure.
+            </p>
+            <p>
+              That meant working within real field constraints from the start: the
+              camera had to survive an outdoor environment, the imagery had to be
+              useful enough to support an actual inspection decision, and the whole
+              approach had to stay cheap enough that deploying more than one unit
+              across a field was realistic rather than aspirational.
+            </p>
           </div>
-          <p>
-            Pests often remain invisible until their spread becomes significant. The challenge was designing a compact, affordable monitoring system that could operate outdoors, capture useful crop imagery, and support timely identification without requiring expensive infrastructure.
-          </p>
-        </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Domain:</strong> Smart agriculture</li>
-            <li><strong>Focus:</strong> Crop pest monitoring</li>
-            <li><strong>Impact:</strong> Earlier intervention and lower crop loss</li>
-          </ul>
-        </aside>
-      </section>
-
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>What was built</h2>
-        </div>
-        <p>
-          The project used an ESP32-CAM as the sensing node for capturing images from the field. These images were then used to support visual inspection for pest activity, creating a practical path toward automated field monitoring. The aim was not only to collect data, but to turn the data into actionable insight for agronomic decisions.
-        </p>
-      </section>
-
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
-        <div class="article-grid two-col">
-          <div class="article-card">
-            <h3>Imaging layer</h3>
-            <p>The camera module captures periodic field images suitable for pest inspection in an agricultural environment.</p>
-          </div>
-          <div class="article-card">
-            <h3>Decision layer</h3>
-            <p>Image review and trigger logic help support early warnings so intervention can happen before crop damage escalates.</p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Domain: smart agriculture &middot; focus: crop pest monitoring &middot;
+            impact: earlier intervention and lower crop loss.
           </div>
         </div>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>What was built</h2>
         <p>
-          This concept highlights the value of combining embedded hardware with image-based monitoring to solve practical agricultural problems. It reinforces a broader lesson in sustainable engineering: small, affordable sensing systems can produce meaningful operational insight when designed around real field constraints.
+          The project used an ESP32-CAM as the sensing node for capturing images from
+          the field. These images were then used to support visual inspection for pest
+          activity, creating a practical path toward automated field monitoring.
+        </p>
+        <p>
+          The aim was not only to collect data, but to turn the data into actionable
+          insight for agronomic decisions — imagery that a grower or an automated
+          trigger could actually act on, rather than a stream of photos nobody had
+          time to review.
+        </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/pest.jpg" alt="Pest detection system in the field" />
+          <figcaption>The ESP32-CAM sensing node deployed in the field, capturing the imagery the detection workflow relied on.</figcaption>
+        </figure>
+
+        <figure class="report-figure">
+          <img src="https://images.unsplash.com/photo-1464226184884-fa52ac9fc296?auto=format&fit=crop&w=1200&q=80" alt="Agricultural field monitoring" />
+          <figcaption>The kind of open-field row crop this monitoring approach was designed to keep watch over.</figcaption>
+        </figure>
+      </section>
+
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>System thinking</h2>
+        <div class="two-col-report">
+          <div class="finding">
+            <strong>Imaging layer.</strong>
+            The camera module captures periodic field images suitable for pest
+            inspection in an agricultural environment.
+          </div>
+          <div class="finding">
+            <strong>Decision layer.</strong>
+            Image review and trigger logic help support early warnings so intervention
+            can happen before crop damage escalates.
+          </div>
+        </div>
+
+        <figure class="report-figure">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80" alt="Farm technology and sensing" />
+          <figcaption>The imaging and decision layers were designed to plug into exactly this kind of low-cost field sensing setup.</figcaption>
+        </figure>
+      </section>
+
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
+        <p>
+          This concept highlighted the value of combining embedded hardware with
+          image-based monitoring to solve practical agricultural problems. Even at
+          concept stage, it showed a concrete path from a cheap camera module to a
+          usable early-warning signal for pest activity.
+        </p>
+        <p>
+          It reinforced a broader lesson in sustainable engineering: small, affordable
+          sensing systems can produce meaningful operational insight when designed
+          around real field constraints instead of chasing capability the deployment
+          budget can't support.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">ESP32-CAM</span>
+              <span class="chip">Image sensing</span>
+              <span class="chip">Automation</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The same low-cost field-sensing philosophy carried through to the smart gardening system's environmental monitoring.</p>
+          </div>
         </div>
 
-        <div class="article-gallery">
-          <img src="../assets/img/pest.jpg" alt="Pest detection system in the field" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://images.unsplash.com/photo-1464226184884-fa52ac9fc296?auto=format&fit=crop&w=1200&q=80" alt="Agricultural field monitoring" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80" alt="Farm technology and sensing" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+        <div class="report-footer-nav">
+          <a href="sos-emergency-alarm.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>SOS Alarm</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="audience-insight.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Audience Insight</strong>
+          </a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="sos-emergency-alarm.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>SOS Alarm</strong>
-        </a>
-
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-
-        <a href="audience-insight.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>Audience Insight</strong>
-        </a>
-      </div>
+        <div class="note">ESP32-CAM &middot; low-cost field imaging &middot; early pest monitoring concept</div>
+      </footer>
     </main>
   </body>
 </html>

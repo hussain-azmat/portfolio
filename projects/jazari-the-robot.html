@@ -3,92 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jazari Robot | Azmat Hussain</title>
-    <meta name="description" content="Jazari humanoid robot case study and concept overview." />
+    <title>Designing a Robot's Presence Before Its Function | Azmat Hussain</title>
+    <meta name="description" content="Jazari: a humanoid robot concept that started from the question of what presence a robot should have, then worked backward into mechanics, joints, and control logic." />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Humanoid Robotics</p>
-        <h1>Jazari Robot</h1>
-        <p class="lead">
-          A robot concept rooted in the idea that intelligent machines are not just about hardware — they are about movement, purpose, and the way a system behaves in the real world.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; humanoid robotics</div>
+      <h1 class="title">A robot designed to <em>move with intent</em>, not just move.</h1>
+      <p class="dek">
+        Jazari started from a question most robot builds skip: what presence should this
+        machine have before it does anything useful? That question drove structure,
+        articulation, and control logic — treating mechanism and character as inseparable.
+      </p>
 
-        <div class="article-meta">
-          <div><span>Role</span><strong>Robotics Developer</strong></div>
-          <div><span>Timeline</span><strong>Research concept</strong></div>
-          <div><span>Stack</span><strong>Mechanics / Controls</strong></div>
-          <div><span>Outcome</span><strong>Prototype exploration</strong></div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Robotics</div><div class="label">developer</div></div>
+        <div class="readout"><div class="num">Research</div><div class="label">concept project</div></div>
+        <div class="readout"><div class="num">Mechanics</div><div class="label">/ controls</div></div>
+        <div class="readout"><div class="num" style="color:var(--orchard-ink, var(--orchard))">Prototype</div><div class="label">exploration</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Why this project mattered</h2>
-        </div>
-        <p>
-          The Jazari concept was more than a mechanical build — it was an exploration of how a robotic system can communicate intent through motion, material choices, and coordinated behavior. It sits at the intersection of machine design, control thinking, and the broader question of how robotics can become expressive instead of purely functional.
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Why this project mattered</h2>
+        <p class="lede">
+          The Jazari concept was more than a mechanical build — it was an exploration of how
+          a robotic system can communicate intent through motion, material choices, and
+          coordinated behavior. It sits at the intersection of machine design, control
+          thinking, and the broader question of how robotics can become expressive instead of
+          purely functional.
         </p>
+        <p>
+          The name nods to the tradition of automaton builders who treated mechanism and
+          character as inseparable: a machine that moves well tells a story before it does
+          anything useful. That framing shaped how the project was approached from the
+          outset — rather than starting from a list of tasks the robot needed to perform, the
+          early direction started from the question of what kind of presence the robot should
+          have, and worked backward into the mechanics, joints, and control logic needed to
+          support it.
+        </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/jazari.jpg" alt="Robot concept model" />
+          <figcaption>The Jazari concept model, built to establish presence and character before any control logic was written.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The design problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Form and behavior, together</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              The real challenge was balancing physical form with workable behavior. A robot
+              that looks compelling but fails to move with purpose is not enough. Likewise, a
+              robot that functions mechanically but does not embody a coherent design
+              language can feel disconnected from the user.
+            </p>
+            <p>
+              The work required thinking through structure, movement, and system logic
+              together to create a believable and intentional design narrative — treating
+              none of those three as something that could be bolted on after the others were
+              settled.
+            </p>
           </div>
-          <p>
-            The real challenge was balancing physical form with workable behavior. A robot that looks compelling but fails to move with purpose is not enough. Likewise, a robot that functions mechanically but does not embody a coherent design language can feel disconnected from the user. The work required thinking through structure, movement, and system logic together to create a believable and intentional design narrative.
-          </p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            A robotics concept exploring morphology and motion behavior &middot; result was
+            concept validation and design exploration rather than a finished product.
+          </div>
         </div>
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Domain:</strong> Robotics</li>
-            <li><strong>Focus:</strong> Morphology and motion behavior</li>
-            <li><strong>Impact:</strong> Concept validation and design exploration</li>
-          </ul>
-        </aside>
       </section>
 
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>From concept to prototype</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>From concept to prototype</h2>
         <p>
-          The project evolved through iterative design work, beginning with conceptual sketches and mechanical layouts, then moving toward motion planning and control logic. Each iteration sharpened the robot’s character: how it moved, how it stood, and how it expressed robotic intent. This process was valuable not only for the prototype itself, but for developing a stronger understanding of embodied design and how form influences behavior.
+          The project evolved through iterative design work, beginning with conceptual
+          sketches and mechanical layouts, then moving toward motion planning and control
+          logic. Each iteration sharpened the robot's character: how it moved, how it stood,
+          and how it expressed robotic intent.
         </p>
+        <p>
+          This process was valuable not only for the prototype itself, but for developing a
+          stronger understanding of embodied design and how form influences behavior — a
+          feedback loop where a change to the physical structure would immediately change
+          what the control logic needed to account for, and vice versa.
+        </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/work3.png" alt="Robotics prototype concept" />
+          <figcaption>An early prototype iteration, midway through the shift from sketches and layouts toward working motion planning.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>Two systems, one character</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Mechanical system</h3>
@@ -99,43 +119,60 @@
             <p>Motion logic and sequencing were designed to create responsive and purposeful actions rather than random movement.</p>
           </div>
         </div>
+
+        <figure class="report-figure">
+          <img src="../assets/img/hec-jazari.jpg" alt="Mechanical robotics assembly" />
+          <figcaption>The mechanical assembly, where actuator placement and articulation were shaped to give the robot a recognizable identity.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
         <p>
-          Jazari reinforced a key lesson in product development: the most compelling systems are not just technically capable, but believable in how they behave. A robot’s movement language, assembly design, and interaction feel are as important as its electrical or computational structure. This perspective has shaped the way I approach modern robotics and embodied intelligence projects.
+          Jazari reinforced a key lesson in product development: the most compelling systems
+          are not just technically capable, but believable in how they behave. A robot's
+          movement language, assembly design, and interaction feel are as important as its
+          electrical or computational structure.
+        </p>
+        <p>
+          This perspective has shaped the way I approach modern robotics and embodied
+          intelligence projects since — starting from what a system should communicate, then
+          engineering backward into the mechanics that make it true.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">Mechanics</span>
+              <span class="chip">Controls</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The same attention to mechanical character shows up in the actuator and control work on the Leonardo Board project.</p>
+          </div>
         </div>
-        <div class="article-gallery">
-          <img src="../assets/img/jazari.jpg" alt="Robot concept model" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="../assets/img/hec-jazari.jpg" alt="Mechanical robotics assembly" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="../assets/img/work3.png" alt="Robotics prototype concept" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+
+        <div class="report-footer-nav">
+          <a href="energy-meter.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Smart Energy Meter</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="leonardo-board.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Leonardo Board</strong>
+          </a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="energy-meter.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>Smart Energy Meter</strong>
-        </a>
-
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-
-        <a href="leonardo-board.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>Leonardo Board</strong>
-        </a>
-      </div>
+        <div class="note">Humanoid robotics concept &middot; mechanics + control logic &middot; prototype exploration</div>
+      </footer>
     </main>
   </body>
 </html>

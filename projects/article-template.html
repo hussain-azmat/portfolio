@@ -3,156 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Article | Azmat Hussain</title>
+    <title>Project Title | Azmat Hussain</title>
     <meta
       name="description"
-      content="Project article and technical breakdown for a portfolio case study."
+      content="One-sentence summary of the problem, the system, and the outcome."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Project Type</p>
-        <h1>Project Title</h1>
-        <p class="lead">
-          Short summary of the problem, outcome, and why this project mattered.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; category / domain</div>
+      <h1 class="title">A sharp, specific title that names the <em>real</em> problem.</h1>
+      <p class="dek">
+        A one- or two-sentence deck that states what the system does, the environment it
+        had to survive, and the one hard part that made this more than a wiring exercise.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Lead Engineer / Consultant</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>2024</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>Embedded, IoT, Software</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>System delivered</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Role</div><div class="label">role on the project</div></div>
+        <div class="readout"><div class="num">Timeline</div><div class="label">when it happened</div></div>
+        <div class="readout"><div class="num">Stack</div><div class="label">core hardware / software</div></div>
+        <div class="readout"><div class="num">Outcome</div><div class="label">what shipped or was proven</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Context</h2>
-        </div>
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Context</h2>
+        <p class="lede">
+          One paragraph naming the domain, who it was for, and why it mattered — the
+          scene-setting a reader needs before the problem statement lands.
+        </p>
         <p>
-          Add the background, challenge, and the purpose behind the project here.
+          A second paragraph going one layer deeper: what already existed, what was
+          missing, and what this project set out to change.
         </p>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>The problem</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              Describe the constraint that made this hard — physical, electrical,
+              environmental, or organizational — in concrete terms.
+            </p>
+            <p>
+              Describe the second-order consequence of that constraint: what breaks if
+              you get it wrong, and why the obvious fix doesn't fully work.
+            </p>
           </div>
-          <p>
-            Describe the challenge, constraints, and environment this project was built in.
-          </p>
-        </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Industry:</strong> Robotics / IoT / Industrial</li>
-            <li><strong>Focus:</strong> Mechatronic system / software stack</li>
-            <li><strong>Impact:</strong> Improved efficiency or robustness</li>
-          </ul>
-        </aside>
-      </section>
-
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>What was built</h2>
-        </div>
-        <p>
-          Explain the design decisions, technical path, experimentation, and key moments when the project evolved.
-        </p>
-      </section>
-
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
-        <div class="article-grid two-col">
-          <div class="article-card">
-            <h3>Hardware</h3>
-            <p>Describe physical layers, sensors, interfaces, electrical design, and constraints.</p>
-          </div>
-          <div class="article-card">
-            <h3>Software</h3>
-            <p>Describe software layers, control logic, automation, and user workflows.</p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Domain / focus / impact, written as a tight two- or three-line summary a
+            reader can absorb without reading the full section.
           </div>
         </div>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>What was built</h2>
         <p>
-          Summarize measurable outcomes, key learnings, and the role this work played in the broader vision.
+          Walk through the build in the order it actually happened: first pass, what
+          didn't work, what was learned, and how the design converged.
+        </p>
+
+        <!-- Place a photo where it actually illustrates the sentence next to it,
+             instead of dumping every image into an end-of-page gallery. -->
+        <figure class="report-figure">
+          <img src="../assets/img/placeholder.jpg" alt="Describe what this photo actually shows" />
+          <figcaption>One sentence saying what the reader is looking at and why it's here, not just a label.</figcaption>
+        </figure>
+
+        <p>
+          A second paragraph on the harder middle stretch — integration, calibration,
+          or the part that ate the most time relative to how simple it looks now.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
-        </div>
-
-        <div class="article-gallery">
-          <div class="gallery-placeholder">Add photo 1</div>
-          <div class="gallery-placeholder">Add photo 2</div>
-          <div class="gallery-placeholder">Add photo 3</div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>System thinking</h2>
+        <div class="two-col-report">
+          <div class="finding">
+            <strong>Sub-system one.</strong>
+            What it does and why it was built this way rather than the obvious
+            alternative.
+          </div>
+          <div class="finding">
+            <strong>Sub-system two.</strong>
+            Same treatment for the second major piece of the system.
+          </div>
         </div>
       </section>
 
-      <div class="article-footer-nav">
-        <a href="project-previous.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>Previous Project</strong>
-        </a>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
+        <p>
+          State the measurable or observed outcome plainly — what worked, under what
+          conditions, and how it was verified.
+        </p>
+        <p>
+          Close with the lesson that would change how the next version gets built —
+          the honest, specific kind, not a generic platitude.
+        </p>
+      </section>
 
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">Component</span>
+              <span class="chip">Component</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>One line pointing to related work or where this project led next.</p>
+          </div>
+        </div>
 
-        <a href="project-next.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>Next Project</strong>
-        </a>
-      </div>
+        <div class="report-footer-nav">
+          <a href="project-previous.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Previous Project</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="project-next.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Next Project</strong>
+          </a>
+        </div>
+
+        <div class="note">Project name &middot; one-line technical footnote</div>
+      </footer>
     </main>
   </body>
 </html>

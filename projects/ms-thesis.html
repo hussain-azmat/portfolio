@@ -3,157 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPS-Denied Navigation | Azmat Hussain</title>
+    <title>Designing for Real Constraints, Not Idealized Ones | Azmat Hussain</title>
     <meta
       name="description"
-      content="GPS-denied navigation case study focused on embedded systems, sensing, and resilient autonomous operation in constrained environments."
+      content="Graduate research on GPS-denied navigation for embedded autonomous systems, focused on resilient sensing and deployment under real hardware and environmental constraints."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Research + Systems Design</p>
-        <h1>GPS-Denied Navigation</h1>
-        <p class="lead">
-          A research-focused project exploring resilient navigation strategies for embedded autonomous systems where positioning, sensing, and practical deployment matter under constrained conditions.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; research + systems design</div>
+      <h1 class="title">Navigation research built around <em>real constraints</em>.</h1>
+      <p class="dek">
+        Graduate research into resilient navigation strategies for embedded autonomous
+        systems, where positioning, sensing, and practical deployment mattered more than
+        idealized assumptions about a clean operating environment.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Researcher / Systems Engineer</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>Graduate research</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>Embedded, sensing, analysis</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>Research contribution</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Researcher</div><div class="label">/ systems engineer</div></div>
+        <div class="readout"><div class="num">Graduate</div><div class="label">research, MS thesis</div></div>
+        <div class="readout"><div class="num">Embedded</div><div class="label">sensing &amp; analysis</div></div>
+        <div class="readout"><div class="num" style="color:var(--orchard-ink, var(--orchard))">Contribution</div><div class="label">research outcome</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Research focus</h2>
-        </div>
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Research focus</h2>
+        <p class="lede">
+          This thesis work centered on how intelligent systems can be designed around real
+          operating constraints rather than purely idealized assumptions. The emphasis was on
+          combining sensing, computation, and practical deployment in a way that yields
+          useful and measurable outcomes in the physical world.
+        </p>
         <p>
-          This thesis work centered on how intelligent systems can be designed around real operating constraints rather than purely idealized assumptions. The emphasis was on combining sensing, computation, and practical deployment in a way that yields useful and measurable outcomes in the physical world.
+          That framing shaped the entire research direction: rather than optimizing an
+          algorithm in isolation, the work treated hardware limitations, environmental noise,
+          and deployment practicality as first-class constraints on the problem, not
+          afterthoughts to be handled once a clean theoretical result was in hand.
         </p>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The research problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>The research problem</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              The main challenge was translating an idea into a technically grounded system
+              that could handle constraints such as hardware limitations, noisy environments,
+              and the need to make decisions based on incomplete real-world data.
+            </p>
+            <p>
+              Research of this kind is not only about algorithmic elegance — it is about
+              making systems function reliably and with a clear engineering story behind
+              them, one that holds up under the same conditions the eventual deployment would
+              face.
+            </p>
           </div>
-          <p>
-            The main challenge was translating an idea into a technically grounded system that could handle constraints such as hardware limitations, noisy environments, and the need to make decisions based on incomplete real-world data. Research of this kind is not only about algorithmic elegance — it is about making systems function reliably and with a clear engineering story behind them.
-          </p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Research in embedded systems and intelligent sensing &middot; focused on system
+            behavior under real constraints &middot; produced technical insight and an
+            applied design methodology.
+          </div>
         </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Domain:</strong> Research and embedded systems</li>
-            <li><strong>Focus:</strong> Intelligent sensing and system behavior</li>
-            <li><strong>Impact:</strong> Technical insight and applied design methodology</li>
-          </ul>
-        </aside>
       </section>
 
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>From concept to validation</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>From concept to validation</h2>
         <p>
-          The research path moved through literature review, system definition, prototyping, and evaluation. Each phase helped clarify the gap between theory and implementation. The most valuable part of the work was not only producing a result, but learning how to shape a technical problem into a model that could be tested, improved, and ultimately translated into a deployable solution.
+          The research path moved through literature review, system definition,
+          prototyping, and evaluation. Each phase helped clarify the gap between theory and
+          implementation, and each transition — from reading the existing work, to defining
+          the system precisely, to building a working prototype — surfaced assumptions that
+          had to be revisited before the next phase could proceed cleanly.
         </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/ms1.png" alt="Research and systems design" />
+          <figcaption>Working notes from the prototyping phase, where early theoretical assumptions met real hardware behavior.</figcaption>
+        </figure>
+
+        <p>
+          The most valuable part of the work was not only producing a result, but learning
+          how to shape a technical problem into a model that could be tested, improved, and
+          ultimately translated into a deployable solution — a discipline that matters as
+          much in applied research as the result itself.
+        </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/ms2.png" alt="Research and systems design" />
+          <figcaption>The evaluation setup used to test the model against real, rather than idealized, operating conditions.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>Two halves of the work</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Research methodology</h3>
-            <p>The work combined conceptual design, experimentation, and evaluation so the project could be understood both technically and academically.</p>
+            <p>The work combined conceptual design, experimentation, and evaluation so the project could be understood both technically and academically, with each stage documented well enough to be defended independently.</p>
           </div>
           <div class="article-card">
             <h3>Practical realization</h3>
-            <p>Embedded systems and sensing strategies were used to ground the research in demonstrable behavior and outcomes rather than isolated theory.</p>
+            <p>Embedded systems and sensing strategies were used to ground the research in demonstrable behavior and outcomes rather than isolated theory, keeping the work tied to what a real system could actually do.</p>
           </div>
         </div>
+
+        <figure class="report-figure">
+          <img src="../assets/img/ms3.png" alt="Research and systems design" />
+          <figcaption>The embedded sensing setup that tied the research back to demonstrable, real-system behavior.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and learning</h2>
-        </div>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and learning</h2>
         <p>
-          This research strengthened the ability to connect data, control, and design decisions with real-world performance. It reinforced the idea that the best technical work is often driven by real constraints, observation, and iterative refinement rather than one-shot innovation. This mindset has carried into my engineering and portfolio work across robotics, embedded systems, and applied product design.
+          This research strengthened the ability to connect data, control, and design
+          decisions with real-world performance. It reinforced the idea that the best
+          technical work is often driven by real constraints, observation, and iterative
+          refinement rather than one-shot innovation.
+        </p>
+        <p>
+          That mindset has carried directly into my engineering and portfolio work across
+          robotics, embedded systems, and applied product design — treating deployment
+          conditions as part of the design problem from day one, rather than a validation
+          step tacked on at the end.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">Embedded systems</span>
+              <span class="chip">Sensing</span>
+              <span class="chip">Analysis</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>This research mindset carried directly into the Jazari Robot concept work that followed.</p>
+          </div>
         </div>
 
-        <div class="article-gallery">
-          <img src="../assets/img/ms1.png" alt="Research and systems design"/>
-          <img src="../assets/img/ms2.png" alt="Research and systems design"/>
-          <img src="../assets/img/ms3.png" alt="Research and systems design"/>
-          
+        <div class="report-footer-nav">
+          <a href="energy-meter.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Smart Energy Meter</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="jazari-the-robot.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Jazari Robot</strong>
+          </a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="energy-meter.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>Smart Energy Meter</strong>
-        </a>
-
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-
-        <a href="jazari-the-robot.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>Jazari Robot</strong>
-        </a>
-      </div>
+        <div class="note">MS thesis research &middot; GPS-denied navigation for embedded autonomy &middot; graduate research contribution</div>
+      </footer>
     </main>
   </body>
 </html>

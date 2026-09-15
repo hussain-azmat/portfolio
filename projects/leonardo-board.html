@@ -3,156 +3,206 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leonardo General Purpose Board | Azmat Hussain</title>
+    <title>Building a Reusable ATmega32U4 Dev Board | Azmat Hussain</title>
     <meta
       name="description"
-      content="General purpose Leonardo board design and fabrication project article."
+      content="Designing, milling, and validating a native-USB ATmega32U4 development board as a reusable embedded prototyping platform."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Embedded Design</p>
-        <h1>Leonardo General Purpose Board</h1>
-        <p class="lead">
-          A flexible ATmega32U4-based development board created to serve as a reusable platform for embedded programming, USB interfacing, and future prototyping work.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; embedded design</div>
+      <h1 class="title">A dev board built to <em>outlive</em> the project it was made for.</h1>
+      <p class="dek">
+        Rather than a single-purpose gadget, this was a general-purpose ATmega32U4
+        platform designed for native USB, in-house milling, and reuse across whatever
+        embedded project came next.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Electronics Designer</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>2019</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>PCB, AVR, USB</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>Reusable prototype board</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Designer</div><div class="label">role on the project</div></div>
+        <div class="readout"><div class="num">2019</div><div class="label">when it happened</div></div>
+        <div class="readout"><div class="num">PCB / AVR / USB</div><div class="label">core hardware</div></div>
+        <div class="readout"><div class="num">Reusable board</div><div class="label">what shipped</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Context</h2>
-        </div>
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Context</h2>
+        <p class="lede">
+          This project focused on building a general-purpose microcontroller board that
+          could be reused across different prototypes and experiments, rather than a
+          single-purpose device. The goal was a practical electronics platform flexible
+          enough for different assignments, USB-driven communication, and future
+          development work.
+        </p>
         <p>
-          This project focused on building a general-purpose microcontroller board that could be reused across different prototypes and experiments. Rather than designing a single-purpose device, the goal was to create a practical electronics platform with enough flexibility for different assignments, USB-driven communication, and future development work.
+          Choosing the ATmega32U4 was a deliberate decision rather than a default one.
+          Unlike simpler AVR chips that rely on an external USB-to-serial bridge, the
+          32U4 has native USB support built directly into the silicon, which meant the
+          board could enumerate as a USB device on its own and cut down on the parts
+          count and failure points that come with an extra bridge chip. That single
+          choice shaped nearly every later decision in the project, from the crystal
+          used for clock timing to the way the USB traces were routed and terminated.
         </p>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The design problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Reusable and manufacturable, at once</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              A reusable board has to balance flexibility with manufacturability. The
+              challenge was selecting the right microcontroller architecture, ensuring
+              the board could be fabricated reliably, and validating that the design
+              would support real programming workflows through Arduino and Python
+              toolchains.
+            </p>
+            <p>
+              Because the board was meant to be milled rather than professionally
+              fabricated, every design decision had to account for the limitations of
+              in-house PCB milling: trace widths and spacing had to stay well clear of
+              the mill bit's minimum tolerances, and the layout had to avoid tight
+              clearances around the USB connector and crystal that a commercial fab
+              would have handled without complaint. On top of the physical constraints,
+              the design had to leave enough general-purpose I/O broken out to headers
+              that the board would still be useful for projects that hadn't been
+              imagined yet, without turning the layout into a tangle of crossing traces
+              on a two-layer board.
+            </p>
           </div>
-          <p>
-            A reusable board has to balance flexibility with manufacturability. The challenge was selecting the right microcontroller architecture, ensuring the board could be fabricated reliably, and validating that the design would support real programming workflows through Arduino and Python toolchains.
-          </p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Platform: ATmega32U4 &middot; board design, fabrication, and programming
+            &middot; a reusable embedded development base, milled and hand-soldered
+            in-house.
+          </div>
         </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Platform:</strong> ATmega32U4</li>
-            <li><strong>Focus:</strong> Board design, fabrication, and programming</li>
-            <li><strong>Impact:</strong> Reusable embedded development base</li>
-          </ul>
-        </aside>
       </section>
 
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>From schematic to working board</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>From schematic to working board</h2>
         <p>
-          The board was designed after reviewing the ATmega32U4 datasheet and mapping the required power, USB, and I/O needs. The next stages included updating the schematic, fixing design issues, milling the PCB, soldering components, and then validating the board by burning the bootloader and uploading simple test programs. This was a valuable exercise in translating capability into a tangible, working electronics platform.
+          The board was designed after reviewing the ATmega32U4 datasheet and mapping
+          the required power, USB, and I/O needs. Working through the datasheet meant
+          identifying which pins carried alternate functions, confirming the decoupling
+          capacitor placement recommended for the USB regulator, and working out a
+          pinout that kept commonly used peripherals grouped together on the header
+          rows so the board would be easy to breadboard against later.
+        </p>
+        <p>
+          The next stages included updating the schematic, fixing design issues,
+          milling the PCB, soldering components, and then validating the board by
+          burning the bootloader and uploading simple test programs. Milling surfaced
+          problems that hadn't been visible on screen — a couple of traces routed too
+          close together for the mill bit to cleanly isolate, and a footprint that
+          needed adjusting once the actual component was placed against it. Each was
+          fixed by revisiting the schematic and re-running the milling pass rather than
+          patching the physical board.
+        </p>
+
+        <figure class="report-figure">
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo0.jpeg" alt="Milled Leonardo board" />
+          <figcaption>The board fresh off the mill, before soldering — the traces that survived the milling-tolerance fixes are visible here.</figcaption>
+        </figure>
+
+        <figure class="report-figure">
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo1.jpeg" alt="Board soldering and assembly" />
+          <figcaption>Hand-soldering the ATmega32U4 and its support components onto the milled board.</figcaption>
+        </figure>
+
+        <p>
+          Bringing the board to life for the first time meant confirming power
+          regulation was stable, that the USB connection enumerated correctly on a
+          host machine, and that the bootloader could be burned without errors. This
+          built a much more concrete understanding of how a schematic's abstractions
+          map onto physical copper, solder joints, and firmware behavior.
         </p>
       </section>
 
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>System thinking</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Hardware</h3>
-            <p>The board integrated a USB-enabled AVR controller, power regulation, I/O access, and the necessary support components for a flexible development environment.</p>
+            <p>The board integrated a USB-enabled AVR controller, power regulation, I/O access, and support components for a flexible development environment. Support circuitry included the crystal and load capacitors needed for stable USB timing, pull-up resistors on the data lines, and a voltage regulator so the board could be powered either from USB or from an external supply during standalone use.</p>
           </div>
           <div class="article-card">
             <h3>Software</h3>
-            <p>It was successfully tested in Arduino and Python-based workflows, showing how the same hardware could support different programming environments and use cases.</p>
+            <p>It was successfully tested in Arduino and Python-based workflows, showing how the same hardware could support different programming environments. On the Arduino side the board could be programmed like any Leonardo-class device once the bootloader was in place, while Python scripts confirmed the USB serial interface behaved predictably for automated testing and data logging.</p>
           </div>
         </div>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
         <p>
-          The outcome was a board that could serve as a reusable prototyping foundation for future embedded projects. More importantly, the process reinforced how much value lies in understanding the datasheet, the pinout, and the system-level design decisions behind a board that may seem simple but becomes powerful when used correctly.
+          The outcome was a board that could serve as a reusable prototyping foundation
+          for future embedded projects — validated through a working bootloader, clean
+          USB enumeration, and tested programming workflows in two different
+          languages. That combination made it a genuine base to build on rather than a
+          one-off proof of concept.
         </p>
+        <p>
+          More importantly, the process reinforced how much value lies in
+          understanding the datasheet, the pinout, and the system-level design
+          decisions behind a board that may seem simple but becomes powerful when used
+          correctly — and how much of that value gets lost if the fabrication
+          constraints of in-house milling are treated as an afterthought instead of a
+          first-order design input.
+        </p>
+
+        <figure class="report-figure">
+          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo2.jpeg" alt="Completed Leonardo board" />
+          <figcaption>The finished, populated board — the reusable base that later projects were built on top of.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">PCB</span>
+              <span class="chip">AVR</span>
+              <span class="chip">USB</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The board-level fabrication discipline learned here — milling tolerances, footprint validation, bring-up testing — carried directly into the vending machine's control electronics.</p>
+          </div>
         </div>
 
-        <div class="article-gallery">
-          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo0.jpeg" alt="Milled Leonardo board" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo1.jpeg" alt="Board soldering and assembly" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="https://fabacademy.org/2019/labs/khairpur/students/azmat-hussain/images/weeks/week9/leo2.jpeg" alt="Completed Leonardo board" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
+        <div class="report-footer-nav">
+          <a href="jazari-the-robot.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Jazari Robot</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="vending-machine.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Vending Machine</strong>
+          </a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="jazari-the-robot.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>Jazari Robot</strong>
-        </a>
-
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-
-        <a href="vending-machine.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>Vending Machine</strong>
-        </a>
-      </div>
+        <div class="note">ATmega32U4 &middot; in-house PCB milling &middot; reusable prototyping platform, 2019</div>
+      </footer>
     </main>
   </body>
 </html>

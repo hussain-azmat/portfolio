@@ -3,117 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Audience Insight | Azmat Hussain</title>
+    <title>Turning Camera Feeds Into Audience Intelligence | Azmat Hussain</title>
     <meta
       name="description"
-      content="Audience Insight project based on the TPL Trakker AI app for real-time people detection, face analysis, gender classification, and monitoring analytics."
+      content="TPL Trakker AI: a real-time computer-vision application combining YOLOv8 detection, ViT-based gender classification, and automated reporting to convert raw video into audience analytics."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">Smart Analytics</p>
-        <h1>Audience Insight</h1>
-        <p class="lead">
-          A real-time computer-vision analytics app for human detection, face recognition, gender classification, and audience-tracking summaries designed to convert raw video streams into actionable presence and engagement intelligence.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; smart analytics</div>
+      <h1 class="title">From raw video to <em>audience intelligence</em>.</h1>
+      <p class="dek">
+        TPL Trakker AI turns live camera input into structured presence and engagement data —
+        counts, gaze indicators, and gender distribution — combining detection,
+        classification, and reporting into one operator-ready application rather than a
+        research demo.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Computer Vision / AI Engineer</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>Applied AI application</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>Python, OpenCV, YOLOv8, ViT, Tkinter</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>Live audience analytics dashboard</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Computer Vision</div><div class="label">/ AI engineer</div></div>
+        <div class="readout"><div class="num">Applied AI</div><div class="label">application, built end to end</div></div>
+        <div class="readout"><div class="num">YOLOv8 + ViT</div><div class="label">detection &amp; classification stack</div></div>
+        <div class="readout"><div class="num" style="color:var(--orchard-ink, var(--orchard))">Live</div><div class="label">audience analytics dashboard</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Context</h2>
-        </div>
-        <p>
-          The TPL Trakker AI application was designed to transform live camera input into audience insight data. Instead of capturing only generic video, the system interpreted people flows and demographic cues in real time, producing meaningful measurements such as total counts, gaze indicators, and gender distribution. The goal was to support smarter analytics for environments where visitor attention and engagement matter, such as retail, events, and public-facing displays.
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Context</h2>
+        <p class="lede">
+          The TPL Trakker AI application was designed to transform live camera input into
+          audience insight data. Instead of capturing only generic video, the system
+          interpreted people flows and demographic cues in real time, producing meaningful
+          measurements such as total counts, gaze indicators, and gender distribution. The
+          goal was to support smarter analytics for environments where visitor attention and
+          engagement matter, such as retail, events, and public-facing displays.
         </p>
         <p>
-          The application brings together detection, classification, and reporting in one workflow. It logs useful summaries over time and can present a user-friendly operational interface while retaining a strong technical backbone in computer vision and model inference.
+          The application brings detection, classification, and reporting together in one
+          workflow. It logs useful summaries over time and presents a user-friendly
+          operational interface while retaining a strong technical backbone in computer
+          vision and model inference — built to be run by an operator, not just demonstrated
+          by an engineer.
         </p>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Real time, and actually usable</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              The real challenge was building an analytics workflow that could operate in
+              real time while remaining practical to run and monitor. The system had to
+              detect human presence, classify faces, estimate whether a person was looking
+              toward the camera, and store the results in a structured way. On top of that,
+              it needed a GUI for easy control and a logging system for hourly and final
+              summaries.
+            </p>
+            <p>
+              This required balancing detection reliability, model performance, and
+              usability. The app needed to run as a usable product rather than just a
+              research experiment, so it included a user interface, persistent logging, and a
+              re-login model that enforced periodic access checks.
+            </p>
           </div>
-          <p>
-            The real challenge was building an analytics workflow that could operate in real time while remaining practical to run and monitor. The system had to detect human presence, classify faces, estimate whether a person was looking toward the camera, and store the results in a structured way. On top of that, it needed a GUI for easy control and a logging system for hourly and final summaries.
-          </p>
-          <p>
-            This required balancing detection reliability, model performance, and usability. The app needed to run as a usable product rather than just a research experiment, so it included a user interface, persistent logging, and a re-login model that enforced periodic access checks.
-          </p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Computer vision analytics for real-time detection, face analysis, and reporting
+            &middot; delivered automated audience and engagement metrics.
+          </div>
         </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Domain:</strong> Computer vision analytics</li>
-            <li><strong>Focus:</strong> Real-time detection, face analysis, reporting</li>
-            <li><strong>Impact:</strong> Automated audience and engagement metrics</li>
-          </ul>
-        </aside>
       </section>
 
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>What was built</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>A layered detection pipeline</h2>
         <p>
-          The application was built around a layered detection pipeline. Human detection was performed using YOLOv8, which identified people in the video frame and localized them with confidence scores. For face-related analysis, the system used OpenCV Haar Cascade and then classified gender using a Vision Transformer (ViT) model from Hugging Face. This made the app capable of combining object detection with identity-aware analysis in real time.
+          The application was built around a layered detection pipeline. Human detection was
+          performed using YOLOv8, which identified people in the video frame and localized
+          them with confidence scores. For face-related analysis, the system used OpenCV Haar
+          Cascade and then classified gender using a Vision Transformer (ViT) model from
+          Hugging Face — combining object detection with identity-aware analysis in real
+          time.
         </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/cv2.png" alt="Person detection and tracking in the field" />
+          <figcaption>YOLOv8 detecting and localizing people in a live frame before the face and gender classification stages run.</figcaption>
+        </figure>
+
         <p>
-          The project also included a monitoring layer that stored CSV logs, accumulated hourly summaries, and created final session reports at the end of a run. A Tkinter-based GUI allowed the operator to start and stop detection cleanly while keeping the process responsive. The ability to require login every 30 days added a simple access-control layer appropriate for a working application.
+          The project also included a monitoring layer that stored CSV logs, accumulated
+          hourly summaries, and created final session reports at the end of a run. A
+          Tkinter-based GUI allowed the operator to start and stop detection cleanly while
+          keeping the process responsive, and requiring login every 30 days added a simple
+          access-control layer appropriate for a working application rather than a one-off
+          script.
         </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/cv.jpeg" alt="Audience insight analytics dashboard" />
+          <figcaption>The Tkinter operator interface, showing the counts and summaries the logging layer produced during a run.</figcaption>
+        </figure>
       </section>
 
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>Four layers, one pipeline</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Video intelligence</h3>
@@ -125,7 +130,7 @@
           </div>
           <div class="article-card">
             <h3>Operational interface</h3>
-            <p>TKinter provided a simple front-end for start/stop control, while the detection logic ran in a dedicated thread to keep the interface responsive during processing.</p>
+            <p>Tkinter provided a simple front-end for start/stop control, while the detection logic ran in a dedicated thread to keep the interface responsive during processing.</p>
           </div>
           <div class="article-card">
             <h3>Reporting</h3>
@@ -134,45 +139,60 @@
         </div>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
         <p>
-          The project shows how a practical AI application can move beyond experimentation and become a monitoring tool. It converts passive video streams into active insight: people counts, gender distribution, attendance trends, and attention-oriented metrics. This is especially valuable in public spaces, storefronts, and presentation environments where understanding audience response can inform more effective decisions.
+          The project shows how a practical AI application can move beyond experimentation
+          and become a monitoring tool. It converts passive video streams into active
+          insight: people counts, gender distribution, attendance trends, and
+          attention-oriented metrics — especially valuable in public spaces, storefronts, and
+          presentation environments where understanding audience response can inform more
+          effective decisions.
         </p>
         <p>
-          The larger takeaway is that impactful AI systems are not only about model performance — they also depend on data handling, usability, and a clear reporting layer. TPL Trakker AI demonstrates this well: the technical pipeline does the inference, but the application value comes from turning that inference into useful, structured operational knowledge.
+          The larger takeaway is that impactful AI systems are not only about model
+          performance — they also depend on data handling, usability, and a clear reporting
+          layer. TPL Trakker AI demonstrates this well: the technical pipeline does the
+          inference, but the application value comes from turning that inference into useful,
+          structured operational knowledge.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">Python</span>
+              <span class="chip">OpenCV</span>
+              <span class="chip">YOLOv8</span>
+              <span class="chip">ViT</span>
+              <span class="chip">Tkinter</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The same detect-classify-report pattern shows up again, at pest scale, in the neighboring Pest Detection project.</p>
+          </div>
         </div>
 
-        <div class="article-gallery">
-          <img src="../assets/img/cv.jpeg" alt="Audience insight analytics dashboard" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          <img src="../assets/img/cv2.png" alt="Person detection and tracking in the field" style="width:100%;height:220px;object-fit:cover;border-radius:1rem;border:1px solid rgba(255,255,255,0.08);" />
-          
+        <div class="report-footer-nav">
+          <a href="pest-detection.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Pest Detection</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="sos-emergency-alarm.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>SOS Alarm</strong>
+          </a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="pest-detection.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>Pest Detection</strong>
-        </a>
-
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-
-        <a href="sos-emergency-alarm.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>SOS Alarm</strong>
-        </a>
-      </div>
+        <div class="note">TPL Trakker AI &middot; YOLOv8 + ViT on a Tkinter operator interface &middot; live audience analytics dashboard</div>
+      </footer>
     </main>
   </body>
 </html>

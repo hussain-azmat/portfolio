@@ -3,126 +3,157 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LoRa SOS Emergency Alarm System | Azmat Hussain</title>
+    <title>An Emergency Alarm That Doesn't Need WiFi | Azmat Hussain</title>
     <meta
       name="description"
-      content="Long-range LoRa-based SOS emergency alarm system designed for industrial environments where WiFi and standard site infrastructure are unreliable."
+      content="A long-range LoRa SOS alerting device built for an industrial power plant, designed as a one-button fallback when site WiFi and networks can't be trusted."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
   </head>
   <body class="article-page">
-    <header class="article-header">
-      <div class="container article-nav">
-        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
-        <span class="article-kicker">Case Study</span>
-      </div>
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
 
-      <div class="container article-hero">
-        <p class="section__subtitle">IoT / Industrial Safety</p>
-        <h1>LoRa SOS Emergency Alarm System</h1>
-        <p class="lead">
-          A long-range, infrastructure-independent SOS alerting device for an industrial site, built as a fallback when WiFi and other communication channels could not be trusted for emergency signaling.
-        </p>
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; IoT / industrial safety</div>
+      <h1 class="title">One button, one radio link, <em>no network to fail</em>.</h1>
+      <p class="dek">
+        A long-range, infrastructure-independent SOS alerting device for an industrial
+        site, built as a fallback when WiFi and other communication channels could not
+        be trusted for emergency signaling.
+      </p>
 
-        <div class="article-meta">
-          <div>
-            <span>Role</span>
-            <strong>Sole Designer & Builder</strong>
-          </div>
-          <div>
-            <span>Timeline</span>
-            <strong>Prototype deployment</strong>
-          </div>
-          <div>
-            <span>Stack</span>
-            <strong>Arduino Nano, LoRa serial module (433MHz), custom PCB, 3D-printed enclosure</strong>
-          </div>
-          <div>
-            <span>Outcome</span>
-            <strong>Working master–slave pair, field-tested to 10km</strong>
-          </div>
-        </div>
-
-        <div class="article-toc">
-          <span class="toc-label">On this page</span>
-          <nav class="article-toc-nav">
-            <a href="#overview">Overview</a>
-            <a href="#challenge">Challenge</a>
-            <a href="#journey">Journey</a>
-            <a href="#architecture">Architecture</a>
-            <a href="#impact">Impact</a>
-            <a href="#gallery">Gallery</a>
-          </nav>
-        </div>
+      <div class="readout-row">
+        <div class="readout"><div class="num">Sole designer</div><div class="label">role on the project</div></div>
+        <div class="readout"><div class="num">Prototype</div><div class="label">deployment stage</div></div>
+        <div class="readout"><div class="num">LoRa 433MHz + custom PCB</div><div class="label">core stack</div></div>
+        <div class="readout"><div class="num">10km field-tested</div><div class="label">outcome proven</div></div>
       </div>
     </header>
 
-    <main class="container article-content">
-      <section class="article-block" id="overview">
-        <div class="article-section-heading">
-          <span class="section-tag">Overview</span>
-          <h2>Context</h2>
-        </div>
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>Context</h2>
+        <p class="lede">
+          At Engro's power plant in Ghotki, existing communication infrastructure was
+          not reliable enough to be trusted for emergency signaling. In an industrial
+          plant environment, that is not a minor inconvenience: if a worker needs help
+          and the network is down or out of coverage, there is no fallback. The brief
+          was to build a dedicated radio-based emergency alert device that did not
+          depend on the site network at all — something that could operate
+          independently of WiFi coverage, congestion, or outages.
+        </p>
         <p>
-          At Engro's power plant in Ghotki, existing communication infrastructure was not reliable enough to be trusted for emergency signaling. In an industrial plant environment, that is not a minor inconvenience: if a worker needs help and the network is down or out of coverage, there is no fallback. The brief was to build a dedicated radio-based emergency alert device that did not depend on the site network at all — something that could operate independently of WiFi coverage, congestion, or outages.
+          Plant sites like this one are large, metal-dense, and spread across open
+          industrial terrain, all of which work against conventional short-range
+          wireless links. WiFi access points cover only fractions of the site and are
+          themselves dependent on the same power and network backbone that could fail
+          during an actual emergency. The design goal was therefore not to make the
+          existing network more reliable, but to sidestep it entirely with a
+          purpose-built, point-to-point radio path that had no shared dependency with
+          plant IT infrastructure at all.
         </p>
       </section>
 
-      <section class="article-block split-layout" id="challenge">
-        <div>
-          <div class="article-section-heading">
-            <span class="section-tag">Challenge</span>
-            <h2>The problem</h2>
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Working the first time, under stress</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              The device needed to work over real industrial distances, and plant
+              sites can span kilometres. It also had to be simple enough for a worker
+              to trigger under stress — a single physical button, not a menu or app —
+              physically robust enough for harsh industrial use, and cheap enough to
+              replicate. Engro also proposed an attendance-tracking use case for the
+              same hardware as a longer-term second feature, though the core
+              requirement remained the emergency SOS function.
+            </p>
+            <p>
+              There was also a human-factors dimension to the problem that could not
+              be solved by radio range alone. A device meant to be triggered in a
+              genuine emergency has to work the first time, without instructions,
+              possibly in the dark or under physical strain — which ruled out anything
+              with a screen, a pairing step, or a multi-stage interaction. That
+              constraint pushed the entire design toward mechanical and electrical
+              simplicity: one button, one signal, one dedicated receiver, with no
+              software layer standing between the worker and the alert being sent.
+            </p>
           </div>
-          <p>
-            The device needed to work over real industrial distances, and plant sites can span kilometres. It also had to be simple enough for a worker to trigger under stress — a single physical button, not a menu or app — physically robust enough for harsh industrial use, and cheap enough to replicate. Engro also proposed an attendance-tracking use case for the same hardware as a longer-term second feature, though the core requirement remained the emergency SOS function.
-          </p>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Environment: power plant and industrial site &middot; focus: independent
+            emergency communication &middot; impact: reliable SOS fallback beyond
+            WiFi coverage &middot; interface: single physical trigger button, no app
+            or pairing step.
+          </div>
         </div>
-
-        <aside class="article-aside">
-          <h3>Project Snapshot</h3>
-          <ul>
-            <li><strong>Environment:</strong> Power plant and industrial site</li>
-            <li><strong>Focus:</strong> Independent emergency communication</li>
-            <li><strong>Impact:</strong> Reliable SOS fallback beyond WiFi coverage</li>
-          </ul>
-        </aside>
       </section>
 
-      <section class="article-block" id="journey">
-        <div class="article-section-heading">
-          <span class="section-tag">Journey</span>
-          <h2>What was built</h2>
-        </div>
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>What was built</h2>
         <p>
-          The design centered on a 433MHz LoRa serial radio module paired with an Arduino Nano as the controller. Both the PCB and the enclosure were designed from scratch: a custom board carrying the Nano and the LoRa module, and a custom CAD 3D-printed casing sized for a single physical trigger button. Every part of the design — PCB, CAD, and firmware — was created end to end.
+          The design centered on a 433MHz LoRa serial radio module paired with an
+          Arduino Nano as the controller. Both the PCB and the enclosure were designed
+          from scratch: a custom board carrying the Nano and the LoRa module, and a
+          custom CAD 3D-printed casing sized for a single physical trigger button.
+          Every part of the design — PCB, CAD, and firmware — was created end to end.
         </p>
         <p>
-          The system was built as a master–slave radio pair. Pressing the trigger on the slave unit sent an SOS signal over the dedicated LoRa link to the master, which could sit in a monitoring location or relay onward to plant security or response staff. Because the link was a dedicated point-to-point radio connection rather than shared network infrastructure, it remained dependable exactly when standard communications were most unreliable.
+          The system was built as a master–slave radio pair. Pressing the trigger on
+          the slave unit sent an SOS signal over the dedicated LoRa link to the
+          master, which could sit in a monitoring location or relay onward to plant
+          security or response staff. Because the link was a dedicated point-to-point
+          radio connection rather than shared network infrastructure, it remained
+          dependable exactly when standard communications were most unreliable.
         </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/sos.jpeg" alt="SOS Alarm Master Device" />
+          <figcaption>The master unit that received the SOS signal and could relay it onward to plant security or response staff.</figcaption>
+        </figure>
+
+        <figure class="report-figure">
+          <img src="../assets/img/sos3.jpeg" alt="SOS Alarm Slave Device" />
+          <figcaption>The slave unit carrying the single trigger button a worker would press in an emergency.</figcaption>
+        </figure>
+
         <p>
-          Attendance tracking using the same paired-device concept was discussed as a future extension after the SOS prototype proved out, but once COVID-19 hit and site priorities shifted, the focus stayed on the safety function rather than expanding the scope prematurely.
+          Attendance tracking using the same paired-device concept was discussed as a
+          future extension after the SOS prototype proved out, but once COVID-19 hit
+          and site priorities shifted, the focus stayed on the safety function rather
+          than expanding the scope prematurely.
         </p>
       </section>
 
-      <section class="article-block" id="architecture">
-        <div class="article-section-heading">
-          <span class="section-tag">Architecture</span>
-          <h2>System thinking</h2>
-        </div>
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>System thinking</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Radio link</h3>
             <p>A 433MHz LoRa serial transceiver on each end provided long-range operation at low power and simple UART-level integration with the Nano. The module handled the RF layer, reducing the need for a custom radio protocol stack.</p>
           </div>
+        </div>
+
+        <figure class="report-figure">
+          <img src="../assets/img/sos2.jpg" alt="LoRa Module" />
+          <figcaption>The 433MHz LoRa transceiver module that gave each unit its dedicated, network-independent radio link.</figcaption>
+        </figure>
+
+        <div class="article-grid two-col" style="margin-top:20px">
           <div class="article-card">
             <h3>Controller and trigger</h3>
-            <p>The Arduino Nano on each unit read the trigger button on the slave side and drove the module's serial interface. This kept the interface simple and resilient under pressure.</p>
+            <p>The Arduino Nano on each unit read the trigger button on the slave side and drove the module's serial interface. This kept the interface simple and resilient under pressure, with the Nano's job reduced to debouncing a single input and pushing a fixed byte sequence over UART — a small enough responsibility that there was little surface area for firmware bugs to creep in.</p>
           </div>
           <div class="article-card">
             <h3>Enclosure and packaging</h3>
-            <p>A self-designed 3D-printed housing was built specifically around the PCB layout and button placement, rather than adapting an off-the-shelf enclosure.</p>
+            <p>A self-designed 3D-printed housing was built specifically around the PCB layout and button placement, rather than adapting an off-the-shelf enclosure. The button sat proud enough to be found and pressed without looking, and the shell was sized to protect the board and antenna connection from knocks and dust typical of a plant floor.</p>
           </div>
           <div class="article-card">
             <h3>Operational model</h3>
@@ -131,45 +162,60 @@
         </div>
       </section>
 
-      <section class="article-block" id="impact">
-        <div class="article-section-heading">
-          <span class="section-tag">Impact</span>
-          <h2>Results and lessons</h2>
-        </div>
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Results and lessons</h2>
         <p>
-          The single master–slave prototype pair was field-tested at both 1km and 10km separation, and the SOS signal was received reliably at both distances. That validation proved LoRa was a viable fallback channel in environments where standard network coverage could not be guaranteed. As a single-purpose, single-button device with its own radio link, it solved the exact failure mode it was designed to address: no WiFi outage or congestion event could take the emergency path down with it.
+          The single master–slave prototype pair was field-tested at both 1km and
+          10km separation, and the SOS signal was received reliably at both
+          distances. That validation proved LoRa was a viable fallback channel in
+          environments where standard network coverage could not be guaranteed. As a
+          single-purpose, single-button device with its own radio link, it solved the
+          exact failure mode it was designed to address: no WiFi outage or congestion
+          event could take the emergency path down with it.
         </p>
         <p>
-          The project also showed discipline in scope management. Attendance tracking was a natural extension on the same hardware, but rather than half-building two features, the emergency capability was completed and tested before any future feature work was considered. That kept the product aligned with the real operational priority and avoided a diluted design.
+          The project also showed discipline in scope management. Attendance
+          tracking was a natural extension on the same hardware, but rather than
+          half-building two features, the emergency capability was completed and
+          tested before any future feature work was considered. That kept the product
+          aligned with the real operational priority and avoided a diluted design.
         </p>
       </section>
 
-      <section class="article-block" id="gallery">
-        <div class="article-section-heading">
-          <span class="section-tag">Gallery</span>
-          <h2>Visual documentation</h2>
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">Arduino Nano</span>
+              <span class="chip">LoRa 433MHz</span>
+              <span class="chip">Custom PCB</span>
+              <span class="chip">3D-printed enclosure</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The self-contained radio-and-controller design philosophy here carried directly into the smart energy meter's standalone measurement and reporting hardware.</p>
+          </div>
         </div>
 
-        <div class="article-gallery">
-          <img src="../assets/img/sos.jpeg" alt="SOS Alarm Master Device" />
-          <img src="../assets/img/sos2.jpg" alt="LoRa Module" />
-          <img src="../assets/img/sos3.jpeg" alt="SOS Alarm Slave Device" />
+        <div class="report-footer-nav">
+          <a href="vending-machine.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Automated Vending Machine</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="energy-meter.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Smart Energy Meter</strong>
+          </a>
         </div>
-      </section>
 
-      <div class="article-footer-nav">
-        <a href="vending-machine.html" class="project-nav project-nav--prev">
-          <span>Previous</span>
-          <strong>Automated Vending Machine</strong>
-        </a>
-
-        <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
-
-        <a href="energy-meter.html" class="project-nav project-nav--next">
-          <span>Next</span>
-          <strong>Smart Energy Meter</strong>
-        </a>
-      </div>
+        <div class="note">Engro power plant, Ghotki &middot; LoRa 433MHz master&ndash;slave pair &middot; field-tested to 10km</div>
+      </footer>
     </main>
   </body>
 </html>
