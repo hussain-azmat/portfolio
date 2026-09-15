@@ -6,7 +6,7 @@
     <title>Tracking Without SIM or GPS | Azmat Hussain</title>
     <meta
       name="description"
-      content="TPL Locator: a BLE-based personal and asset tracking platform using crowd-sourced positioning and long battery life for environments where GPS and SIM-based tracking are impractical."
+      content="TPL Locator: a card-sized BLE tracking product and full telematics platform — device, mobile app, and dashboard — built for years of battery life without SIM or GPS."
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="article.css" />
@@ -18,19 +18,25 @@
     </div>
 
     <header class="hero">
-      <div class="eyebrow">Field report &middot; current project</div>
+      <div class="eyebrow">Field report &middot; current product</div>
       <h1 class="title">Tracking that doesn't need <em>a SIM or a satellite</em>.</h1>
       <p class="dek">
-        TPL Locator is a BLE-based tracking platform built for places where GPS and SIM-based
-        solutions aren't practical — using crowd-sourced positioning, long battery life, and
-        a full telematics dashboard instead of conventional connectivity.
+        TPL Locator is a card-sized BLE tracker and the full platform behind it —
+        firmware, a companion mobile app, and a web dashboard — built for places where
+        GPS and SIM-based tracking are impractical, running on crowd-sourced positioning
+        and up to three years of battery life instead of conventional connectivity.
       </p>
 
+      <figure class="report-figure" style="margin-top:4px">
+        <img src="https://tpltrakker.com/wp-content/uploads/2026/09/locator-card-600x447.png" alt="TPL Locator card-sized BLE tracker hardware" />
+        <figcaption>TPL Locator: a compact, wallet-sized tracker — 8.6 &times; 5.4 &times; 0.25cm — built for everyday belongings rather than vehicles.</figcaption>
+      </figure>
+
       <div class="readout-row">
-        <div class="readout"><div class="num">Product &amp; Platform</div><div class="label">lead</div></div>
-        <div class="readout"><div class="num">Current</div><div class="label">in active development</div></div>
-        <div class="readout"><div class="num">BLE, IoT</div><div class="label">telematics stack</div></div>
-        <div class="readout"><div class="num" style="color:var(--orchard-ink, var(--orchard))">Dashboard</div><div class="label">platform live</div></div>
+        <div class="readout"><div class="num">8.6 &times; 5.4 &times; 0.25<small>cm</small></div><div class="label">card-sized form factor</div></div>
+        <div class="readout"><div class="num">3 years</div><div class="label">battery life</div></div>
+        <div class="readout"><div class="num">BLE + crowd-sourced</div><div class="label">positioning, no SIM or GPS</div></div>
+        <div class="readout"><div class="num" style="color:var(--orchard-ink, var(--orchard))">Shipping</div><div class="label">product live &middot; app + dashboard in use</div></div>
       </div>
     </header>
 
@@ -39,17 +45,21 @@
         <span class="kicker">01 &middot; Overview</span>
         <h2>Context</h2>
         <p class="lede">
-          TPL Locator is a BLE-based tracking solution for personal and asset visibility in
-          environments where conventional SIM and GPS systems are limited or unavailable. The
-          system is designed to work without relying on mobile connectivity or satellite
-          positioning for core location estimation, instead using crowd-sourced intelligence
-          and device-level telemetry.
+          TPL Locator is a BLE-based tracking product built for personal and asset
+          visibility in environments where conventional SIM and GPS systems are limited,
+          expensive to run continuously, or simply unavailable. Slim enough to sit inside
+          a wallet, it's designed around everyday carry — wallets, bags, personal
+          essentials — rather than the vehicle-tracking use case TPL Trakker is best
+          known for.
         </p>
         <p>
-          That design choice runs against the default assumption in most tracking products —
-          that a SIM card or a GPS chip is the starting point — and instead treats
-          connectivity-free operation as the requirement the rest of the system has to be
-          built around.
+          That design choice runs against the default assumption in most tracking
+          products — that a SIM card or a GPS chip is the starting point — and instead
+          treats connectivity-free, low-power operation as the requirement the rest of
+          the system has to be built around: crowd-sourced positioning and device-level
+          telemetry standing in for a cellular or satellite link, with wireless charging
+          and up to three years of battery life making that trade-off practical for
+          daily use.
         </p>
       </section>
 
@@ -59,21 +69,27 @@
         <div class="two-col-report">
           <div>
             <p>
-              The key challenge was delivering a practical inventory and monitoring platform
-              that could run for years on battery life while remaining accurate enough for
-              personal and asset tracking.
+              The key challenge was delivering a practical, pocket-sized tracking
+              product that could run for years on battery life while remaining accurate
+              enough for everyday personal and asset tracking — without the recurring
+              SIM cost or the power draw of a GPS radio that would make a "years of
+              battery life" claim impossible.
             </p>
             <p>
-              The architecture needed to avoid dependence on SIM or GPS, support low-power
-              operation, and still provide meaningful location visibility in real deployment
-              conditions — three constraints that tend to pull against each other in most
-              tracking hardware.
+              The architecture needed to avoid dependence on SIM or GPS, support
+              low-power BLE operation and wireless charging, and still provide
+              meaningful location visibility in real deployment conditions through a
+              mobile app and a web dashboard — three hardware constraints and two
+              software surfaces that tend to pull against each other in most tracking
+              products.
             </p>
           </div>
           <div class="finding">
-            <strong>Project snapshot.</strong>
-            Built for smart tracking and telematics &middot; focused on BLE-based asset and
-            personal monitoring &middot; aimed at a long-life, low-cost tracking system.
+            <strong>Product snapshot.</strong>
+            Card-sized BLE tracker for personal and asset tracking &middot; up to three
+            years of battery life with wireless charging &middot; Android and iOS app
+            plus a web telematics dashboard &middot; positioning via crowd-sourced BLE
+            rather than SIM or GPS.
           </div>
         </div>
       </section>
@@ -82,63 +98,74 @@
         <span class="kicker">03 &middot; Journey</span>
         <h2><span class="idx">03</span>From device to full telematics platform</h2>
         <p>
-          The project includes device development, fleet and account logic, event
-          monitoring, and a full operational dashboard. Over time, the focus expanded beyond
-          just hardware tracking to include the full telematics experience: user management,
+          The project spans device firmware, a mobile app, and a full operational
+          dashboard, tied together by fleet and account logic, event monitoring, and
+          crowd-sourced position resolution. Over time the focus expanded beyond just
+          hardware tracking into the full telematics experience: user management,
           geofencing, historical replay, asset monitoring, and real-time operational
-          controls.
+          controls that TPL Trakker's other fleet products already relied on.
         </p>
         <p>
-          That expansion reflects how the platform grew from a single tracking problem into
-          an operational tool — the device layer solves location, but the dashboard layer is
-          what turns that location data into something a fleet or facility team can actually
-          run on day to day.
+          That expansion reflects how the platform grew from a single tracking problem
+          into an operational tool — the device layer solves location, but the app and
+          dashboard layers are what turn that location data into something a person or a
+          fleet team can actually act on day to day. "SMART TRAKKING, SIMPLY CONNECTED"
+          is the product's own framing of that link: the tracker works seamlessly with
+          the mobile app to surface real-time updates, alerts, and control, without the
+          user ever having to think about how the position was resolved underneath.
         </p>
 
         <figure class="report-figure">
-          <div class="gallery-placeholder">Add dashboard screenshot</div>
-          <figcaption>The operational dashboard that turns raw BLE location data into something a fleet team can act on.</figcaption>
+          <img src="../assets/img/locator.png" alt="TPL Locator web dashboard showing device counts, battery status, and activity" />
+          <figcaption>The operational dashboard behind the product: 617 devices tracked across 6,100 users in this view, with live battery health and per-device activity feeding straight from the same crowd-sourced positioning data the mobile app uses.</figcaption>
         </figure>
       </section>
 
       <section class="report wide" id="architecture">
         <span class="kicker">04 &middot; Architecture</span>
-        <h2><span class="idx">04</span>Device and platform</h2>
+        <h2><span class="idx">04</span>Device, app, and dashboard</h2>
         <div class="article-grid two-col">
           <div class="article-card">
             <h3>Hardware</h3>
-            <p>BLE-enabled tracking devices engineered for low-power operation, long battery life, and practical field deployment without relying on GPS or mobile connectivity.</p>
+            <p>A BLE-enabled tracking card measuring 8.6 &times; 5.4 &times; 0.25cm, engineered for low-power operation, up to three years of battery life, and wireless charging — deliberately built to disappear into a wallet rather than announce itself as a tracker.</p>
           </div>
           <div class="article-card">
-            <h3>Software</h3>
-            <p>Telematics data processing, user and asset management, event logic, geofencing, and dashboard workflows designed for operational visibility and analysis.</p>
+            <h3>Mobile app</h3>
+            <p>The Android and iOS companion app is the primary consumer interface: real-time location, alerts, and device status, built on top of the same crowd-sourced BLE positioning the web dashboard consumes.</p>
           </div>
         </div>
 
-        <figure class="report-figure">
-          <div class="gallery-placeholder">Add tracking device image</div>
-          <figcaption>The BLE tracking device itself, built for years of battery life without a SIM or GPS chip.</figcaption>
-        </figure>
-
-        <figure class="report-figure">
-          <div class="gallery-placeholder">Add fleet overview view</div>
-          <figcaption>The fleet overview view, one of the dashboard workflows built on top of the crowd-sourced positioning data.</figcaption>
-        </figure>
+        <div class="article-grid two-col" style="margin-top:20px">
+          <div class="article-card">
+            <h3>Web dashboard</h3>
+            <p>Telematics data processing, user and asset management, event logic, geofencing, and operational dashboard workflows built on a React and Material-UI frontend (Redux Toolkit for state, Recharts for the operational charts, Axios against the backend API) — the same platform pattern used across TPL Trakker's other telematics products.</p>
+          </div>
+          <div class="article-card">
+            <h3>Positioning backend</h3>
+            <p>Crowd-sourced BLE positioning and device telemetry replace SIM- and GPS-based location resolution, feeding both the mobile app and the dashboard from the same backend services rather than two independent tracking pipelines.</p>
+          </div>
+        </div>
       </section>
 
       <section class="report" id="impact">
         <span class="kicker">05 &middot; Impact</span>
         <h2>Results and lessons</h2>
         <p>
-          The solution demonstrates how telematics can be built around practical constraints
-          rather than standard assumptions. Instead of depending on SIM or GPS, the platform
-          uses a more resilient and cost-aware model to support personal and asset tracking.
+          The product demonstrates how telematics can be built around practical
+          constraints rather than standard assumptions. Instead of depending on SIM or
+          GPS, the platform uses a more resilient and cost-aware model to support
+          personal and asset tracking — and it's shipping: TPL Locator is a live TPL
+          Trakker product with its own storefront, marketing site, mobile app, and
+          dashboard in active use, not a lab prototype.
         </p>
         <p>
-          The work also includes the broader system layer required for a real operational
-          platform: dashboards, replay, boundaries, alerts, and access control — the parts of
-          a tracking product that don't show up in a spec sheet but determine whether teams
-          actually use it.
+          The work also includes the broader system layer required for a real
+          operational platform: dashboards, replay, geofencing, alerts, and access
+          control — the parts of a tracking product that don't show up in a spec sheet
+          but determine whether people and fleet teams actually use it. Building the
+          device, the app, and the dashboard as one connected platform, rather than
+          three separate deliverables, is what let "no SIM, no GPS" become a shippable
+          product claim instead of a hardware footnote.
         </p>
       </section>
 
@@ -148,8 +175,13 @@
             <h3>Stack</h3>
             <div class="stack-row">
               <span class="chip">BLE</span>
-              <span class="chip">IoT</span>
-              <span class="chip">Telematics</span>
+              <span class="chip">IoT firmware</span>
+              <span class="chip">Android &amp; iOS app</span>
+              <span class="chip">React</span>
+              <span class="chip">Material-UI</span>
+              <span class="chip">Redux Toolkit</span>
+              <span class="chip">Recharts</span>
+              <span class="chip">Axios / REST API</span>
             </div>
           </div>
           <div>
@@ -162,7 +194,7 @@
           <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
         </div>
 
-        <div class="note">BLE tracking platform &middot; crowd-sourced positioning, no SIM or GPS &middot; dashboard platform in active use</div>
+        <div class="note">TPL Trakker product &middot; BLE tracker + mobile app + React/Material-UI dashboard &middot; crowd-sourced positioning, no SIM or GPS</div>
       </footer>
     </main>
   </body>

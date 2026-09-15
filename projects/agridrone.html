@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counting an Orchard Without Counting Twice | Azmat Hussain</title>
+    <meta
+      name="description"
+      content="A simulated drone fleet that detects and tracks fruit in real orchard photographs, learns to fly rows without colliding, and resolves duplicate sightings across agents with no central server and no reliable radio link back to base."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="article.css" />
+  </head>
+  <body class="article-page">
+    <div class="topnav">
+      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <span class="article-kicker">Field report</span>
+    </div>
+
+    <header class="hero">
+      <div class="eyebrow">Field report &middot; multi-agent robotics</div>
+      <h1 class="title">Counting an orchard <em>without</em> counting twice.</h1>
+      <p class="dek">
+        A drone fleet that finds and tracks fruit in real orchard photographs, learns to
+        fly rows without colliding, and — the actual research contribution — resolves
+        duplicate sightings across agents with no central server and no reliable radio
+        link back to base.
+      </p>
+
+      <figure class="report-figure" style="margin-top:4px">
+        <video src="../assets/img/agridrone/media/detection_demo.mp4" autoplay muted loop playsinline controls style="width:100%;display:block;border:1px solid var(--line-strong);border-radius:2px;background:#000;"></video>
+        <figcaption>Live detector + tracker on a real, unstaged orchard photograph — synthesized camera pan, real pixels throughout.</figcaption>
+      </figure>
+
+      <div class="readout-row">
+        <div class="readout"><div class="num">0.961</div><div class="label">detector mAP50</div></div>
+        <div class="readout"><div class="num">6.0<small>M</small></div><div class="label">fleet-nav training steps</div></div>
+        <div class="readout"><div class="num">30&times;4</div><div class="label">seeds &times; swarm sizes tested</div></div>
+        <div class="readout"><div class="num" style="color:var(--bad)">&minus;78.9</div><div class="label">centralized error at 90% link loss</div></div>
+        <div class="readout"><div class="num" style="color:var(--orchard-ink, var(--orchard))">+2.3</div><div class="label">our error, same conditions</div></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="report" id="overview">
+        <span class="kicker">01 &middot; Overview</span>
+        <h2>One drone counting is solved. A fleet is not.</h2>
+        <p class="lede">
+          Send one drone down one row of an orchard and fruit counting is a known
+          recipe: detect, then track across frames so the same apple isn't counted in
+          every frame it appears in. That part of this project works well — mAP50 0.961
+          on real photographs, tracking verified frame by frame.
+        </p>
+        <p>
+          Send a fleet, and a new failure mode opens up that single-camera counting
+          never has to face: two drones on adjacent rows can each independently track
+          the same tree at the row boundary. Sum their counts naively and that tree is
+          counted twice — in simulated fleets here, naive summing overcounts by
+          25&ndash;45% depending on swarm size. The obvious fix, ship every observation
+          to a base station and de-duplicate centrally, quietly assumes a working
+          long-range radio link back to a fixed point — an assumption that gets worse,
+          not better, the larger and more remote the field.
+        </p>
+      </section>
+
+      <section class="report wide" id="challenge">
+        <span class="kicker">02 &middot; Challenge</span>
+        <h2><span class="idx">02</span>Seeing the orchard, one drone at a time</h2>
+        <div class="two-col-report">
+          <div>
+            <p>
+              YOLOv8n was fine-tuned on AppleBBCH81 — 1,838 real orchard photographs,
+              dense foliage, natural occlusion, no staging — for 60 epochs in 12.4
+              minutes on a single T4. A bigger model was tried and rejected: YOLOv8s
+              scored statistically identically (mAP50 0.962 vs 0.961) at 3.6&times; the
+              size and over 2&times; the inference latency, so the small model stayed.
+            </p>
+            <p>
+              Counting itself is a tracking problem, not a detection problem: the same
+              apple crosses many video frames. Wrapping the detector with ByteTrack
+              collapses repeat sightings into one count per physical apple — the part of
+              this project that behaves exactly like the well-understood single-camera
+              case.
+            </p>
+          </div>
+          <div class="finding">
+            <strong>Project snapshot.</strong>
+            Domain: multi-agent robotics &middot; focus: fruit detection, row navigation,
+            and decentralized re-identification across a drone fleet &middot; headline
+            result: fleet-count error stays near zero under radio-link failure that
+            drives a centralized approach to a 90% undercount.
+          </div>
+        </div>
+
+        <figure class="report-figure">
+          <img src="../assets/img/agridrone/media/perception_grid.jpg" alt="Grid of validation images with predicted bounding boxes on real orchard photos" />
+          <figcaption>Validation predictions across varied real scenes — including correctly finding nothing in an apple-free frame of grass and sky.</figcaption>
+        </figure>
+      </section>
+
+      <section class="report wide" id="journey">
+        <span class="kicker">03 &middot; Journey</span>
+        <h2><span class="idx">03</span>A fleet that learns not to collide</h2>
+        <p>
+          Each drone learns, through reinforcement learning rather than hand-tuned
+          control, to hold its row and steer clear of trees and teammates in a
+          physics-simulated orchard. A shared-policy multi-agent PPO setup trained four
+          drones for 6M timesteps; reward climbed from &minus;30 to a converged plateau
+          near +8, with zero collisions recorded in evaluation.
+        </p>
+
+        <figure class="report-figure">
+          <img src="../assets/img/agridrone/media/nav_training_curve.png" alt="Training curve for multi-agent reinforcement learning showing reward climbing from -30 to a plateau around +8" />
+          <figcaption>Shared-policy multi-agent PPO, 4 drones, 6M timesteps. Reward climbs from &minus;30 to a converged plateau near +8; zero collisions in evaluation.</figcaption>
+        </figure>
+
+        <p>
+          Said plainly, because this project doesn't dress up simulators as reality:
+          that simulator renders trees as green cylinders on a checkerboard floor. It's
+          the right tool for validating a control algorithm and the wrong tool for a
+          picture of a farm — so it isn't presented as one here. The orchard photographs
+          used for detection, not the navigation simulator, are what carry this
+          project's visual claim to realism.
+        </p>
+      </section>
+
+      <section class="report wide" id="architecture">
+        <span class="kicker">04 &middot; Architecture</span>
+        <h2><span class="idx">04</span>Swarm-ReID: agreeing on a count without a hub</h2>
+        <p class="lede">
+          Multi-camera re-identification is a solved problem for fixed, wired security
+          cameras. It has not been solved for a handful of aircraft that move, that lose
+          contact with each other constantly, and that have no guaranteed link to
+          anything at all — which is the actual operating condition of a field drone
+          fleet.
+        </p>
+
+        <div class="article-grid two-col">
+          <div class="article-card">
+            <h3>The mechanism</h3>
+            <p>Each drone turns its local ByteTrack entries into compact appearance embeddings, gossips those embeddings — not video, not raw images — to whichever teammates happen to be in radio range, gates candidate matches by GPS proximity before ever comparing appearance, and merges duplicates through a distributed union-find that no drone needs a central authority to update.</p>
+          </div>
+          <div class="article-card">
+            <h3>The unexpected finding</h3>
+            <p>The first hypothesis was that gossiping instead of centralizing would cost fewer bits. Measured directly, it didn't — at these swarm sizes every drone already has a neighbour close enough that message counts come out tied. That null result is reported rather than quietly dropped, because chasing it down surfaced the result that actually matters: resilience, not bandwidth.</p>
+          </div>
+        </div>
+
+        <figure class="report-figure">
+          <img src="../assets/img/agridrone/media/dropout_chart.png" alt="Chart showing centralized re-identification error degrading linearly to -80 as base station link reliability drops, while Swarm-ReID stays flat near zero" />
+          <figcaption><strong>Headline result.</strong> As the probability of losing the link to a base station climbs from 0 to 90%, centralized re-identification's fleet count degrades linearly to roughly &minus;79 — undercounting by nine trees in ten. Swarm-ReID, which never depends on that link, stays flat across the entire range. 30 seeds per point.</figcaption>
+        </figure>
+
+        <div class="compare">
+          <div class="bad">
+            <h4>Centralized, 90% link loss</h4>
+            <div class="stat" style="font-family:'IBM Plex Mono',monospace;font-size:1.7rem;color:var(--bad)">&minus;78.9</div>
+            <div class="sub">mean fleet-count error &middot; ~90% undercounted</div>
+          </div>
+          <div class="good">
+            <h4>Swarm-ReID, same conditions</h4>
+            <div class="stat" style="font-family:'IBM Plex Mono',monospace;font-size:1.7rem;color:var(--orchard-ink, var(--orchard))">+2.3</div>
+            <div class="sub">mean fleet-count error &middot; effectively unaffected</div>
+          </div>
+        </div>
+
+        <figure class="report-figure">
+          <img src="../assets/img/agridrone/media/connectivity_chart.png" alt="Chart showing Swarm-ReID matching centralized accuracy once communication radius exceeds drone spacing, across 4, 6, 8 and 12 drone fleets" />
+          <figcaption>Once radio range clears the drone-spacing threshold (~3m), Swarm-ReID's fleet count is statistically indistinguishable from the centralized ceiling — confirmed from 4 up to 12 drones. Below that threshold no message gets through at all, and it honestly falls back to the uncorrected naive count; that sharp cliff is reported, not smoothed over.</figcaption>
+        </figure>
+
+        <p style="margin-top:16px">Recall even at full connectivity tops out around 0.90&ndash;0.92, not 1.0 — a real gap traced to the appearance-embedding threshold, not the coordination logic, and a concrete target rather than a claim of solved re-identification.</p>
+      </section>
+
+      <section class="report" id="impact">
+        <span class="kicker">05 &middot; Impact</span>
+        <h2>Built in the open, bugs included</h2>
+        <p class="lede">
+          A methods section that only shows the version that worked hides exactly the
+          judgment a reader trying to reproduce it would need. A few of the real ones
+          from this project's log:
+        </p>
+        <ul class="log">
+          <li><span class="tag">bug</span><span class="body"><b>Duplicate entities placed 3m apart in their own simulation.</b> Positions were rebuilt from each observing drone's own centerline instead of one shared true position — geolocation gating correctly, uselessly, rejected nearly every real match.</span></li>
+          <li><span class="tag fix">fix</span><span class="body"><b>Entity position computed once, estimated twice.</b> Both observations now denoise the same true point independently — merges went from 1-in-19 to matching the centralized ceiling.</span></li>
+          <li><span class="tag">bug</span><span class="body"><b>Reinforcement-learning training ran 3&times; slower with the machine otherwise idle.</b> PyTorch was defaulting to sixteen threads to back-propagate a two-layer network smaller than the thread-scheduling overhead itself.</span></li>
+          <li><span class="tag fix">fix</span><span class="body"><b>Capped at four threads.</b> Full speed returned immediately; the fix is one line.</span></li>
+        </ul>
+        <p style="margin-top:16px">
+          Taken together, the project demonstrates that decentralized coordination
+          isn't just a resilience nice-to-have for field robotics — it's the difference
+          between a fleet that keeps counting correctly when the network degrades and
+          one that silently loses nine trees in ten.
+        </p>
+      </section>
+
+      <footer class="report-footer">
+        <div class="grid">
+          <div>
+            <h3>Stack</h3>
+            <div class="stack-row">
+              <span class="chip">PyTorch</span>
+              <span class="chip">Ultralytics YOLOv8</span>
+              <span class="chip">ByteTrack</span>
+              <span class="chip">stable-baselines3</span>
+              <span class="chip">gym-pybullet-drones</span>
+              <span class="chip">NumPy</span>
+            </div>
+          </div>
+          <div>
+            <h3>Read further</h3>
+            <p>The same detect-then-track pipeline used here for fruit counting is the same pattern applied to weed identification on the laser weeding-machine project.</p>
+          </div>
+        </div>
+
+        <div class="report-footer-nav">
+          <a href="pest-detection.html" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Pest Detection</strong>
+          </a>
+
+          <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="audience-insight.html" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Audience Insight</strong>
+          </a>
+        </div>
+
+        <div class="note">Single Azure T4 VM &middot; report generated from real experiment logs, not illustrative figures</div>
+      </footer>
+    </main>
+  </body>
+</html>
