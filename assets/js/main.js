@@ -64,19 +64,67 @@ modalClose.forEach((mc) => {
     });
 });
 
-/*=============== CONTACT FORM (mailto, no backend needed) ===============*/
+/*=============== CONTACT FORM (delivers straight to inbox, no backend) ===============*/
+// Uses Web3Forms (https://web3forms.com) — free, no account/dashboard needed
+// beyond grabbing an access key emailed instantly. Falls back to opening the
+// user's own email app if the request can't reach Web3Forms for any reason.
 const contactForm = document.getElementById("contact-form");
 if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    const statusEl = document.getElementById("contact-status");
+    const submitBtn = contactForm.querySelector("button[type=submit]");
+
+    const setStatus = (msg, ok) => {
+        if (!statusEl) return;
+        statusEl.textContent = msg;
+        statusEl.classList.toggle("contact__status--ok", !!ok);
+        statusEl.classList.toggle("contact__status--error", !ok);
+    };
+
+    contactForm.addEventListener("submit", async (e) => {
         e.preventDefault();
+
         const name = document.getElementById("contact-name").value.trim();
         const email = document.getElementById("contact-email").value.trim();
         const message = document.getElementById("contact-message").value.trim();
+        const accessKey = contactForm.querySelector('[name="access_key"]').value;
 
-        const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-        const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+        if (!accessKey || accessKey === "WEB3FORMS_ACCESS_KEY") {
+            // No key configured yet — fall back to mailto so the form still works.
+            const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+            const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+            window.location.href = `mailto:hussainazmat.rnd@gmail.com?subject=${subject}&body=${body}`;
+            return;
+        }
 
-        window.location.href = `mailto:hussainazmat.rnd@gmail.com?subject=${subject}&body=${body}`;
+        const originalBtnHTML = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Sending...";
+        setStatus("", true);
+
+        try {
+            const formData = new FormData(contactForm);
+            formData.append("subject", `Portfolio inquiry from ${name}`);
+
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { Accept: "application/json" },
+                body: formData,
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                contactForm.reset();
+                setStatus("Message sent — thanks! I'll get back to you soon.", true);
+            } else {
+                throw new Error(data.message || "Submission failed");
+            }
+        } catch (err) {
+            console.error("Contact form error:", err);
+            setStatus("Couldn't send automatically — please email me directly instead.", false);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHTML;
+        }
     });
 }
 

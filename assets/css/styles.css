@@ -434,7 +434,9 @@ body.light-theme {
 
 .home__scroll-name {
   font-size: var(--smaller-font-size);
-  transform: rotate(-90deg);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
 }
 
 /*
@@ -506,6 +508,7 @@ body.light-theme {
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin-top: 2cm;
 
   -webkit-mask-image: linear-gradient(to right,
                       transparent 0%,
@@ -2042,4 +2045,19 @@ body.modal-open .services__card {
   background-color: var(--container-color);
   padding: 0.6rem 1rem;
   border-radius: 0.5rem;
+}
+
+.contact__status {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: var(--small-font-size);
+  min-height: 1.2em;
+}
+
+.contact__status--ok {
+  color: var(--accent-green-light);
+}
+
+.contact__status--error {
+  color: var(--accent-red);
 }
