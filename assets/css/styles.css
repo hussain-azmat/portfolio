@@ -651,6 +651,36 @@ body.light-theme {
   border: 1px solid var(--first-color);
 }
 
+.button--ghost:hover {
+  background-color: hsla(var(--first-hue), var(--sat), var(--lig), 0.08);
+  color: #e3a05a;
+  box-shadow: 0 0 20px hsla(var(--first-hue), var(--sat), var(--lig), 0.6);
+}
+
+.about__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.about__buttons .button {
+  flex: 1 1 160px;
+  text-align: center;
+}
+
+/* .about__button-contact also carries .services__button (to open the
+   contact modal), which sets display:flex and a gold text color that
+   collided with the solid-gold .button background, hiding the label.
+   Force it back to the same ghost look as the CV button. */
+.about__button-contact.services__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #e3a05a;
+}
+
 /*=============== ABOUT ===============*/
 .about__container {
   row-gap: 2.5rem;
