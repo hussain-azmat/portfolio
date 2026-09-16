@@ -1439,14 +1439,11 @@ body.modal-open .services__card {
   background-position: center;
   margin-left: 0.35rem;
   filter: grayscale(100%) brightness(0.85);
-  transition: filter 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  transition: filter 0.4s ease;
 }
 
 .testimonial__card:hover .testimonial__name .flag {
   filter: grayscale(0%) brightness(1.05);
-  transform: scale(1.2);
-  box-shadow: 0 0 10px hsla(var(--first-hue), var(--sat), var(--lig), 0.7),
-    0 0 18px rgba(134, 181, 115, 0.5);
 }
 
 .testimonial__description {
