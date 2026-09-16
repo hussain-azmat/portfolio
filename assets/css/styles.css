@@ -1,5 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Newsreader:ital,wght@0,600;1,600&family=IBM+Plex+Mono:wght@500;600&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -13,17 +13,20 @@
         Pink: hsl(356, 66%, 75%)
         Teal: hsl(174, 63%, 62%)
   */
-  --first-hue: 250;
-  --sat: 66%;
-  --lig: 75%;
+  --first-hue: 38;
+  --sat: 78%;
+  --lig: 65%;
   --second-hue: 219;
-  --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
-  --first-color-alt: hsl(var(--first-hue), var(--sat), 71%); /* -4% */
-  --title-color: hsl(var(--second-hue), 15%, 95%);
-  --text-color: hsl(var(--second-hue), 8%, 75%);
-  --text-color-light: hsl(var(--second-hue), 4%, 55%);
-  --body-color: hsl(var(--second-hue), 48%, 8%);
-  --container-color: hsl(var(--second-hue), 32%, 12%);
+  --first-color: #e3a05a;
+  --first-color-alt: #82b3cc;
+  --accent-green: #86b573;
+  --accent-green-light: #a9d296;
+  --accent-red: #d97a64;
+  --title-color: #ece8da;
+  --text-color: #a7a48f;
+  --text-color-light: #726f5d;
+  --body-color: #14160f;
+  --container-color: #1b1e14;
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -120,7 +123,7 @@ img {
 }
 
 .change__theme:hover {
-  color: var(--first-color);
+  color: #e3a05a;
 }
 
 /*========== Variables light theme ==========*/
@@ -211,7 +214,7 @@ body.light-theme {
 
 .section__title {
   font-size: var(--h2-font-size);
-  color: var(--first-color);
+  color: #e3a05a;
   margin-bottom: 2rem;
 }
 
@@ -241,7 +244,7 @@ body.light-theme {
 }
 
 .nav__logo {
-  color: var(--first-color);
+  color: #e3a05a;
   font-weight: var(--font-medium);
   transition: 0.4s;
 }
@@ -329,8 +332,7 @@ body.light-theme {
 
 .home__name {
   font-size: var(--biggest-font-size);
-  color: var(--first-color);
-  /* color: yellow; */
+  color: var(--title-color);
 }
 
 .home__animated-text-container {
@@ -395,7 +397,7 @@ body.light-theme {
 .home__social-link {
   width: max-content;
   background-color: var(--container-color);
-  color: var(--first-color);
+  color: #e3a05a;
   padding: 0.25rem;
   border-radius: 0.5rem;
   display: flex;
@@ -404,7 +406,7 @@ body.light-theme {
 }
 
 .home__social-link:hover {
-  background-color: var(--first-color);
+  background-color: #e3a05a;
   color: #ffffff;
 }
 
@@ -412,12 +414,12 @@ body.light-theme {
   content: "";
   width: 32px;
   height: 1px;
-  background-color: var(--first-color);
+  background-color: #e3a05a;
   transform: rotate(90deg) translate(16px, 4px);
 }
 
 .home__scroll {
-  color: var(--first-color);
+  color: #e3a05a;
   right: -1.5rem;
   bottom: 4rem;
   display: grid;
@@ -627,7 +629,7 @@ body.light-theme {
 /*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
-  background-color: var(--first-color);
+  background-color: #e3a05a;
   color: var(--body-color);
   padding: 0.75rem 1rem;
   border-radius: 0.8rem;
@@ -642,7 +644,7 @@ body.light-theme {
 
 .button--ghost {
   background-color: transparent;
-  color: var(--first-color);
+  color: #e3a05a;
   border: 1px solid var(--first-color);
 }
 
@@ -677,7 +679,7 @@ body.light-theme {
 
 .about__icon {
   font-size: 1.5rem;
-  color: var(--first-color);
+  color: #e3a05a;
   margin-bottom: 0.5rem;
 }
 
@@ -781,7 +783,7 @@ body.light-theme {
 .skills__title {
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
-    color: var(--first-color);
+    color: #e3a05a;
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -805,7 +807,7 @@ body.light-theme {
 
 .skills .bxs-badge-check {
     font-size: 1rem;
-    color: var(--first-color);
+    color: #e3a05a;
 }
 
 .skills__name {
@@ -864,7 +866,7 @@ body.light-theme {
 .skills__title {
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
-  color: var(--first-color);
+  color: #e3a05a;
   text-align: center;
   margin-bottom: 1.5rem;
 }
@@ -888,7 +890,7 @@ body.light-theme {
 
 .skills .bxs-badge-check {
   font-size: 1rem;
-  color: var(--first-color);
+  color: #e3a05a;
 }
 
 .skills__name {
@@ -941,7 +943,7 @@ body.light-theme {
 }
 
 .services__button {
-  color: var(--first-color);
+  color: #e3a05a;
   font-size: var(--small-font-size);
   display: flex;
   align-items: center;
@@ -1003,7 +1005,7 @@ body.modal-open .services__card {
 
 .services__modal-title {
   font-size: var(--h3-font-size);
-  color: var(--first-color);
+  color: #e3a05a;
   margin-bottom: 1rem;
 }
 
@@ -1025,7 +1027,7 @@ body.modal-open .services__card {
 
 .services__modal-icon {
   font-size: 1.5rem;
-  color: var(--first-color);
+  color: #e3a05a;
 }
 
 .services__modal-info {
@@ -1037,7 +1039,7 @@ body.modal-open .services__card {
   top: 1.5rem;
   right: 1.5rem;
   font-size: 1.5rem;
-  color: var(--first-color);
+  color: #e3a05a;
   cursor: pointer;
 }
 /*Active modal*/
@@ -1104,7 +1106,7 @@ body.modal-open .services__card {
   height: 700px;
   border-radius: 14px;
   background: rgba(15, 23, 42, 0.38);
-  color: var(--first-color);
+  color: #e3a05a;
   border: 0px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
@@ -1256,7 +1258,7 @@ body.modal-open .services__card {
 }
 
 .work__button {
-  color: var(--first-color);
+  color: #e3a05a;
 }
 
 .work__button--disabled {
@@ -1320,7 +1322,7 @@ body.modal-open .services__card {
 
 /* Active item work*/
 .active-work {
-  background-color: var(--first-color);
+  background-color: #e3a05a;
   color: var(--body-color);
 }
 
@@ -1377,7 +1379,7 @@ body.modal-open .services__card {
 
 .testimonial__icon {
   font-size: 2.5rem;
-  color: var(--first-color);
+  color: #e3a05a;
   flex-shrink: 0;
   transition: 0.3s;
 }
@@ -1408,7 +1410,7 @@ body.modal-open .services__card {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: var(--first-color);
+  background-color: #e3a05a;
 }
 
 .swiper-pagination {
@@ -1469,7 +1471,7 @@ body.modal-open .services__card {
 }
 
 .contact__button {
-  color: var(--first-color);
+  color: #e3a05a;
   font-size: var(--small-font-size);
   display: flex;
   align-items: center;
@@ -1554,7 +1556,7 @@ body.modal-open .services__card {
   text-align: center;
   margin-bottom: 0.5rem;
   font-size: var(--h2-font-size);
-  color: var(--first-color);
+  color: #e3a05a;
 }
 
 .footer__list {
@@ -1596,7 +1598,7 @@ body.modal-open .services__card {
 }
 
 .footer__social-link:hover {
-  background-color: var(--first-color);
+  background-color: #e3a05a;
   color: var(--body-color);
 }
 
@@ -1620,7 +1622,7 @@ body.modal-open .services__card {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--first-color);
+  background-color: #e3a05a;
   border-radius: 0.5rem;
 }
 
@@ -1989,4 +1991,55 @@ body.modal-open .services__card {
     padding: 0.4rem;
     border-radius: 0.5rem;
   }
+}
+
+
+/* FORCE COLOR OVERRIDE */.home__name { color: var(--title-color) !important; }
+.home__name .name-gold { color: #e3a05a !important; }
+.home__name .name-green { color: var(--accent-green-light) !important; }
+
+/*=============== ARTICLE-STYLE TYPOGRAPHY & ACCENTS ===============*/
+/* Brings the field-report typography/accent language from the project
+   pages (Newsreader serif headings, IBM Plex Mono labels, gold/green
+   two-tone accents) onto the main page, without touching the
+   particles background or the base Poppins body copy. */
+.home__name,
+.section__title,
+.services__modal-title,
+.services__title,
+.work__title,
+.skills__name {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.section__subtitle,
+.home__greeting,
+.home__scroll-name {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+}
+
+.accent-word {
+  font-style: italic;
+  color: var(--first-color);
+}
+
+.accent-word.alt {
+  color: var(--accent-green-light);
+}
+
+.contact__quick {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact__quick .contact__button {
+  background-color: var(--container-color);
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
 }

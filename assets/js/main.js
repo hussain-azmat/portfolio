@@ -64,6 +64,22 @@ modalClose.forEach((mc) => {
     });
 });
 
+/*=============== CONTACT FORM (mailto, no backend needed) ===============*/
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("contact-name").value.trim();
+        const email = document.getElementById("contact-email").value.trim();
+        const message = document.getElementById("contact-message").value.trim();
+
+        const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+        const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+
+        window.location.href = `mailto:hussainazmat.rnd@gmail.com?subject=${subject}&body=${body}`;
+    });
+}
+
 /*=============== SERVICES MODAL ===============*/
 // Get the modal
 /*const modalViews = document.querySelectorAll(".services__modal"),
