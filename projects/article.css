@@ -529,6 +529,100 @@ body.article-page {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.article-page .topnav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* "All Projects" dropdown — lets a reader jump straight to any other
+   project, or back to the portfolio, without leaving the article page. */
+.article-page .projects-menu {
+  position: relative;
+}
+
+.article-page .projects-menu-trigger {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  background: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.article-page .projects-menu-trigger i {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.article-page .projects-menu-trigger:hover,
+.article-page .projects-menu.open .projects-menu-trigger {
+  border-color: var(--harvest);
+  color: var(--harvest);
+}
+
+.article-page .projects-menu.open .projects-menu-trigger i {
+  transform: rotate(180deg);
+}
+
+.article-page .projects-menu-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 300px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  padding: 8px;
+  display: none;
+  z-index: 200;
+}
+
+.article-page .projects-menu.open .projects-menu-panel {
+  display: block;
+}
+
+.article-page .projects-menu-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 2px;
+  font-size: 13.5px;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.article-page .projects-menu-panel a:hover {
+  background: var(--surface-2);
+  color: var(--harvest);
+}
+
+.article-page .projects-menu-panel a.current {
+  color: var(--harvest);
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .article-page .projects-menu-panel {
+    left: auto;
+    right: 0;
+    min-width: 260px;
+  }
 }
 
 .article-page header.hero {

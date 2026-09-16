@@ -13,7 +13,15 @@
   </head>
   <body class="article-page">
     <div class="topnav">
-      <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+      <div class="topnav-left">
+        <a href="../index.html#work" class="back-link">← Back to portfolio</a>
+        <div class="projects-menu" id="projects-menu">
+          <button type="button" class="projects-menu-trigger" id="projects-menu-trigger">
+            All Projects <i class='bx bx-chevron-down'></i>
+          </button>
+          <div class="projects-menu-panel" id="projects-menu-panel"></div>
+        </div>
+      </div>
       <span class="article-kicker">Field report</span>
     </div>
 
@@ -191,11 +199,24 @@
         </div>
 
         <div class="report-footer-nav">
+          <a href="#" id="footer-prev" class="project-nav project-nav--prev">
+            <span>Previous</span>
+            <strong>Previous Project</strong>
+          </a>
+
           <a href="../index.html#work" class="back-link back-link--project">Back to Projects</a>
+
+          <a href="#" id="footer-next" class="project-nav project-nav--next">
+            <span>Next</span>
+            <strong>Next Project</strong>
+          </a>
         </div>
 
         <div class="note">TPL Trakker product &middot; BLE tracker + mobile app + React/Material-UI dashboard &middot; crowd-sourced positioning, no SIM or GPS</div>
       </footer>
     </main>
+
+    <script src="projects-data.js"></script>
+    <script src="projects-nav.js"></script>
   </body>
 </html>
