@@ -1292,7 +1292,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let step = 0;
     let currentIndex = visibleColumns;
     let position = 0;
-    let isResetting = false;
+    let resetTimer = null;
 
     function getStep() {
         const card = list.querySelector('.work__card');
@@ -1325,44 +1325,50 @@ document.addEventListener('DOMContentLoaded', function() {
         applyTransform(position, false);
     }
 
-    function handleEdgeReset() {
+    // Fully normalizes currentIndex back into the safe [minIndex, maxIndex)
+    // window, however far a burst of rapid clicks pushed it out of range —
+    // a single if/else check (the old approach) could leave it still out of
+    // bounds after several fast clicks, since each new click's transition
+    // interrupts the previous one and CSS never fires transitionend for an
+    // interrupted transition, so the old reset could simply never run.
+    function normalizeIndex() {
+        if (!step) return;
         const totalColumns = getTotalColumns();
         const minIndex = visibleColumns;
         const maxIndex = visibleColumns + totalColumns;
-
-        if (currentIndex < minIndex) {
-            currentIndex += totalColumns;
+        let changed = false;
+        while (currentIndex < minIndex) { currentIndex += totalColumns; changed = true; }
+        while (currentIndex >= maxIndex) { currentIndex -= totalColumns; changed = true; }
+        if (changed) {
             position = -(currentIndex * step);
-            isResetting = true;
-            applyTransform(position, false);
-        } else if (currentIndex >= maxIndex) {
-            currentIndex -= totalColumns;
-            position = -(currentIndex * step);
-            isResetting = true;
             applyTransform(position, false);
         }
     }
 
-    requestAnimationFrame(updateLayout);
+    // Runs after interaction settles, debounced so a burst of rapid clicks
+    // only triggers one normalize pass once the user actually stops —
+    // this is the reliable fallback for the transitionend listener below.
+    function scheduleNormalize() {
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(normalizeIndex, 480);
+    }
 
-    list.addEventListener('transitionend', () => {
-        if (isResetting) {
-            isResetting = false;
-            return;
-        }
-        handleEdgeReset();
-    });
+    updateLayout();
+
+    list.addEventListener('transitionend', normalizeIndex);
 
     btnLeft.addEventListener('click', () => {
         currentIndex -= 1;
         position = -(currentIndex * step);
         applyTransform(position, true);
+        scheduleNormalize();
     });
 
     btnRight.addEventListener('click', () => {
         currentIndex += 1;
         position = -(currentIndex * step);
         applyTransform(position, true);
+        scheduleNormalize();
     });
 
     viewport.addEventListener('wheel', (e) => {
@@ -1371,6 +1377,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentIndex += e.deltaY > 0 ? 1 : -1;
         position = -(currentIndex * step);
         applyTransform(position, true);
+        scheduleNormalize();
     }, { passive: false });
 
     window.addEventListener('resize', () => {
