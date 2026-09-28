@@ -153,33 +153,6 @@ modalClose.forEach((mc) => {
   });
 });*/
 
-/*=============== MIXITUP FILTER PORTFOLIO ===============*/
-
-let mixer = mixitup(".work__container", {
-  selectors: {
-    target: ".work__card",
-  },
-  animation: {
-    duration: 300,
-  },
-});
-
-/* Link active work */
-const workLinks = document.querySelectorAll(".work__item");
-
-function activeWork(workLink) {
-  workLinks.forEach((wl) => {
-    wl.classList.remove("active-work");
-  });
-  workLink.classList.add("active-work");
-}
-
-workLinks.forEach((wl) => {
-  wl.addEventListener("click", () => {
-    activeWork(wl);
-  });
-});
-
 const projectArticleMap = {
   "Indoor Asset Tracking": "projects/indoor-asset-tracking.html",
   "Driverless Car": "projects/driverless-car.html",
@@ -324,14 +297,13 @@ function scrollActive() {
       sectionTop = current.offsetTop - 58,
       sectionId = current.getAttribute("id");
 
+    const navLink = document.querySelector(".nav__menu a[href*=" + sectionId + "]");
+    if (!navLink) return;
+
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document
-        .querySelector(".nav__menu a[href*=" + sectionId + "]")
-        .classList.add("active-link");
+      navLink.classList.add("active-link");
     } else {
-      document
-        .querySelector(".nav__menu a[href*=" + sectionId + "]")
-        .classList.remove("active-link");
+      navLink.classList.remove("active-link");
     }
   });
 }
