@@ -9,18 +9,18 @@ window.addEventListener("scroll", scrollHeader);
 
 /*=============== SERVICES MODAL ===============*/
 const modalViews = document.querySelectorAll(".services__modal");
-console.log("modalViews (all modals found):", modalViews); // CHECK 1
-
 const modalBtns = document.querySelectorAll(".services__button");
-console.log("modalBtns (all buttons found):", modalBtns); // CHECK 2
-
 const modalClose = document.querySelectorAll(".services__modal-close");
-console.log("modalClose (all close buttons found):", modalClose); // CHECK 3
 
-let openModal = function (modalId) {
-    console.log("Attempting to open modal with ID:", modalId); // CHECK 4
+modalViews.forEach((mv) => {
+    mv.setAttribute("role", "dialog");
+    mv.setAttribute("aria-modal", "true");
+});
+
+let lastModalTrigger = null;
+
+let openModal = function (modalId, trigger) {
     const targetModal = document.querySelector(modalId);
-    console.log("Target modal element found:", targetModal); // CHECK 5
 
     if (targetModal) {
         modalViews.forEach(mv => {
@@ -28,39 +28,54 @@ let openModal = function (modalId) {
         });
         targetModal.classList.add("active-modal");
         document.body.classList.add('modal-open');
-        console.log("Modal " + modalId + " opened and modal-open class added to body."); // CHECK 6
+        lastModalTrigger = trigger || null;
+
+        const focusTarget = targetModal.querySelector(".services__modal-close");
+        if (focusTarget) focusTarget.focus();
     } else {
-        console.error("Error: Target modal not found for ID:", modalId + ". Check HTML ID and data-modal-target."); // ERROR CHECK
+        console.error("Error: Target modal not found for ID:", modalId + ". Check HTML ID and data-modal-target.");
     }
 };
 
 let closeActiveModal = function () {
-    console.log("Attempting to close active modal."); // CHECK 7
     const activeModal = document.querySelector('.services__modal.active-modal');
     if (activeModal) {
         activeModal.classList.remove('active-modal');
     }
     document.body.classList.remove('modal-open');
-    console.log("Modal closed and modal-open class removed from body."); // CHECK 8
+
+    if (lastModalTrigger) {
+        lastModalTrigger.focus();
+        lastModalTrigger = null;
+    }
 };
 
 modalBtns.forEach((mb) => {
-    mb.addEventListener("click", () => {
+    mb.addEventListener("click", (e) => {
         const modalTargetId = mb.getAttribute('data-modal-target');
-        console.log("Button clicked. data-modal-target found:", modalTargetId); // CHECK 9
-
         if (modalTargetId) {
-            openModal(modalTargetId);
-        } else {
-            console.warn("Warning: Button clicked but has no 'data-modal-target' attribute.", mb); // WARNING CHECK
+            if (mb.tagName === "A") e.preventDefault();
+            openModal(modalTargetId, mb);
         }
     });
 });
 
 modalClose.forEach((mc) => {
     mc.addEventListener("click", () => {
-        console.log("Close button clicked."); // CHECK 10
         closeActiveModal();
+    });
+});
+
+// Close on Escape, and on clicking the backdrop outside the modal content
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.body.classList.contains("modal-open")) {
+        closeActiveModal();
+    }
+});
+
+modalViews.forEach((mv) => {
+    mv.addEventListener("click", (e) => {
+        if (e.target === mv) closeActiveModal();
     });
 });
 

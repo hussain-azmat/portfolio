@@ -24,16 +24,28 @@
 
   const menu = document.getElementById("projects-menu");
   const trigger = document.getElementById("projects-menu-trigger");
-  if (menu && trigger) {
+  if (menu && trigger && panel) {
+    trigger.setAttribute("aria-haspopup", "true");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-controls", "projects-menu-panel");
+
+    const setOpen = (open) => {
+      menu.classList.toggle("open", open);
+      trigger.setAttribute("aria-expanded", String(open));
+    };
+
     trigger.addEventListener("click", (e) => {
       e.stopPropagation();
-      menu.classList.toggle("open");
+      setOpen(!menu.classList.contains("open"));
     });
     document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target)) menu.classList.remove("open");
+      if (!menu.contains(e.target)) setOpen(false);
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") menu.classList.remove("open");
+      if (e.key === "Escape" && menu.classList.contains("open")) {
+        setOpen(false);
+        trigger.focus();
+      }
     });
   }
 

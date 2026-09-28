@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /projects/article-template.html
+
+Sitemap: https://azmat-h.vercel.app/sitemap.xml

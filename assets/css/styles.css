@@ -24,7 +24,7 @@
   --accent-red: #d97a64;
   --title-color: #ece8da;
   --text-color: #a7a48f;
-  --text-color-light: #726f5d;
+  --text-color-light: #8a8570; /* lightened from #726f5d for AA contrast (~4.9:1) on --body-color */
   --body-color: #14160f;
   --container-color: #1b1e14;
 
@@ -107,6 +107,14 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #e3a05a;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 img {
@@ -982,6 +990,11 @@ body.light-theme {
   align-items: center;
   column-gap: 0.25rem;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-align: left;
 }
 
 .services__button:hover .services__icon {
@@ -1074,6 +1087,10 @@ body.modal-open .services__card {
   font-size: 1.5rem;
   color: #e3a05a;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  line-height: 1;
 }
 /*Active modal*/
 

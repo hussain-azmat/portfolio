@@ -6,7 +6,7 @@
   --surface-2: #f1efe6;
   --ink: #23241f;
   --ink-soft: #5b5b4f;
-  --ink-faint: #8c8a7a;
+  --ink-faint: #6b6857; /* darkened from #8c8a7a for AA contrast (~4.8:1) on --ground */
   --line: #d9d5c6;
   --line-strong: #c3bfae;
   --orchard: #35502f;
@@ -32,7 +32,7 @@
     --surface-2: #20241a;
     --ink: #ece8da;
     --ink-soft: #a7a48f;
-    --ink-faint: #726f5d;
+    --ink-faint: #8a8570; /* lightened from #726f5d for AA contrast (~4.9:1) on --ground */
     --line: #34362a;
     --line-strong: #454735;
     --orchard: #86b573;
@@ -41,6 +41,14 @@
     --signal: #82b3cc;
     --bad: #d97a64;
   }
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--harvest);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 body.article-page {
