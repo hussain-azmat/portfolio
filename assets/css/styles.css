@@ -1111,15 +1111,15 @@ body.modal-open .services__card {
 /* Project scrolling viewport and arrows */
 .work__gallery {
   position: relative;
-  width: min(100%, calc(4 * 18rem + 3 * 2.5rem + 260px));
-  max-width: calc(4 * 18rem + 3 * 2.5rem + 260px);
+  width: min(100%, calc(4 * 18rem + 3 * 2.5rem + 1rem));
+  max-width: calc(4 * 18rem + 3 * 2.5rem + 1rem);
   margin: 0 auto;
 }
 
 .work__viewport {
   position: relative;
-  padding-left: 130px;
-  padding-right: 130px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 100%;
@@ -1150,32 +1150,44 @@ body.modal-open .services__card {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  min-width: 70px;
-  min-height: 70px;
-  width: 100px;
-  height: 700px;
-  border-radius: 14px;
-  background: rgba(15, 23, 42, 0.38);
+  min-width: 56px;
+  min-height: 56px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.55);
   color: #e3a05a;
-  border: 0px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 8rem;
+  font-size: 1.75rem;
   cursor: pointer;
   z-index: 1000;
-  backdrop-filter: transparent;
   box-shadow: 0 12px 24px rgba(0,0,0,0.18);
   transition: all 0.3s ease;
 }
 
 .work__arrow:hover {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.55);
   border-color: rgba(255,255,255,0.15);
 }
 
+/* Default (also covers moderate desktop widths where there isn't room
+   for the arrows to sit fully outside the gallery): a small inset, so
+   they always stay on-screen and clickable. */
 .work__arrow--left { left: 15px; }
 .work__arrow--right { right: 15px; }
+
+/* Wide screens: the gallery box has enough side margin around it for the
+   arrows to sit just outside its boundary, on the open background,
+   instead of inset within it — the boundary ends where the button
+   starts. translateX offsets by the arrow's own width so this holds
+   regardless of what width the gallery box actually resolves to. */
+@media screen and (min-width: 1430px) {
+  .work__arrow--left { left: 0; transform: translateY(-50%) translateX(calc(-100% - 12px)); }
+  .work__arrow--right { right: 0; transform: translateY(-50%) translateX(calc(100% + 12px)); }
+}
 
 /* Hide arrows and revert to regular flow on small screens */
 @media screen and (max-width: 768px) {
