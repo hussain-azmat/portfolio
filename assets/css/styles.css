@@ -1111,8 +1111,8 @@ body.modal-open .services__card {
 /* Project scrolling viewport and arrows */
 .work__gallery {
   position: relative;
-  width: min(100%, calc(3 * 18rem + 2 * 1.8rem + 110mm));
-  max-width: calc(3 * 18rem + 2 * 1.8rem + 110mm);
+  width: min(100%, calc(4 * 18rem + 3 * 1.8rem + 40mm));
+  max-width: calc(4 * 18rem + 3 * 1.8rem + 40mm);
   margin: 0 auto;
 }
 
@@ -1174,8 +1174,8 @@ body.modal-open .services__card {
   border-color: rgba(255,255,255,0.15);
 }
 
-.work__arrow--left { left: -120px; }
-.work__arrow--right { right: -120px; }
+.work__arrow--left { left: 0.5rem; }
+.work__arrow--right { right: 0.5rem; }
 
 /* Hide arrows and revert to regular flow on small screens */
 @media screen and (max-width: 768px) {
