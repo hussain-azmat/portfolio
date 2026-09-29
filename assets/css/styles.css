@@ -1092,6 +1092,38 @@ body.modal-open .services__card {
   font-size: var(--small-font-size);
 }
 
+.services__modal-skills {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid hsla(var(--first-hue), var(--sat), var(--lig), 0.15);
+}
+
+.services__modal-skills-label {
+  display: block;
+  font-size: var(--smaller-font-size);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.services__modal-skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.skill-chip {
+  font-size: var(--smaller-font-size);
+  padding: 0.3rem 0.75rem;
+  border: 1px solid hsla(var(--first-hue), var(--sat), var(--lig), 0.35);
+  border-radius: 999px;
+  color: #e3a05a;
+  background: hsla(var(--first-hue), var(--sat), var(--lig), 0.06);
+}
+
 .services__modal-close {
   position: absolute;
   top: 1.5rem;

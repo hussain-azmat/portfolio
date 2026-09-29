@@ -400,13 +400,6 @@ sr.reveal(`.about__data, .about__description, .about__button-contact`, {
   distance: "30px",
 });
 
-sr.reveal(`.skills__content`, {
-  delay: 100,
-  scale: 0.9,
-  origin: "bottom",
-  distance: "30px",
-});
-
 sr.reveal(`.services__title, services__button`, {
   delay: 100,
   scale: 0.9,
