@@ -686,15 +686,19 @@ body.light-theme {
 }
 
 /* .about__button-contact also carries .services__button (to open the
-   contact modal), which sets display:flex and a gold text color that
-   collided with the solid-gold .button background, hiding the label.
-   Force it back to the same ghost look as the CV button. */
+   contact modal), which sets display:flex, a gold text color, and (for
+   the Services "See More" buttons) a stripped border/padding — all of
+   which collide with the ghost-button look this is supposed to have.
+   Force it back to the same look as the CV button. */
 .about__button-contact.services__button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
   color: #e3a05a;
+  border: 1px solid var(--first-color);
+  padding: 0.75rem 1rem;
+  text-align: center;
 }
 
 /*=============== ABOUT ===============*/
