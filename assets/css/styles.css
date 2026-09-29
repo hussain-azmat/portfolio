@@ -1111,15 +1111,15 @@ body.modal-open .services__card {
 /* Project scrolling viewport and arrows */
 .work__gallery {
   position: relative;
-  width: min(100%, calc(4 * 18rem + 3 * 1.8rem + 40mm));
-  max-width: calc(4 * 18rem + 3 * 1.8rem + 40mm);
+  width: min(100%, calc(4 * 18rem + 3 * 2.5rem + 260px));
+  max-width: calc(4 * 18rem + 3 * 2.5rem + 260px);
   margin: 0 auto;
 }
 
 .work__viewport {
   position: relative;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 130px;
+  padding-right: 130px;
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 100%;
@@ -1174,12 +1174,12 @@ body.modal-open .services__card {
   border-color: rgba(255,255,255,0.15);
 }
 
-.work__arrow--left { left: 0.5rem; }
-.work__arrow--right { right: 0.5rem; }
+.work__arrow--left { left: 15px; }
+.work__arrow--right { right: 15px; }
 
 /* Hide arrows and revert to regular flow on small screens */
 @media screen and (max-width: 768px) {
-  .work__viewport { overflow: visible; }
+  .work__viewport { overflow: visible; padding-left: 0; padding-right: 0; }
   .work__list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; row-gap: 2rem; transform: none !important; }
   .work__card { width: 100%; flex: 1 1 auto; }
   .work__arrow { display: none; }
