@@ -632,6 +632,14 @@ body.light-theme {
   width: max-content;
 }
 
+/* Pause the auto-scroll on hover — otherwise :hover only ever catches a
+   tile by coincidence, since CSS only re-evaluates :hover on mouse
+   movement, not on every animation frame the tiles scroll past a
+   stationary cursor. */
+.hex-grid:hover .hex-wrapper {
+  animation-play-state: paused;
+}
+
 @keyframes scrollLeft {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -1150,18 +1158,18 @@ body.modal-open .services__card {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  min-width: 56px;
-  min-height: 56px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(15, 23, 42, 0.55);
+  min-width: 70px;
+  min-height: 70px;
+  width: 100px;
+  height: 700px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.38);
   color: #e3a05a;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 0px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
+  font-size: 8rem;
   cursor: pointer;
   z-index: 1000;
   box-shadow: 0 12px 24px rgba(0,0,0,0.18);
@@ -1169,7 +1177,7 @@ body.modal-open .services__card {
 }
 
 .work__arrow:hover {
-  background: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.1);
   border-color: rgba(255,255,255,0.15);
 }
 
@@ -1184,7 +1192,7 @@ body.modal-open .services__card {
    instead of inset within it — the boundary ends where the button
    starts. translateX offsets by the arrow's own width so this holds
    regardless of what width the gallery box actually resolves to. */
-@media screen and (min-width: 1430px) {
+@media screen and (min-width: 1560px) {
   .work__arrow--left { left: 0; transform: translateY(-50%) translateX(calc(-100% - 12px)); }
   .work__arrow--right { right: 0; transform: translateY(-50%) translateX(calc(100% + 12px)); }
 }
