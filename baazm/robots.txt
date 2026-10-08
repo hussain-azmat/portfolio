@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://baazm.vercel.app/sitemap.xml
+Sitemap: https://baazm.pages.dev/sitemap.xml

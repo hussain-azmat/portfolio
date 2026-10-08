@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/baazm", "destination": "https://baazm.pages.dev/", "permanent": false },
+    { "source": "/baazm/", "destination": "https://baazm.pages.dev/", "permanent": false }
+  ]
+}
