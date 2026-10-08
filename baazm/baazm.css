@@ -405,3 +405,5 @@ h1 em { white-space: nowrap; }
   html { font-size: clamp(12px, 0.8346vw, 22px); }
   .hero { gap: 7.5rem; }
 }
+
+.footer__tag { font-family: var(--serif, "Instrument Serif", Georgia, serif); font-style: italic; font-size: 1.25em; color: var(--accent-soft); }
