@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baazm — Technology Development &amp; Product Strategy</title>
+  <meta name="description" content="Baazm is a technology development and product strategy consultancy. We help teams decide what to build, then engineer it end to end — AI, robotics, embedded systems, IoT and the platforms around them.">
+  <meta name="theme-color" content="#06080c">
+  <link rel="canonical" href="https://azmat-h.vercel.app/baazm/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Baazm">
+  <meta property="og:title" content="Baazm — Technology Development &amp; Product Strategy">
+  <meta property="og:description" content="We help teams decide what to build, then engineer it end to end — AI, robotics, embedded systems, IoT and the platforms around them.">
+  <meta property="og:url" content="https://azmat-h.vercel.app/baazm/">
+  <meta property="og:image" content="https://azmat-h.vercel.app/assets/img/baazm-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Baazm — Technology Development &amp; Product Strategy">
+  <meta name="twitter:description" content="We help teams decide what to build, then engineer it end to end — AI, robotics, embedded systems, IoT and the platforms around them.">
+  <meta name="twitter:image" content="https://azmat-h.vercel.app/assets/img/baazm-og.png">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="baazm.css?v=1">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Shared SVG icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mark" viewBox="0.50 11.64 63.00 40.36"><polygon points="36.50,40.00 63.50,25.96 53.62,34.70 36.50,47.60"/><polygon points="27.50,40.00 0.50,25.96 10.38,34.70 27.50,47.60"/><polygon points="36.50,30.00 59.50,18.04 50.40,26.09 36.50,37.00"/><polygon points="27.50,30.00 4.50,18.04 13.60,26.09 27.50,37.00"/><polygon points="36.50,21.00 54.50,11.64 46.18,19.00 36.50,27.40"/><polygon points="27.50,21.00 9.50,11.64 17.82,19.00 27.50,27.40"/><polygon points="32.00,16.00 36.00,30.00 32.00,52.00 28.00,30.00"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+      <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+      <symbol id="i-radio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19 5a10 10 0 0 1 0 14M5 19a10 10 0 0 1 0-14"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17.5l9 5 9-5" opacity=".55"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="bg-aurora" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Baazm — home">
+        <svg class="brand__mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand__name">Baazm</span>
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav__links" id="primary-nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#work">Work</a>
+        <a href="#about">Founder</a>
+        <a class="btn btn--small btn--primary" href="#contact">Start a project
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow reveal"><span class="eyebrow__dot" aria-hidden="true"></span>Technology development &amp; product strategy</p>
+        <h1 id="hero-title" class="reveal" style="--d:80ms">From first principles to <em>field-ready</em> products.</h1>
+        <p class="hero__lede reveal" style="--d:160ms">
+          Baazm helps teams decide what to build, then engineers it end to end —
+          AI, robotics, embedded systems and the platforms around them. Strategy and
+          engineering in one team, so nothing gets lost in translation.
+        </p>
+        <div class="hero__actions reveal" style="--d:240ms">
+          <a class="btn btn--primary" href="#contact">Start a project
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#work">See our work</a>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal" style="--d:200ms" aria-hidden="true">
+        <span class="float-chip float-chip--a">Edge AI</span>
+        <span class="float-chip float-chip--b">ROS</span>
+        <span class="float-chip float-chip--c">LoRa</span>
+
+        <div class="panel">
+          <div class="panel__bar">
+            <span class="panel__dots"><i></i><i></i><i></i></span>
+            <span class="panel__title">engagement / blueprint</span>
+          </div>
+          <ol class="steps">
+            <li class="step is-done"><span class="step__n">01</span><span class="step__t">Frame the problem</span><span class="step__tag">Strategy</span></li>
+            <li class="step is-done"><span class="step__n">02</span><span class="step__t">Architect the system</span><span class="step__tag">Design</span></li>
+            <li class="step is-active"><span class="step__n">03</span><span class="step__t">Build &amp; integrate</span><span class="step__tag">HW · FW · AI</span></li>
+            <li class="step"><span class="step__n">04</span><span class="step__t">Deploy &amp; support</span><span class="step__tag">Field</span></li>
+          </ol>
+
+          <svg class="topology" viewBox="0 0 360 96" role="presentation">
+            <g class="topology__links" fill="none" stroke-width="1.5">
+              <path d="M44 40H120"/><path d="M144 40H220"/><path d="M244 40H320"/>
+            </g>
+            <g class="topology__nodes">
+              <circle cx="32" cy="40" r="12"/><circle cx="132" cy="40" r="12"/>
+              <circle cx="232" cy="40" r="12"/><circle cx="332" cy="40" r="12"/>
+            </g>
+            <g class="topology__pulse"><circle cx="32" cy="40" r="4"/><circle cx="132" cy="40" r="4"/><circle cx="232" cy="40" r="4"/><circle cx="332" cy="40" r="4"/></g>
+            <g class="topology__labels" text-anchor="middle">
+              <text x="32" y="78">Device</text><text x="132" y="78">Edge</text>
+              <text x="232" y="78">Cloud</text><text x="332" y="78">Insight</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROOF STRIP ===================== -->
+    <section class="wrap proof reveal" aria-label="At a glance">
+      <dl class="proof__grid">
+        <div class="proof__item"><dt>Hands-on engineering</dt><dd><span id="years">7+</span> years</dd></div>
+        <div class="proof__item"><dt>Documented case studies</dt><dd>18</dd></div>
+        <div class="proof__item"><dt>Published research</dt><dd>IEEE · MDPI</dd></div>
+        <div class="proof__item"><dt>Way of working</dt><dd>Remote-first</dd></div>
+      </dl>
+    </section>
+
+    <!-- ===================== CAPABILITY MARQUEE ===================== -->
+    <div class="marquee" aria-label="Capabilities">
+      <div class="marquee__track">
+        <ul class="marquee__list">
+          <li>Computer Vision</li><li>Edge AI &amp; TinyML</li><li>Robotics &amp; ROS</li><li>Embedded Firmware</li>
+          <li>IoT &amp; LoRa</li><li>Product Strategy</li><li>Rapid Prototyping</li><li>Cloud Dashboards</li>
+        </ul>
+        <ul class="marquee__list" aria-hidden="true">
+          <li>Computer Vision</li><li>Edge AI &amp; TinyML</li><li>Robotics &amp; ROS</li><li>Embedded Firmware</li>
+          <li>IoT &amp; LoRa</li><li>Product Strategy</li><li>Rapid Prototyping</li><li>Cloud Dashboards</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="section wrap" id="services" aria-labelledby="services-title">
+      <header class="section__head reveal">
+        <p class="kicker">What we do</p>
+        <h2 id="services-title">One team across <em>strategy</em> and engineering.</h2>
+        <p class="section__lede">Most products fail in the gaps — between the roadmap and the hardware, between the model and the field. We cover both sides of that gap.</p>
+      </header>
+
+      <div class="bento">
+        <article class="card card--span3 reveal">
+          <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg></div>
+          <h3>Product &amp; Technology Strategy</h3>
+          <p>Decide what to build — and what not to. Roadmaps, feasibility studies, architecture reviews and technology selection grounded in engineering reality, so the strategy survives contact with hardware, data and deadlines.</p>
+          <ul class="tags"><li>Roadmapping</li><li>Feasibility</li><li>Architecture review</li><li>Technology selection</li></ul>
+        </article>
+
+        <article class="card card--span3 reveal" style="--d:80ms">
+          <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-chip"/></svg></div>
+          <h3>AI &amp; Robotics Engineering</h3>
+          <p>Perception, autonomy and intelligence that work outside the lab. Computer vision, edge AI and TinyML, ROS-based robotics and SLAM — taken from prototype through field validation.</p>
+          <ul class="tags"><li>Computer vision</li><li>Edge AI / TinyML</li><li>ROS</li><li>SLAM</li></ul>
+        </article>
+
+        <article class="card card--span2 reveal">
+          <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-radio"/></svg></div>
+          <h3>Embedded &amp; IoT Systems</h3>
+          <p>Robust firmware and hardware — from custom boards to connected device fleets.</p>
+          <ul class="tags"><li>C / C++</li><li>RTOS</li><li>LoRa</li><li>PCB design</li></ul>
+        </article>
+
+        <article class="card card--span2 reveal" style="--d:80ms">
+          <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-layout"/></svg></div>
+          <h3>Software &amp; Platforms</h3>
+          <p>Dashboards, APIs and cloud backends that turn raw device data into decisions.</p>
+          <ul class="tags"><li>Web dashboards</li><li>REST APIs</li><li>Telemetry</li></ul>
+        </article>
+
+        <article class="card card--span2 reveal" style="--d:160ms">
+          <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></div>
+          <h3>Prototyping &amp; Fabrication</h3>
+          <p>Fast, physical proof — 3D printing, CNC and laser cutting, electronics assembly.</p>
+          <ul class="tags"><li>Rapid prototyping</li><li>Digital fabrication</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== APPROACH ===================== -->
+    <section class="section wrap" id="approach" aria-labelledby="approach-title">
+      <header class="section__head reveal">
+        <p class="kicker">How we work</p>
+        <h2 id="approach-title">A process built to <em>retire risk</em> early.</h2>
+        <p class="section__lede">Clear stages, honest checkpoints, and working hardware or software at every step — not a big reveal at the end.</p>
+      </header>
+
+      <ol class="process">
+        <li class="process__item reveal">
+          <span class="process__n">01</span>
+          <h3>Discover</h3>
+          <p>Frame the problem, the constraints and the success metrics before a line of code is written.</p>
+        </li>
+        <li class="process__item reveal" style="--d:80ms">
+          <span class="process__n">02</span>
+          <h3>Architect</h3>
+          <p>Design the system and retire the biggest risks early with targeted prototypes.</p>
+        </li>
+        <li class="process__item reveal" style="--d:160ms">
+          <span class="process__n">03</span>
+          <h3>Build</h3>
+          <p>Iterate across hardware, firmware, AI and software with continuous testing.</p>
+        </li>
+        <li class="process__item reveal" style="--d:240ms">
+          <span class="process__n">04</span>
+          <h3>Deploy</h3>
+          <p>Validate in the field, document properly, and hand over — or stay on to scale.</p>
+        </li>
+      </ol>
+
+      <div class="engage reveal">
+        <h3 class="engage__title">Ways to work together</h3>
+        <div class="engage__grid">
+          <div class="engage__item">
+            <h4>Strategy sprint</h4>
+            <p>A short, focused engagement: roadmap, feasibility study or architecture review with clear recommendations.</p>
+          </div>
+          <div class="engage__item">
+            <h4>Build engagement</h4>
+            <p>A scoped project taken from prototype to deployment, with milestones and working demos along the way.</p>
+          </div>
+          <div class="engage__item">
+            <h4>Engineering partner</h4>
+            <p>Ongoing capacity for teams that need embedded, AI or platform expertise without a full-time hire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WORK ===================== -->
+    <section class="section wrap" id="work" aria-labelledby="work-title">
+      <header class="section__head reveal">
+        <p class="kicker">Selected work</p>
+        <h2 id="work-title">Engineering depth, <em>documented</em>.</h2>
+        <p class="section__lede">A sample from our founder's portfolio of case studies — research-grade work taken through real hardware and real data.</p>
+      </header>
+
+      <div class="work">
+        <a class="work__card reveal" href="../projects/agridrone.html">
+          <div class="work__media"><img src="../assets/img/agridrone/media/perception_grid.jpg" alt="Drone fleet detecting and tracking fruit in real orchard photographs" loading="lazy"></div>
+          <div class="work__body">
+            <p class="work__tag">Robotics · Computer vision</p>
+            <h3>AgriDrone — decentralized orchard counting</h3>
+            <p>A drone fleet that detects and counts fruit in real orchard imagery, reaching 0.961 mAP50 without a central controller.</p>
+            <span class="work__link">Read the case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </div>
+        </a>
+
+        <a class="work__card reveal" style="--d:80ms" href="../projects/weeding-machine.html">
+          <div class="work__media"><img src="../assets/img/work4.jpeg" alt="Weeding robot chassis in the field" loading="lazy"></div>
+          <div class="work__body">
+            <p class="work__tag">Agri-robotics · Published</p>
+            <h3>Laser weeding robot</h3>
+            <p>A gantry-based weeding platform with a retrained YOLOv5 vision stack — published in the MDPI journal <em>Machines</em>.</p>
+            <span class="work__link">Read the case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </div>
+        </a>
+
+        <a class="work__card reveal" href="../projects/rvm.html">
+          <div class="work__media"><img src="../assets/img/work5.png" alt="Reverse vending machine in a metal enclosure" loading="lazy"></div>
+          <div class="work__body">
+            <p class="work__tag">Embedded · IoT · Published</p>
+            <h3>Reverse vending machine</h3>
+            <p>A conveyor-sorting recycling machine with remote bin-status reporting over LoRa — peer-reviewed and published in MDPI <em>Recycling</em>.</p>
+            <span class="work__link">Read the case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </div>
+        </a>
+
+        <a class="work__card reveal" style="--d:80ms" href="../projects/ms-thesis.html">
+          <div class="work__media"><img src="../assets/img/ms1.png" alt="Research presentation on GPS-denied navigation" loading="lazy"></div>
+          <div class="work__body">
+            <p class="work__tag">Autonomy · Research</p>
+            <h3>GPS-denied navigation</h3>
+            <p>Graduate research into resilient positioning and navigation for embedded autonomous systems operating without GNSS.</p>
+            <span class="work__link">Read the case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </div>
+        </a>
+      </div>
+
+      <p class="work__all reveal"><a class="btn btn--ghost" href="../index.html#work">Browse all 18 case studies
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+    </section>
+
+    <!-- ===================== FOUNDER ===================== -->
+    <section class="section wrap" id="about" aria-labelledby="about-title">
+      <div class="about">
+        <figure class="about__photo reveal">
+          <img src="../assets/img/about_new.jpeg" alt="Portrait of Azmat Hussain, founder of Baazm" loading="lazy">
+        </figure>
+        <div class="about__copy reveal" style="--d:100ms">
+          <p class="kicker">Founder</p>
+          <h2 id="about-title">Led by a hands-on engineer, <em>not a slide deck</em>.</h2>
+          <p>Baazm is founded by <strong>Azmat Hussain</strong> — an AI &amp; robotics engineer with published research, a fabrication background from Fab Academy, and a track record of taking hardware, firmware and software from first idea to real deployment.</p>
+          <ul class="checks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Peer-reviewed research in IEEE and MDPI venues</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>End-to-end ownership: strategy, hardware, firmware, cloud</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Remote-first and flexible across time zones</li>
+          </ul>
+          <p class="about__links">
+            <a href="../index.html">Personal portfolio</a>
+            <a href="https://www.linkedin.com/in/azmat-h/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/hussain-azmat" target="_blank" rel="noreferrer">GitHub</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section wrap" id="contact" aria-labelledby="contact-title">
+      <div class="contact">
+        <div class="contact__copy reveal">
+          <p class="kicker">Start a project</p>
+          <h2 id="contact-title">Let's build what's <em>next</em>.</h2>
+          <p class="section__lede">Tell us what you're trying to build, fix or figure out. We read every message and will reply with honest next steps — even if the answer is "you don't need us."</p>
+          <a class="contact__mail" href="mailto:hussainazmat.rnd@gmail.com">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>hussainazmat.rnd@gmail.com
+          </a>
+        </div>
+
+        <form class="form reveal" id="baazm-form" style="--d:100ms" novalidate>
+          <input type="hidden" name="access_key" value="8b1df6b9-74da-46a3-8e75-38a2c826970b">
+          <input type="hidden" name="from_name" value="Baazm website">
+          <input type="checkbox" name="botcheck" class="form__bot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form__row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="f-company">Company <span class="opt">(optional)</span></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Company or team">
+            </div>
+            <div class="field">
+              <label for="f-interest">What do you need?</label>
+              <select id="f-interest" name="interest">
+                <option>Product &amp; technology strategy</option>
+                <option>AI &amp; robotics engineering</option>
+                <option>Embedded &amp; IoT systems</option>
+                <option>Software &amp; platforms</option>
+                <option>Prototyping &amp; fabrication</option>
+                <option selected>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-message">Tell us about the project</label>
+            <textarea id="f-message" name="message" rows="5" required placeholder="What are you building, what stage are you at, and where are you stuck?"></textarea>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="submit">Send message
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer">
+      <div class="footer__brand">
+        <a class="brand" href="#top" aria-label="Baazm — back to top">
+          <svg class="brand__mark" aria-hidden="true"><use href="#i-mark"/></svg>
+          <span class="brand__name">Baazm</span>
+        </a>
+        <p>Technology development &amp; product strategy consultancy.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <a href="../index.html">Founder's portfolio</a>
+      </nav>
+      <p class="footer__legal">&copy; <span id="year">2026</span> Baazm. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="baazm.js?v=1"></script>
+</body>
+</html>
