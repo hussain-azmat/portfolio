@@ -26,8 +26,8 @@
 
   --radius: 20px;
   --radius-sm: 12px;
-  --wrap: 1180px;
-  --header-h: 72px;
+  --wrap: 73.75rem;
+  --header-h: 4.5rem;
 
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
@@ -154,7 +154,7 @@ h1 em, h2 em {
 h1 em { white-space: nowrap; }
 .kicker { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
 .section { padding-block: clamp(4.5rem, 9vw, 8rem) 0; }
-.section__head { max-width: 760px; margin-bottom: clamp(2.2rem, 5vw, 3.5rem); }
+.section__head { max-width: 47.5rem; margin-bottom: clamp(2.2rem, 5vw, 3.5rem); }
 .section__lede { color: var(--muted); font-size: 1.1rem; margin-top: 1.1rem; max-width: 62ch; }
 
 /* ---------- Reveal ---------- */
@@ -394,4 +394,14 @@ h1 em { white-space: nowrap; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Proportional desktop scaling ----------
+   On desktop the whole page scales with the viewport width, so the layout always
+   looks like the reference 1920px design - regardless of screen size or browser zoom.
+   Everything is sized in rem, so changing the root size scales it all together.
+   Below 1021px the normal responsive (stacked) layout takes over at a 16px root. */
+@media (min-width: 1021px) {
+  html { font-size: clamp(12px, 0.8346vw, 22px); }
+  .hero { gap: 7.5rem; }
 }
