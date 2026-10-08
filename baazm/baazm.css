@@ -395,16 +395,3 @@ h1 em { white-space: nowrap; }
   *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
-
-/* ---------- Hero: keep the primary CTA above the fold on short laptop screens ---------- */
-@media (min-width: 1021px) {
-  .hero {
-    padding-top: calc(var(--header-h) + clamp(1.5rem, 6vh, 7rem));
-    padding-bottom: clamp(1rem, 4vh, 3rem);
-    align-items: start;
-  }
-  .hero h1 { font-size: clamp(2.5rem, min(5.6vw, 8.6vh), 4.5rem); }
-  .eyebrow { margin-bottom: clamp(0.9rem, 2.4vh, 1.6rem); }
-  .hero__lede { margin-top: clamp(0.9rem, 2.4vh, 1.6rem); }
-  .hero__actions { margin-top: clamp(1.2rem, 3vh, 2.2rem); }
-}
